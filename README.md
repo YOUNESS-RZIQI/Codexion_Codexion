@@ -1,1 +1,3 @@
 # Codexion_Codexion
+
+Master concurrent programming in C through an intense simulation where coders race against burnout while competing for scarce USB dongles. Implement POSIX threads, mutexes, condition variables, and sophisticated scheduling algorithms (FIFO/EDF) to orchestrate resource sharing, prevent deadlocks, and ensure fair access—all while keeping your coders productive before the deadline strikes.
