@@ -1,0 +1,24 @@
+
+
+                  ~   Codexion  ~
+
+
+    # pthread ???
+
+    #You must implement a priority queue (heap) for FIFO/EDF scheduling (C89 has no standard library for this)
+    
+    # Key consepts : 1) POSIX threads  2) (FIFO/EDF)  Algorithms
+
+
+    # learn functions : 
+    pthread_create, pthread_join, pthread_mutex_init,
+    pthread_mutex_lock,
+    pthread_mutex_unlock, pthread_mutex_destroy,
+    pthread_cond_init,
+    pthread_cond_wait, pthread_cond_timedwait,
+    pthread_cond_broadcast,
+    pthread_cond_destroy, gettimeofday, usleep, write,
+    malloc, free,
+    printf, fprintf, strcmp, strlen, atoi, memset
+
+    # Learn : min heap data strunctur
