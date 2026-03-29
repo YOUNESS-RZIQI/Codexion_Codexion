@@ -16,11 +16,11 @@ typedef struct s_args
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int    ft_atoi(const char *str);
 short   is_full_digit(char *s);
 t_args  validate_args(int argc, char **argv);
 short is_empty_args(t_args args);
-int    ft_strcmp(char *s1, char *s2);
 
 #endif

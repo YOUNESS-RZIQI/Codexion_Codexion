@@ -9,7 +9,7 @@ short is_empty_args(t_args args)
     if (args.number_of_coders == 0 && args.time_to_burnout == 0 
         && args.time_to_compile == 0 && args.time_to_debug == 0 
         && args.time_to_refactor == 0 && args.number_of_compiles_required == 0 
-        && args.dongle_cooldown == 0 && ft_strcmp(args.scheduler, "") == 0)
+        && args.dongle_cooldown == 0 && strcmp(args.scheduler, "") == 0)
         return (1);
     return (0);
 }
@@ -39,7 +39,7 @@ short check_args(char **argv)
         i++;
     }
 
-    if (ft_strcmp(argv[8], "fifo") != 0 && ft_strcmp(argv[8], "edf") != 0)
+    if (strcmp(argv[8], "fifo") != 0 && strcmp(argv[8], "edf") != 0)
         return (0);
 
     return (1);
@@ -53,13 +53,13 @@ t_args args_converted(char **argv)
     
     if (check_args(argv))
     {
-        args.number_of_coders = ft_atoi(argv[1]);
-        args.time_to_burnout = ft_atoi(argv[2]);
-        args.time_to_compile = ft_atoi(argv[3]);
-        args.time_to_debug = ft_atoi(argv[4]);
-        args.time_to_refactor = ft_atoi(argv[5]);
-        args.number_of_compiles_required = ft_atoi(argv[6]);
-        args.dongle_cooldown = ft_atoi(argv[7]);
+        args.number_of_coders = atoi(argv[1]);
+        args.time_to_burnout = atoi(argv[2]);
+        args.time_to_compile = atoi(argv[3]);
+        args.time_to_debug = atoi(argv[4]);
+        args.time_to_refactor = atoi(argv[5]);
+        args.number_of_compiles_required = atoi(argv[6]);
+        args.dongle_cooldown = atoi(argv[7]);
         args.scheduler = argv[8];
     }
     return (args);
