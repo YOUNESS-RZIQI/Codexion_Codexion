@@ -7,7 +7,7 @@
 
     #You must implement a priority queue (heap) for FIFO/EDF scheduling (C89 has no standard library for this)
     
-    # Key consepts : 1) POSIX threads  2) (FIFO/EDF)  Algorithms
+    # Key consepts : 1) POSIX threads
 
 
     # learn functions : 
@@ -26,3 +26,5 @@
     #gettimeofday()  function
 
     
+1) What a thread is ? 
+    * Thread is a way to run multiple sequences of instructions inside the same program, at the same time.
