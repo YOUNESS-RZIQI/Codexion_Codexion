@@ -3,7 +3,6 @@
                   ~   Codexion  ~
 
 
-    # pthread ???
 
     #You must implement a priority queue (heap) for FIFO/EDF scheduling (C89 has no standard library for this)
     
