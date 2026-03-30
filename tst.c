@@ -1,25 +1,30 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <semaphore.h>
+// #include <semaphore.h>
 #include <stdlib.h>
 
-sem_t sem;
+// sem_t sem;
+int sem = 1;
 
 void *func(void *ind)
 {
-    sem_wait(&sem);
+    // sem_wait(&sem);
+    while(sem == 0)
+        printf("wating: %d\n", *((int*)ind));
+    sem--;
 
     printf("Done: %d\n", *((int*)ind));
 
-    sem_post(&sem);
+    sem++;
+    // sem_post(&sem);
     return NULL;
 }
 
 
 int main(void)
 {
-    sem_init(&sem, 0, 1);
+    // sem_init(&sem, 0, 1);
 
     int num = 10;
     
@@ -37,7 +42,7 @@ int main(void)
         pthread_join(th[i], NULL);
     }
 
-    sem_destroy(&sem);
+    // sem_destroy(&sem);
 
     return (0);
 }
