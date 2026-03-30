@@ -1,47 +1,43 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <semaphore.h>
+#include <stdlib.h>
 
+sem_t sem;
 
-const int counter = 1000000;
-int var = 0;
-bool is_finiche = false;
-
-void *inc()
+void *func(void *ind)
 {
-    for (int i = 0; i < counter; i++)
-    {
-        var++;
-    }
+    sem_wait(&sem);
 
-    is_finiche = true;
+    printf("Done: %d\n", *((int*)ind));
+
+    sem_post(&sem);
     return NULL;
 }
 
-void *dec()
-{
-    while (!is_finiche);
-
-    for (int i = 0; i < counter; i++)
-    {
-        var--;
-    }
-
-    return NULL;
-}
 
 int main(void)
 {
+    sem_init(&sem, 0, 1);
 
-    pthread_t th[2];
-
-    pthread_create(&th[0], NULL, inc, NULL);
-    pthread_create(&th[1], NULL, dec, NULL);
+    int num = 10;
     
-    pthread_join(th[0], NULL);
-    pthread_join(th[1], NULL);
+    pthread_t th[num];
 
-    printf("var = %d\n",var);
+    for (int i = 0; i < num; i++)
+    {
+        int *a = malloc(sizeof(int));
+        *a = i;
+        pthread_create(&th[i], NULL, func, a);
+    }
 
-    return 0;
+    for (int i = 0; i < num; i++)
+    {
+        pthread_join(th[i], NULL);
+    }
+
+    sem_destroy(&sem);
+
+    return (0);
 }
