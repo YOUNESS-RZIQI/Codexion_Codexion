@@ -131,8 +131,9 @@ void *thread_function(void *arg)
     return NULL;
 }
 
-int main(void)
+void main(void)
 {
+
     pthread_t thread_id;
     int data = 42;
     
@@ -140,7 +141,7 @@ int main(void)
     pthread_create(&thread_id, NULL, thread_function, &data);
     
     /* Wait for thread to finish */
-    // pthread_join(thread_id, NULL);
+    pthread_join(thread_id, NULL);
     
-    return 0;
+    // return 0;
 }
