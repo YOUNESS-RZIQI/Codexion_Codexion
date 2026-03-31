@@ -81,28 +81,31 @@
 //     s_ptr = malloc(sizeof(t_Persong));
 
 //     (*s_ptr).age = 10;
-//     (*s_ptr).name = "youness";
+//     s_ptr->name = "youness";
 
 //     printf("name = %s, age = %d\n", s_ptr->name, s_ptr->age);
+
+//     free(s_ptr);
 
 //     // Multiple Objects
 
 //     t_Persong *m_ptr;
     
-//     s_ptr = malloc(sizeof(t_Persong)*3);
+//     m_ptr = malloc(sizeof(t_Persong)*3);
 
-//     (*(s_ptr+ 0)).age = 1;
-//     (*(s_ptr+ 0)).name = "one";
+//     (*(m_ptr + 0)).age = 1;
+//     (m_ptr[0]).name = "one";
     
-//     (*(s_ptr+ 1)).age = 2;
-//     (*(s_ptr+ 1)).name = "two";
+//     (*(m_ptr + 1)).age = 2;
+//     (m_ptr[1]).name = "two";
     
-//     (*(s_ptr+ 2)).age = 3;
-//     (*(s_ptr+ 2)).name = "three";
-//     printf("name = %s, age = %d\n", (s_ptr[0]).name, (s_ptr[0]).age);
-//     printf("name = %s, age = %d\n", (s_ptr[1]).name, (s_ptr[1]).age);
-//     printf("name = %s, age = %d\n", (s_ptr[2]).name, (s_ptr[2]).age);
+//     (m_ptr + 2)->age = 3;
+//     (m_ptr[2]).name = "three";
+//     printf("name = %s, age = %d\n", (m_ptr[0]).name, (m_ptr[0]).age);
+//     printf("name = %s, age = %d\n", (m_ptr[1]).name, (m_ptr[1]).age);
+//     printf("name = %s, age = %d\n", (m_ptr[2]).name, (m_ptr[2]).age);
 
+//     free(m_ptr);
 // }
 
 
@@ -114,3 +117,30 @@
 
 // 2.1 What is a Thread ?
 
+// A thread is an independent execution flow within a process
+
+// 2.2 Creating Threads
+
+#include <pthread.h>
+#include <stdio.h>
+
+void *thread_function(void *arg)
+{
+    int *value = (int *)arg;
+    printf("Thread received: %d\n", *value);
+    return NULL;
+}
+
+int main(void)
+{
+    pthread_t thread_id;
+    int data = 42;
+    
+    /* Create thread: function, argument */
+    pthread_create(&thread_id, NULL, thread_function, &data);
+    
+    /* Wait for thread to finish */
+    // pthread_join(thread_id, NULL);
+    
+    return 0;
+}
