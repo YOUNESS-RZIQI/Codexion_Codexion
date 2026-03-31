@@ -168,3 +168,39 @@
 //     return 0;
 // }
 
+// 2.3 Thread Argements - Passing Data to Function.
+
+// #include <stdio.h>
+// #include <pthread.h>
+
+// typedef struct s_thread_data {
+//     int thread_num;
+//     char *message;
+//     int result;
+// } t_thread_data;
+
+// void *worker(void *arg)
+// {
+//     t_thread_data *data = (t_thread_data *)arg;
+//     printf("Thread %d: %s\n", (*data).thread_num, (*data).message);
+//     (*data).result = (*data).thread_num * 10;  /* Can modify shared struct */
+//     return NULL;
+// }
+
+// int main(void)
+// {
+//     pthread_t t1, t2;
+//     t_thread_data d1 = {1, "Hello", 0};
+//     t_thread_data d2 = {2, "World", 0};
+    
+//     pthread_create(&t1, NULL, worker, &d1);
+//     pthread_create(&t2, NULL, worker, &d2);
+    
+//     pthread_join(t1, NULL);
+//     pthread_join(t2, NULL);
+    
+//     printf("Results: %d, %d\n", d1.result, d2.result);
+//     return 0;
+// }
+
+
