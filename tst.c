@@ -121,27 +121,50 @@
 
 // 2.2 Creating Threads
 
-#include <pthread.h>
-#include <stdio.h>
+// #include <pthread.h>
+// #include <stdio.h>
 
-void *thread_function(void *arg)
-{
-    int *value = (int *)arg;
-    printf("Thread received: %d\n", *value);
-    return NULL;
-}
+// void *thread_function(void *arg)
+// {
+//     int *value = (int *)arg;
+//     printf("Thread received: %d\n", *value);
+//     return NULL;
+// }
 
-void main(void)
-{
+// void main(void)
+// {
 
-    pthread_t thread_id;
-    int data = 42;
+//     pthread_t thread_id;
+//     int data = 42;
     
-    /* Create thread: function, argument */
-    pthread_create(&thread_id, NULL, thread_function, &data);
+//     /* Create thread: function, argument */
+//     pthread_create(&thread_id, NULL, thread_function, &data);
     
-    /* Wait for thread to finish */
-    pthread_join(thread_id, NULL);
+
+//     /* Wait for thread to finish */
+//     pthread_join(thread_id, NULL);
     
-    // return 0;
-}
+//     // return 0;
+// }
+
+// This code is meaningless as threading
+
+// #include <pthread.h>
+// #include <stdio.h>
+
+// int main(void)
+// {
+//     pthread_t t1, t2;
+//     t_thread_data d1 = {1, "Hello", 0};
+//     t_thread_data d2 = {2, "World", 0};
+    
+//     pthread_create(&t1, NULL, worker, &d1);
+//     pthread_join(t1, NULL);
+    
+//     pthread_create(&t2, NULL, worker, &d2);
+//     pthread_join(t2, NULL);
+    
+//     printf("Results: %d, %d\n", d1.result, d2.result);
+//     return 0;
+// }
+
