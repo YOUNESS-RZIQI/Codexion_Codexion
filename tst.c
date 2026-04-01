@@ -390,3 +390,45 @@
 //     return NULL;
 // }
 
+// 4.4 Timed Wait (For Burnout Detection)
+
+
+// #include <stdio.h>
+// #include <unistd.h>
+// #include <time.h>
+
+// int main(void)
+// {
+//     time_t t1 = time(NULL);
+//     sleep(1);
+//     time_t t2 = time(NULL);
+//     sleep(1);
+//     time_t t3 = time(NULL);
+//     sleep(1);
+//     time_t t4 = time(NULL);
+//     sleep(1);
+//     time_t t5 = time(NULL);
+    
+//     printf("%ld\n", t1);
+//     printf("%ld\n", t2);
+//     printf("%ld\n", t3);
+//     printf("%ld\n", t4);
+//     printf("%ld\n", t5);
+
+//     return 0;
+// }
+
+
+#include <stdio.h>
+#include <sys/time.h>
+
+int main() {
+
+    struct timeval tv;
+
+    gettimeofday(&tv, NULL);
+
+    printf("Seconds: %ld, Microseconds: %ld\n", tv.tv_sec, tv.tv_usec);
+
+    return 0;
+}
