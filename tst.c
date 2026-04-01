@@ -204,3 +204,186 @@
 // }
 
 
+// PHASE 3: Thread Synchronization - Mutexes
+
+
+// #include <pthread.h>
+// #include <stdio.h>
+// #include <unistd.h>
+
+// void *logger()
+// {
+//     while (1)
+//     {
+//         printf("still alive...\n");
+//         sleep(1);
+//     }
+//     return NULL;
+// }
+
+// int main(void)
+// {
+    //     pthread_t log_thread;
+
+    //     pthread_create(&log_thread, NULL, logger, NULL);
+    
+    //     // do the real work here
+    //     printf("working...\n");
+    //     sleep(3);
+    //     printf("done.\n");
+    
+    //     return 0; // logger thread dies here automatically
+    // }
+    
+    
+// #include <pthread.h>
+// #include <stdio.h>
+    
+// pthread_mutex_t lock;
+// int counter = 0;
+    
+// void *increment()
+// {
+//     for (int i = 0; i < 20; i++) {
+
+//         pthread_mutex_lock(&lock);    
+//         counter++;
+//         pthread_mutex_unlock(&lock);  
+
+//     }
+//     return NULL;
+// }
+    
+// int main(void)
+// {
+//     pthread_t t1, t2;
+
+//     pthread_mutex_init(&lock, NULL);
+    
+//     pthread_create(&t1, NULL, increment, NULL);
+//     pthread_create(&t2, NULL, increment, NULL);
+    
+//     pthread_join(t1, NULL);
+//     pthread_join(t2, NULL);
+    
+//     printf("Counter: %d\n", counter);  
+    
+//     pthread_mutex_destroy(&lock);
+
+//     return 0;
+// }
+
+// PHASE 4: Thread Synchronization - Condition Variables
+
+
+// 4.1 Why Condition Variables?
+
+// Mutexes alone are inefficient for "wait until condition is true"
+// scenarios. Busy-waiting wastes CPU
+
+
+//  BAD: Busy waiting 
+//     while (!condition) {
+//          Spin and waste CPU 
+// }
+
+
+
+// #include <pthread.h>
+// #include <stdio.h>
+// #include <unistd.h>
+
+// pthread_mutex_t lock;
+// pthread_cond_t cond;
+
+// int counter = 0;
+
+// //  Thread that WAITS
+// void *waiter(void *arg)
+// {
+//     pthread_mutex_lock(&lock);
+
+//     printf("Waiter: waiting for counter to become > 0...\n");
+
+
+//     pthread_cond_wait(&cond, &lock);
+    
+
+//     printf("Waiter: counter is now %d\n", counter);
+
+//     pthread_mutex_unlock(&lock);
+//     return NULL;
+// }
+
+// //  Thread that SIGNALS
+// void *signaler(void *arg)
+// {
+//     sleep(2); // simulate delay
+
+//     pthread_mutex_lock(&lock);
+
+//     counter = 5;
+//     printf("Signaler: counter set to %d\n", counter);
+
+//     pthread_cond_signal(&cond);
+
+//     pthread_mutex_unlock(&lock);
+//     return NULL;
+// }
+
+// int main(void)
+// {
+//     pthread_t t1, t2;
+
+//     pthread_mutex_init(&lock, NULL);
+//     pthread_cond_init(&cond, NULL);
+
+//     pthread_create(&t1, NULL, waiter, NULL);
+//     pthread_create(&t2, NULL, signaler, NULL);
+
+//     pthread_join(t1, NULL);
+//     pthread_join(t2, NULL);
+
+//     pthread_mutex_destroy(&lock);
+//     pthread_cond_destroy(&cond);
+
+//     return 0;
+// }
+
+
+
+#include <pthread.h>
+
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+int ready = 0;
+
+void *waiter(void *arg)
+{
+    (void)arg;
+    pthread_mutex_lock(&lock);
+    
+    while (!ready) {  /* MUST check in loop (spurious wakeups) */
+        pthread_cond_wait(&cond, &lock);  /* Atomically unlock and wait */
+    }
+    /* When signaled, lock is reacquired */
+    printf("Proceeding!\n");
+    
+    pthread_mutex_unlock(&lock);
+    return NULL;
+}
+
+void *signaler(void *arg)
+{
+    (void)arg;
+    sleep(1);
+
+    pthread_mutex_lock(&lock);
+    ready = 1;
+    pthread_mutex_unlock(&lock);
+    
+    pthread_cond_broadcast(&cond);  /* Wake all waiters */
+    /* Or pthread_cond_signal(&cond) to wake one */
+    
+    return NULL;
+}
