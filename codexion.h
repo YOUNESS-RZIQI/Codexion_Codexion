@@ -3,13 +3,13 @@
 
 typedef struct s_args
 {
-    int number_of_coders;
-    int time_to_burnout;
-    int time_to_compile;
-    int time_to_debug;
-    int time_to_refactor;
-    int number_of_compiles_required;
-    int dongle_cooldown;
+    unsigned long long number_of_coders;
+    unsigned long long time_to_burnout;
+    unsigned long long time_to_compile;
+    unsigned long long time_to_debug;
+    unsigned long long time_to_refactor;
+    unsigned long long number_of_compiles_required;
+    unsigned long long dongle_cooldown;
     char *scheduler;
 
 } t_args;
