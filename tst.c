@@ -352,38 +352,40 @@
 
 
 
-#include <pthread.h>
+// #include <pthread.h>
 
-pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
-int ready = 0;
+// pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+// pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+// int ready = 0;
 
-void *waiter(void *arg)
-{
-    (void)arg;
-    pthread_mutex_lock(&lock);
+// void *waiter(void *arg)
+// {
+//     (void)arg;
+//     pthread_mutex_lock(&lock);
     
-    while (!ready) {  /* MUST check in loop (spurious wakeups) */
-        pthread_cond_wait(&cond, &lock);  /* Atomically unlock and wait */
-    }
-    /* When signaled, lock is reacquired */
-    printf("Proceeding!\n");
+//     while (!ready) {  /* MUST check in loop (spurious wakeups) */
+//         pthread_cond_wait(&cond, &lock);  /* Atomically unlock and wait */
+//     }
+//     /* When signaled, lock is reacquired */
+//     printf("Proceeding!\n");
     
-    pthread_mutex_unlock(&lock);
-    return NULL;
-}
+//     pthread_mutex_unlock(&lock);
+//     return NULL;
+// }
 
-void *signaler(void *arg)
-{
-    (void)arg;
-    sleep(1);
+// void *signaler(void *arg)
+// {
+//     (void)arg;
+//     sleep(1);
 
-    pthread_mutex_lock(&lock);
-    ready = 1;
-    pthread_mutex_unlock(&lock);
+//     pthread_mutex_lock(&lock);
+//     ready = 1;
+//     pthread_mutex_unlock(&lock);
     
-    pthread_cond_broadcast(&cond);  /* Wake all waiters */
-    /* Or pthread_cond_signal(&cond) to wake one */
+//     pthread_cond_broadcast(&cond);  /* Wake all waiters */
+//     pthread_cond_signal(&cond);
+
+//     /* Or pthread_cond_signal(&cond) to wake one */
     
-    return NULL;
-}
+//     return NULL;
+// }
