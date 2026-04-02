@@ -439,57 +439,71 @@
 //     return 0;
 // }
 
-#include <stdio.h>
-#include <pthread.h>
-#include <sys/time.h>
-#include <errno.h>
+// #include <stdio.h>
+// #include <pthread.h>
+// #include <sys/time.h>
+// #include <errno.h>
+// #include <unistd.h>
+// int ready = 0;
+// pthread_mutex_t lock;
+// pthread_cond_t cond;
+// void *func()
+// {
+//     sleep(2);
+//     pthread_cond_signal(&cond);
+//     return NULL;
+// }
 
-int ready = 0;
-pthread_mutex_t lock;
-pthread_cond_t cond;
-void *func()
-{
-    pthread_cond_signal(&cond);
-    return NULL;
-}
+// void *func2()
+// {
+//     struct timeval tv;
+//     struct timespec ts;
 
-void *func2()
-{
-    struct timeval tv;
-    struct timespec ts;
+//     pthread_t th;
+//     pthread_mutex_init(&lock, NULL);
+//     pthread_cond_init(&cond, NULL);
 
-    gettimeofday(&tv, NULL); // Get current time
-    ts.tv_sec = tv.tv_sec + 3; // 3 seconds timeout
-    ts.tv_nsec = tv.tv_usec * 1000;
+//     gettimeofday(&tv, NULL); // Get current time
+//     ts.tv_sec = tv.tv_sec + 10; // 3 seconds timeout
+//     ts.tv_nsec = tv.tv_usec * 1000;
 
-    pthread_mutex_lock(&lock);
-    int result = 0;
-    while (!ready && result != ETIMEDOUT) {
-        result = pthread_cond_timedwait(&cond, &lock, &ts);
-    }
-    if (result == ETIMEDOUT) {
-        printf("Timeout occurred!\n");
-    } else {
-        printf("Ready detected!\n");
-    }
-    pthread_mutex_destroy(&lock);
-    pthread_mutex_unlock(&lock);
-    pthread_cond_destroy(&cond);
+//     pthread_mutex_lock(&lock);
+//     int result = 0;
+//     while (!ready && result != ETIMEDOUT) {
+//         result = pthread_cond_timedwait(&cond, &lock, &ts);
+//     }
+//     if (result == ETIMEDOUT) {
+//         printf("Timeout occurred!\n");
+//     } else {
+//         printf("Ready detected!\n");
+//     }
+//     pthread_mutex_destroy(&lock);
+//     pthread_mutex_unlock(&lock);
+//     pthread_cond_destroy(&cond);
 
-    return NULL;
-}
-int main() {
+//     return NULL;
+// }
+// int main() {
 
-    pthread_t th[2];
+//     pthread_t th[2];
 
-    pthread_mutex_init(&lock, NULL);
-    pthread_cond_init(&cond, NULL);
 
-    pthread_create(&th[0], NULL, func, NULL);
-    pthread_create(&th[1], NULL, func, NULL);
-
-    pthread_join(th[0], NULL);
-    pthread_join(th[1], NULL);
+//     // pthread_create(&th[0], NULL, func, NULL);
+//     pthread_create(&th[1], NULL, func2, NULL);
     
-    return 0;
+//     // pthread_join(th[0], NULL);
+//     pthread_join(th[1], NULL);
+
+//     return 0;
+// }
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char *str = "999999999999999999";
+    unsigned long long n = atoi(str);
+
+    printf("%lld\n", n);
 }
