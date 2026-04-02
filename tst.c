@@ -325,8 +325,8 @@
 //     counter = 5;
 //     printf("Signaler: counter set to %d\n", counter);
 
-//     pthread_cond_signal(&cond);
-
+//     int result = 2;result = pthread_cond_signal(&cond);
+//     printf("\n\n%d\n\n", result);
 //     pthread_mutex_unlock(&lock);
 //     return NULL;
 // }
@@ -392,6 +392,7 @@
 
 // 4.4 Timed Wait (For Burnout Detection)
 
+// Exercise 1: Print the current time every second in a loop 5 times.
 
 // #include <stdio.h>
 // #include <unistd.h>
@@ -418,17 +419,59 @@
 //     return 0;
 // }
 
+// Exercise 2: Write a program that measures how long it takes to run a for-loop 1,000,000 times using gettimeofday.
+
+// #include <stdio.h>
+// #include <sys/time.h>
+
+// int main() {
+
+//     struct timeval tv;
+//     struct timeval tv1;
+
+//     gettimeofday(&tv, NULL);
+
+//     for(int i = 0; i < 1000000000; i++);
+
+//     gettimeofday(&tv1, NULL);
+//     printf("how long it takes to run a for-loop 1,000,000: %ld\n", (((tv1.tv_sec - tv.tv_sec) * 1000000) + (tv1.tv_usec - tv.tv_usec)));
+
+//     return 0;
+// }
 
 #include <stdio.h>
+#include <pthread.h>
 #include <sys/time.h>
+#include <errno.h>
+
+int ready = 0;
+pthread_mutex_t lock;
+pthread_cond_t cond;
 
 int main() {
-
     struct timeval tv;
+    struct timespec ts;
 
-    gettimeofday(&tv, NULL);
+    pthread_mutex_init(&lock, NULL);
+    pthread_cond_init(&cond, NULL);
 
-    printf("Seconds: %ld, Microseconds: %ld\n", tv.tv_sec, tv.tv_usec);
+    gettimeofday(&tv, NULL); // Get current time
+    ts.tv_sec = tv.tv_sec + 3; // 3 seconds timeout
+    ts.tv_nsec = tv.tv_usec * 1000;
 
+    pthread_mutex_lock(&lock);
+    int result = 0;
+    while (!ready && result != ETIMEDOUT) {
+        result = pthread_cond_timedwait(&cond, &lock, &ts);
+    }
+    if (result == ETIMEDOUT) {
+        printf("Timeout occurred!\n");
+    } else {
+        printf("Ready detected!\n");
+    }
+    pthread_mutex_unlock(&lock);
+
+    pthread_mutex_destroy(&lock);
+    pthread_cond_destroy(&cond);
     return 0;
 }
