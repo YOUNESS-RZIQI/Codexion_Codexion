@@ -447,13 +447,16 @@
 int ready = 0;
 pthread_mutex_t lock;
 pthread_cond_t cond;
+void *func()
+{
+    pthread_cond_signal(&cond);
+    return NULL;
+}
 
-int main() {
+void *func2()
+{
     struct timeval tv;
     struct timespec ts;
-
-    pthread_mutex_init(&lock, NULL);
-    pthread_cond_init(&cond, NULL);
 
     gettimeofday(&tv, NULL); // Get current time
     ts.tv_sec = tv.tv_sec + 3; // 3 seconds timeout
@@ -469,9 +472,24 @@ int main() {
     } else {
         printf("Ready detected!\n");
     }
-    pthread_mutex_unlock(&lock);
-
     pthread_mutex_destroy(&lock);
+    pthread_mutex_unlock(&lock);
     pthread_cond_destroy(&cond);
+
+    return NULL;
+}
+int main() {
+
+    pthread_t th[2];
+
+    pthread_mutex_init(&lock, NULL);
+    pthread_cond_init(&cond, NULL);
+
+    pthread_create(&th[0], NULL, func, NULL);
+    pthread_create(&th[1], NULL, func, NULL);
+
+    pthread_join(th[0], NULL);
+    pthread_join(th[1], NULL);
+    
     return 0;
 }
