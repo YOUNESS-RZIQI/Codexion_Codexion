@@ -1,7 +1,7 @@
 
 
+// it does return a full struct of args if sucess, else empty struct.
 
-// it does return a fell struct of arg if sucess, else empty struct.
 #include "codexion.h"
 
 short is_empty_args(t_args args)
@@ -62,9 +62,9 @@ t_args args_converted(char **argv)
         args.dongle_cooldown = ft_atoi(argv[7]);
         args.scheduler = argv[8];
     }
-    if (args.number_of_coders < 0 || args.time_to_burnout < 0  || args.time_to_compile < 0 
-        || args.time_to_debug < 0 || args.time_to_refactor < 0 || args.number_of_compiles_required < 0
-        || args.dongle_cooldown < 0 )
+    if (args.number_of_coders <= 0 || args.time_to_burnout <= 0  || args.time_to_compile <= 0 
+        || args.time_to_debug <= 0 || args.time_to_refactor <= 0 || args.number_of_compiles_required <= 0
+        || args.dongle_cooldown <= 0 )
     {
         args = empty_args();
     }

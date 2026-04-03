@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "codexion.h"
 
 short is_full_digit(char *s)
 {
@@ -17,10 +17,15 @@ static short    ft_is_space(char c)
                 || c == '\v');
 }
 
+static short ft_isdigit(char c)
+{
+    return (c >= '0' && c <= '9');
+}
+
 static  int     conversion(const char *s, short sign)
 {
-        long    _atoi;
-        long    befor;
+        int    _atoi;
+        int    befor;
 
         _atoi = 0;
         while (ft_isdigit((unsigned char)*s))
