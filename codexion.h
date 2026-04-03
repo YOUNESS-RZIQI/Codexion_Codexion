@@ -20,6 +20,7 @@ typedef struct s_args
 #include <string.h>
 
 short   is_full_digit(char *s);
+int     ft_atoi(const char *s);
 t_args  validate_args(int argc, char **argv);
 short is_empty_args(t_args args);
 
