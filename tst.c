@@ -502,8 +502,9 @@
 
 int main()
 {
-    char *str = "999999999999999999";
-    unsigned long long n = atoi(str);
+    char *str = "11111111111";
+    unsigned long long n = 10;
+    n = atoi(str);
 
     printf("%lld\n", n);
 }
