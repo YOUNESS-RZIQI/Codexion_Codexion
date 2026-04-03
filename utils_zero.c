@@ -34,9 +34,7 @@ static  int     conversion(const char *s, short sign)
                 _atoi = _atoi * 10 + (*s - '0');
                 if (befor != _atoi / 10)
                 {
-                        if (sign == -1)
-                                return (0);
-                        return (-1);
+                        return (0);
                 }
                 s++;
         }
