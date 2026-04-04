@@ -2,11 +2,12 @@
 
 short is_full_digit(char *s)
 {
-    while (*s)
+    int i = 1;
+    while (s[i])
     {
-        if (*s < '0' || *s > '9')
+        if (s[i] < '0' || s[i] > '9')
             return (0);
-        s++;
+        i++;
     }
     return (1);
 }
@@ -22,10 +23,10 @@ static short ft_isdigit(char c)
     return (c >= '0' && c <= '9');
 }
 
-static  int     conversion(const char *s, short sign)
+static  long long     conversion(const char *s, short sign)
 {
-        int    _atoi;
-        int    befor;
+        long long    _atoi;
+        long long    befor;
 
         _atoi = 0;
         while (ft_isdigit((unsigned char)*s))
@@ -38,10 +39,10 @@ static  int     conversion(const char *s, short sign)
                 }
                 s++;
         }
-        return ((int)_atoi * sign);
+        return (_atoi * sign);
 }
 
-int     ft_atoi(const char *s)
+long long     ft_atoi(const char *s)
 {
         short   sign;
 

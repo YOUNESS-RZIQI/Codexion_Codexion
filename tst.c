@@ -496,15 +496,12 @@
 
 //     return 0;
 // }
-
 #include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-int main()
+int main(int argc, char const *argv[])
 {
-    char *str = "11111111111";
-    unsigned long long n = 10;
-    n = atoi(str);
-
-    printf("%lld\n", n);
+    usleep(5 * 1000);// 5ms
+    printf("3 seconds passed\n"); 
+    return 0;
 }
