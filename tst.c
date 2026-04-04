@@ -496,12 +496,16 @@
 
 //     return 0;
 // }
-#include <stdio.h>
-#include <unistd.h>
 
-int main(int argc, char const *argv[])
-{
-    usleep(5 * 1000);// 5ms
-    printf("3 seconds passed\n"); 
-    return 0;
-}
+
+// #include <stdio.h>
+// #include <unistd.h>
+
+// int main(int argc, char const *argv[])
+// {
+//     usleep(5 * 1000);// 5ms
+//     printf("3 seconds passed\n"); 
+//     return 0;
+// }
+
+// Phase 5 : Heap data structur . (Max heap, Min heap + Time Complexity)
