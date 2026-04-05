@@ -528,11 +528,43 @@
     // O(n log n)    quasilinear time
     // O(n!)         factorial time.
 
-    1 + 2 + 3 + 4 = 10 
+//     1 + 2 + 3 + 4 = 10
 
-int func(int a)
-{
-    int sum = (a * (a +1)) / 2;
+    // O(n)
+// int func(int a)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < a; i++)
+//     {
+//         sum += i;
+//     }
+//     return 0;
+// }
 
-    return sum;
-}
+    // O(1)
+// int func(int a)
+// {
+//     int sum = (a * (a +1)) / 2;
+
+//     return sum;
+// }
+
+// 5.2) Binary heap (heap data structur)
+
+    // * Priority Queue (1 -> 2 -> 4 ...)
+    // * each node have two chileds and the noed must be      chiled1 < node < chiled2
+    // * the moset low valued is in the top of the tree.
+
+// what is Min heap and Max heap :
+
+    // The head it should be always (grather || Lower) then the cheldren
+
+          // Min heap
+    //          1
+    //      20          33
+    //  25     40    31   55
+
+          // Max heap
+    //          33
+    //      5          13
+    //  2     4     9     8 
