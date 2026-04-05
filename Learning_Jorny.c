@@ -508,4 +508,31 @@
 //     return 0;
 // }
 
+
+
 // Phase 5 : Heap data structur . (Max heap, Min heap + Time Complexity)
+
+// 5.1) Time Complexity:
+
+// What is Time complexity (Big O notation) ?
+
+// Big O notation : describes the performance of an alorithm as the amount of data increases.
+
+// Example:
+//      n = amount of data (it's a variable like x)
+
+    // O(1)          Constant time       
+    // O(n)          linear time (then n grouth the time also grouth)
+    // O(log n)      logarithmic time.
+    // O(n^2)        quadratic time ( when n = 100 the steps will be steps = 100^2 = (100 * 100 = 10000))
+    // O(n log n)    quasilinear time
+    // O(n!)         factorial time.
+
+    1 + 2 + 3 + 4 = 10 
+
+int func(int a)
+{
+    int sum = (a * (a +1)) / 2;
+
+    return sum;
+}

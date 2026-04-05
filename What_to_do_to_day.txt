@@ -1,3 +1,2 @@
-1) Time complexity
 2) heap data structur
 3) heap Operations ?
