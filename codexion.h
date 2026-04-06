@@ -21,7 +21,7 @@ typedef struct s_args
 
 short   is_full_digit(char *s);
 long long     ft_atoi(const char *s);
-t_args  validate_args(int argc, char **argv);
+t_args  convert_args(int argc, char **argv);
 short is_empty_args(t_args args);
 
 #endif

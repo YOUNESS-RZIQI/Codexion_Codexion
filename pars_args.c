@@ -71,7 +71,7 @@ t_args args_converted(char **argv)
     return (args);
 }
 
-t_args validate_args(int argc, char **argv)
+t_args convert_args(int argc, char **argv)
 {
     t_args args;
 
