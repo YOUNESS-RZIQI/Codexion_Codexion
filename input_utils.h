@@ -7,11 +7,13 @@ short	is_full_digit(char *s)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (s[i] == ' ' || s[i] == '\t')
 		i++;
 	if (s[i] == '-' || s[i] == '+')
 		i++;
+	if (!(s[i] >= '0' && s[i] <= '9'))
+		return (0);
 	while (s[i] >= '0' && s[i] <= '9')
 		i++;
 	while (s[i] == ' ' || s[i] == '\t')
