@@ -46,7 +46,8 @@ void	wait_at_barrier(t_simulation *sim)
 	}
 	else
 	{
-		pthread_cond_wait(&sim->sim_cond, &sim->sim_mutex);
+		if (!sim->stop_simulation)
+			pthread_cond_wait(&sim->sim_cond, &sim->sim_mutex);
 	}
 	pthread_mutex_unlock(&sim->sim_mutex);
 }

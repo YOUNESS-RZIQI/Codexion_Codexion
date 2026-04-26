@@ -76,4 +76,16 @@ typedef struct s_simulation
 	long long			start_time;
 }	t_simulation;
 
+#include "input_utils.h"
+#include "args.h"
+#include "error_message.h"
+#include "utils_0.h"
+#include "heap_utils.h"
+#include "heap.h"
+#include "dongle.h"
+#include "init.h"
+#include "simulation_utils.h"
+#include "simulation.h"
+#include "monitor.h"
+
 #endif
