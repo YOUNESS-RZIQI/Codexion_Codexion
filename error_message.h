@@ -27,4 +27,11 @@ short mutex_error_message(void)
 	return (1);
 }
 
+short thread_creation_fail_error_message(void)
+{
+	write(2, "! ! ! Error in thread creation ! ! !\n", 37);
+	return (1);
+}
+
+
 #endif

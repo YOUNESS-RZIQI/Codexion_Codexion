@@ -14,9 +14,9 @@ static void	cleanup_sim(t_simulation *sim, pthread_t *th, short destroy_mutexes)
 		free(th);
 	if (destroy_mutexes)
 	{
-		pthread_mutex_destroy(&sim->print_mutex);
+		pthread_mutex_destroy(&sim->sim_print_mutex);
 		pthread_mutex_destroy(&sim->sim_mutex);
-		pthread_cond_destroy(&sim->cond_lock);
+		pthread_cond_destroy(&sim->sim_cond);
 	}
 }
 
@@ -25,10 +25,9 @@ static void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 {
 	int	i;
 
-	printf("handle_thread_creation_failure: setting stop_simulation\n");
 	pthread_mutex_lock(&sim->sim_mutex);
 	sim->stop_simulation = 1;
-	pthread_cond_broadcast(&sim->cond_lock);
+	pthread_cond_broadcast(&sim->sim_cond);
 	pthread_mutex_unlock(&sim->sim_mutex);
 	wake_all_dongles(sim);
 	if (monitor)
@@ -74,7 +73,6 @@ static short	initialize_simulation(t_simulation *sim, pthread_t **th)
 	if (!*th)
 		return (1);
 	sim->stop_simulation = 0;
-	sim->start_time = 0;
 	sim->threads_at_barrier = 0;
 	init_dongles(sim);
 	init_coders(sim);
@@ -85,6 +83,7 @@ int	main(int argc, char **argv)
 {
 	t_simulation	sim;
 	pthread_t		*th;
+    short           result;
 
 	sim.args = convert_args(argc, argv);
 	th = NULL;
@@ -97,8 +96,10 @@ int	main(int argc, char **argv)
 	}
 	if (initialize_all_mutexes(&sim) == 0)
 	{
-		start_threads(&sim, th);
+		result = start_threads(&sim, th);
 		cleanup_sim(&sim, th, 1);
+        if (result)
+            return (thread_creation_fail_error_message());
 	}
 	else
 	{
@@ -110,9 +111,11 @@ int	main(int argc, char **argv)
 
 /*
 
-	args.c					|Not done|
+    init.c					|done|
+    args.c					|done|
+	
+    
 	codexion.h				|Not done|
-	init.c					|Not done|
 	main.c					|Not done|
 	utils.c					|Not done|
 	dongle_utils.c			|Not done|

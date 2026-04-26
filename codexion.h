@@ -4,13 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <pthread.h>
+#include "sys/time.h"
 
 
-#include "utils.h"
+#include "input_utils.h"
 #include "args.h"
-#include "error_messages.h"
+#include "error_message.h"
 #include "init.h"
-#include "time.h"
+#include "utils_0.h"
 
 
 typedef struct s_args
@@ -92,7 +94,7 @@ typedef struct s_simulation
 	pthread_cond_t		sim_cond;
 	int					threads_at_barrier;
 	short		        stop_simulation;
-}
+} t_simulation;
 
 
 
