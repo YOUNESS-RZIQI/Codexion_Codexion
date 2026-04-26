@@ -1,21 +1,79 @@
 #ifndef INIT_H
-#define INIT_H
+# define INIT_H
 
-#include "codexion.h"
+# include "codexion.h"
 
-
-static short	init_dongle_mutexes(t_simulation *sim)
+void	destroy_dongle_mutexes(t_simulation *sim)
 {
 	int	i;
 
 	i = -1;
 	while (++i < sim->args.number_of_coders)
 	{
-		pthread_mutex_init(&sim->dongles[i].dongle_mutex, NULL);
-		
-		pthread_cond_init(&sim->dongles[i].dongle_cond, NULL);
+		pthread_mutex_destroy(&sim->dongles[i].dongle_mutex);
+		pthread_cond_destroy(&sim->dongles[i].dongle_cond);
 	}
-	return (0);
+}
+
+void	cleanup_sim(t_simulation *sim, pthread_t *th, short destroy_mutexes)
+{
+	if (sim->dongles)
+	{
+		if (destroy_mutexes)
+			destroy_dongle_mutexes(sim);
+		free(sim->dongles);
+	}
+	if (sim->coders)
+		free(sim->coders);
+	if (th)
+		free(th);
+	if (destroy_mutexes)
+	{
+		pthread_mutex_destroy(&sim->sim_print_mutex);
+		pthread_mutex_destroy(&sim->sim_mutex);
+		pthread_cond_destroy(&sim->sim_cond);
+	}
+}
+
+void	cleanup_partial_mutexes(t_simulation *sim, int level, int dongle_idx)
+{
+	int	i;
+
+	if (level >= 1)
+		pthread_mutex_destroy(&sim->sim_print_mutex);
+	if (level >= 2)
+		pthread_mutex_destroy(&sim->sim_mutex);
+	if (level >= 3)
+		pthread_cond_destroy(&sim->sim_cond);
+	i = 0;
+	while (i < dongle_idx)
+	{
+		pthread_mutex_destroy(&sim->dongles[i].dongle_mutex);
+		pthread_cond_destroy(&sim->dongles[i].dongle_cond);
+		i++;
+	}
+}
+
+short	init_dongle_mutexes(t_simulation *sim)
+{
+	int	i;
+
+	i = -1;
+	while (++i < sim->args.number_of_coders)
+	{
+		sim->dongles[i].heap.size = 0;
+		if (pthread_mutex_init(&sim->dongles[i].dongle_mutex, NULL))
+			break ;
+		if (pthread_cond_init(&sim->dongles[i].dongle_cond, NULL))
+		{
+			pthread_mutex_destroy(&sim->dongles[i].dongle_mutex);
+			break ;
+		}
+	}
+	if (i == sim->args.number_of_coders)
+		return (0);
+	cleanup_partial_mutexes(sim, 3, i);
+	return (1);
 }
 
 short	initialize_all_mutexes(t_simulation *sim)
@@ -33,49 +91,6 @@ short	initialize_all_mutexes(t_simulation *sim)
 		return (1);
 	}
 	return (init_dongle_mutexes(sim));
-}
-
-void	init_dongles(t_simulation *sim)
-{
-	int	i;
-	int	n;
-
-	i = 0;
-	n = sim->args.number_of_coders;
-	while (i < n)
-	{
-		sim->dongles[i].number = i + 1;
-		sim->dongles[i].dongle_is_available = 1;
-		sim->dongles[i].how_much_to_rest = sim->args.dongle_cooldown;
-		sim->dongles[i].toked_at = 0;
-		sim->dongles[i].toked_by = 0;
-		if (i + 1 == 1)
-		{
-			sim->dongles[i].left_coder = n;
-			sim->dongles[i].right_coder = 1;
-		}
-		else
-		{
-			sim->dongles[i].left_coder = i;
-			sim->dongles[i].right_coder = i + 1;
-		}
-		i++;
-	}
-}
-
-void	init_coders(t_simulation *sim)
-{
-	memset(sim->coders, 0, sizeof(t_coder) * sim->args.number_of_coders);
-	int	i;
-
-	i = 0;
-	while (i < sim->args.number_of_coders)
-	{
-		sim->coders[i].coder_number = i + 1;
-		sim->coders[i].time_to_burnout = sim->args.time_to_burnout;
-		sim->coders[i].compile_count = 0;
-		i++;
-	}
 }
 
 #endif

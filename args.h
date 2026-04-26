@@ -1,7 +1,7 @@
 #ifndef ARGS_H
-#define ARGS_H
+# define ARGS_H
 
-#include "codexion.h"
+# include "codexion.h"
 
 short	is_empty_args(t_args args)
 {
@@ -13,7 +13,7 @@ short	is_empty_args(t_args args)
 	return (0);
 }
 
-static t_args	empty_args(void)
+t_args	empty_args(void)
 {
 	t_args	args;
 
@@ -24,11 +24,11 @@ static t_args	empty_args(void)
 	args.time_to_refactor = 0;
 	args.number_of_compiles_required = 0;
 	args.dongle_cooldown = 0;
-	args.scheduler_type = 0;
+	args.scheduler_type = FIFO;
 	return (args);
 }
 
-static short	check_args(char **argv)
+short	check_args(char **argv)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ static short	check_args(char **argv)
 	return (1);
 }
 
-static t_args	args_converted(char **argv)
+t_args	args_converted(char **argv)
 {
 	t_args	args;
 
@@ -78,7 +78,6 @@ t_args	convert_args(int argc, char **argv)
 	args = empty_args();
 	if (argc == 9)
 		args = args_converted(argv);
-
 	return (args);
 }
 

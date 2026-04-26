@@ -1,26 +1,17 @@
 #include "codexion.h"
+#include "input_utils.h"
+#include "args.h"
+#include "error_message.h"
+#include "utils_0.h"
+#include "heap_utils.h"
+#include "heap.h"
+#include "dongle.h"
+#include "init.h"
+#include "simulation_utils.h"
+#include "simulation.h"
+#include "monitor.h"
 
-static void	cleanup_sim(t_simulation *sim, pthread_t *th, short destroy_mutexes)
-{
-	if (sim->dongles)
-	{
-		if (destroy_mutexes)
-			destroy_dongle_mutexes(sim);
-		free(sim->dongles);
-	}
-	if (sim->coders)
-		free(sim->coders);
-	if (th)
-		free(th);
-	if (destroy_mutexes)
-	{
-		pthread_mutex_destroy(&sim->sim_print_mutex);
-		pthread_mutex_destroy(&sim->sim_mutex);
-		pthread_cond_destroy(&sim->sim_cond);
-	}
-}
-
-static void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
+void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	int created_coders, pthread_t *monitor)
 {
 	int	i;
@@ -37,7 +28,7 @@ static void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 		pthread_join(th[i], NULL);
 }
 
-static short	start_threads(t_simulation *sim, pthread_t *th)
+short	start_threads(t_simulation *sim, pthread_t *th)
 {
 	pthread_t	monitor;
 	int			i;
@@ -63,7 +54,7 @@ static short	start_threads(t_simulation *sim, pthread_t *th)
 	return (0);
 }
 
-static short	initialize_simulation(t_simulation *sim, pthread_t **th)
+short	initialize_simulation(t_simulation *sim, pthread_t **th)
 {
 	sim->coders = malloc(sizeof(t_coder) * sim->args.number_of_coders);
 	sim->dongles = malloc(sizeof(t_dongle) * sim->args.number_of_coders);
@@ -79,11 +70,29 @@ static short	initialize_simulation(t_simulation *sim, pthread_t **th)
 	return (0);
 }
 
+short	run_and_cleanup(t_simulation *sim, pthread_t *th)
+{
+	short	result;
+
+	if (initialize_all_mutexes(sim) == 0)
+	{
+		result = start_threads(sim, th);
+		cleanup_sim(sim, th, 1);
+		if (result)
+			return (thread_creation_fail_error_message());
+	}
+	else
+	{
+		cleanup_sim(sim, th, 0);
+		return (mutex_error_message());
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_simulation	sim;
 	pthread_t		*th;
-    short           result;
 
 	sim.args = convert_args(argc, argv);
 	th = NULL;
@@ -94,19 +103,7 @@ int	main(int argc, char **argv)
 		cleanup_sim(&sim, th, 0);
 		return (initialize_simulation_error_message());
 	}
-	if (initialize_all_mutexes(&sim) == 0)
-	{
-		result = start_threads(&sim, th);
-		cleanup_sim(&sim, th, 1);
-        if (result)
-            return (thread_creation_fail_error_message());
-	}
-	else
-	{
-		cleanup_sim(&sim, th, 0);
-		return (mutex_error_message());
-	}
-	return (0);
+	return (run_and_cleanup(&sim, th));
 }
 
 /*

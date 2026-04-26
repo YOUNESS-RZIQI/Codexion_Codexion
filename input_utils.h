@@ -1,7 +1,7 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef INPUT_UTILS_H
+# define INPUT_UTILS_H
 
-#include "codexion.h"
+# include "codexion.h"
 
 short	is_full_digit(char *s)
 {
@@ -21,21 +21,21 @@ short	is_full_digit(char *s)
 	return (1);
 }
 
-static short	ft_is_space(char c)
+short	ft_is_space(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f'
 		|| c == '\v');
 }
 
-static short	ft_isdigit(char c)
+short	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-static long long	conversion(const char *s, short sign)
+long long	conversion(const char *s, short sign)
 {
-	int	_atoi;
-	int	befor;
+	long long	_atoi;
+	long long	befor;
 
 	_atoi = 0;
 	while (ft_isdigit((unsigned char)*s))
