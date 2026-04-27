@@ -2,7 +2,7 @@
 
 
 void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
-	int created_coders, pthread_t *monitor)
+	int created_coders)
 {
 	int	i;
 
@@ -10,9 +10,8 @@ void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	sim->stop_simulation = 1;
 	pthread_cond_broadcast(&sim->sim_cond);
 	pthread_mutex_unlock(&sim->sim_mutex);
-	wake_all_dongles(sim);
-	if (monitor)
-		pthread_join(*monitor, NULL);
+	// wake_all_dongles(sim);
+
 	i = -1;
 	while (++i < created_coders)
 		pthread_join(th[i], NULL);
@@ -28,13 +27,13 @@ short	start_threads(t_simulation *sim, pthread_t *th)
 	{
 		if (pthread_create(&th[i], NULL, run_simulation, &sim->coders[i]) != 0)
 		{
-			handle_thread_creation_failure(sim, th, i, NULL);
+			handle_thread_creation_failure(sim, th, i);
 			return (1);
 		}
 	}
 	if (pthread_create(&monitor, NULL, run_monitor, sim) != 0)
 	{
-		handle_thread_creation_failure(sim, th, i, NULL);
+		handle_thread_creation_failure(sim, th, i);
 		return (1);
 	}
 	pthread_join(monitor, NULL);
@@ -100,10 +99,10 @@ int	main(int argc, char **argv)
 
     init.c					|done|
     args.c					|done|
+	main.c					|done|
 	
     
 	codexion.h				|Not done|
-	main.c					|Not done|
 	utils.c					|Not done|
 	dongle_utils.c			|Not done|
 	utils_2.c				|Not done|

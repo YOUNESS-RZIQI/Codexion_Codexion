@@ -35,7 +35,7 @@ int	check_take_dongle(t_simulation *s, t_dongle *d, t_coder *c, long long n)
 		return (1);
 	}
 	if (d->dongle_is_available && n < d->cooldown_end_time
-		&& heap_peek(&d->hqeap).coder_number == c->coder_number)
+		&& heap_peek(&d->heap).coder_number == c->coder_number)
 	{
 		ts = get_timespec_from_ms(d->cooldown_end_time);
 		pthread_cond_timedwait(&d->dongle_cond, &d->dongle_mutex, &ts);
