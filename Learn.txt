@@ -78,3 +78,5 @@
 Questions : 
 
 1) why the dongels also have mutex, cond wait  and sim has it own one ?
+
+2) 
