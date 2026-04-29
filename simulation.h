@@ -39,11 +39,6 @@ int	check_compile_count(t_simulation *sim, t_coder *coder)
 
 int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 {
-	if (should_stop(sim))
-	{
-		put_dongles(coder);
-		return (1);
-	}
 	grab_dongles(coder);
 	if (should_stop(sim))
 	{
