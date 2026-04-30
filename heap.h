@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   heap.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:39 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:03:40 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef HEAP_H
 # define HEAP_H
 
@@ -25,7 +37,6 @@ void	heap_extract_min(t_heap *heap)
 {
 	if (heap->size <= 0)
 		return ;
-
 	heap->nodes[0] = heap->nodes[heap->size - 1];
 	heap->size--;
 	heapify_down(heap);

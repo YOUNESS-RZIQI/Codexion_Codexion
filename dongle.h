@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dongle.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:30 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:03:31 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DONGLE_H
 # define DONGLE_H
 
@@ -55,10 +67,8 @@ void	take_dongle(int dongle_id, t_coder *coder)
 	sim = coder->sim;
 	dongle = &sim->dongles[dongle_id];
 	req.coder_number = coder->coder_number;
-
 	pthread_mutex_lock(&dongle->dongle_mutex);
 	set_priority_and_insert(sim, dongle, coder, &req);
-
 	while (1)
 	{
 		now = get_current_time_ms();

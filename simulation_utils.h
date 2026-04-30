@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   simulation_utils.h                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:56 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:03:57 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SIMULATION_UTILS_H
 # define SIMULATION_UTILS_H
 
@@ -45,12 +57,10 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 
 void	grab_dongles(t_coder *coder)
 {
-
 	take_dongle(coder->left_dongle, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
 	take_dongle(coder->right_dongle, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
-
 }
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   simulation.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:59 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:04:00 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SIMULATION_H
 # define SIMULATION_H
 
@@ -21,7 +33,6 @@ int	check_compile_count(t_simulation *sim, t_coder *coder)
 {
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->compile_count++;
-
 	if (coder->compile_count >= sim->args.number_of_compiles_required)
 	{
 		pthread_mutex_unlock(&sim->sim_mutex);
@@ -40,12 +51,10 @@ int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 		put_dongles(coder);
 		return (1);
 	}
-
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
 	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
-
 	print_action(sim, coder->coder_number, "is compiling");
 	custom_usleep(sim->args.time_to_compile, sim);
 	put_dongles(coder);

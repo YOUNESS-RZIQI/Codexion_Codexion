@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   codexion.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:24 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:03:25 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CODEXION_H
 # define CODEXION_H
 
@@ -75,17 +87,5 @@ typedef struct s_simulation
 	short				stop_simulation;
 	long long			start_time;
 }	t_simulation;
-
-#include "input_utils.h"
-#include "args.h"
-#include "error_message.h"
-#include "utils_0.h"
-#include "heap_utils.h"
-#include "heap.h"
-#include "dongle.h"
-#include "init.h"
-#include "simulation_utils.h"
-#include "simulation.h"
-#include "monitor.h"
 
 #endif

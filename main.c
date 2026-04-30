@@ -1,5 +1,27 @@
-#include "codexion.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:48 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:03:49 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "codexion.h"
+#include "input_utils.h"
+#include "args.h"
+#include "error_message.h"
+#include "utils_0.h"
+#include "heap_utils.h"
+#include "heap.h"
+#include "dongle.h"
+#include "init.h"
+#include "simulation_utils.h"
+#include "simulation.h"
+#include "monitor.h"
 
 void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	int created_coders)
@@ -10,7 +32,6 @@ void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	sim->stop_simulation = 1;
 	pthread_cond_broadcast(&sim->sim_cond);
 	pthread_mutex_unlock(&sim->sim_mutex);
-
 	i = -1;
 	while (++i < created_coders)
 		pthread_join(th[i], NULL);
@@ -86,7 +107,8 @@ int	main(int argc, char **argv)
 	th = NULL;
 	if (is_empty_args(sim.args))
 		return (input_error_message());
-	if (sim.args.number_of_coders == 0)
+	if (sim.args.number_of_coders == 0
+		|| sim.args.number_of_compiles_required == 0)
 		return (0);
 	if (initialize_simulation(&sim, &th) != 0)
 	{

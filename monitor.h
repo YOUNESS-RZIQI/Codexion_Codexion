@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monitor.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/30 13:03:53 by yrziqi            #+#    #+#             */
+/*   Updated: 2026/04/30 13:03:54 by yrziqi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MONITOR_H
 # define MONITOR_H
 
@@ -7,8 +19,6 @@ int	check_all_compiled(t_simulation *sim)
 {
 	int	i;
 
-	if (sim->args.number_of_compiles_required <= 0)
-		return (0);
 	i = 0;
 	while (i < sim->args.number_of_coders)
 	{
