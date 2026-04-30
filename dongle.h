@@ -15,10 +15,8 @@ struct timespec	get_timespec_from_ms(long long ms)
 void	set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
 			t_coder *coder, t_heap_node *req)
 {
-	// if (sim->args.scheduler_type == FIFO)
-	// 	req->priority = coder->coder_number;
 	if (sim->args.scheduler_type == FIFO)
-		req->priority = get_current_time_ms();
+		req->priority = coder->coder_number;
 	else
 		req->priority = coder->deadline;
 	heap_insert(&dongle->heap, *req, sim->args.scheduler_type);
@@ -79,14 +77,14 @@ void	release_dongle(int dongle_id, t_coder *coder)
 {
 	t_simulation	*sim;
 	t_dongle		*dongle;
-	long long		cd;
+	long long		cld;
 
 	sim = coder->sim;
 	dongle = &sim->dongles[dongle_id];
 	pthread_mutex_lock(&dongle->dongle_mutex);
 	dongle->dongle_is_available = 1;
-	cd = get_current_time_ms() + sim->args.dongle_cooldown;
-	dongle->cooldown_end_time = cd;
+	cld = get_current_time_ms() + sim->args.dongle_cooldown;
+	dongle->cooldown_end_time = cld;
 	pthread_cond_broadcast(&dongle->dongle_cond);
 	pthread_mutex_unlock(&dongle->dongle_mutex);
 }

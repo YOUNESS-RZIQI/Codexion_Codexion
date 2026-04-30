@@ -27,7 +27,7 @@ void	heapify_up(t_heap *heap, int i, t_scheduler type)
 
 	// while (i != 0)
 	// {
-	// 	parent = (i - 1) / 2;
+		// parent = (i - 1) / 2;
 	// 	if (compare_nodes(heap->nodes[i], heap->nodes[parent], type) < 0)
 	// 	{
 	// 		swap_nodes(&heap->nodes[i], &heap->nodes[parent]);
@@ -36,7 +36,7 @@ void	heapify_up(t_heap *heap, int i, t_scheduler type)
 	// 	else
 	// 		break ;
 	// }
-	if (i != 0)
+	if (i == 2)
 		if (compare_nodes(heap->nodes[1], heap->nodes[0], type) < 0)
 					swap_nodes(&heap->nodes[0], &heap->nodes[1]);
 

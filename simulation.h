@@ -9,7 +9,7 @@ void	put_dongles(t_coder *coder)
 	release_dongle(coder->right_dongle, coder);
 }
 
-void	coder_sleep_and_think(t_simulation *sim, t_coder *coder)
+void	coder_debugg_and_refactor(t_simulation *sim, t_coder *coder)
 {
 	print_action(sim, coder->coder_number, "is debugging");
 	custom_usleep(sim->args.time_to_debug, sim);
@@ -21,14 +21,14 @@ int	check_compile_count(t_simulation *sim, t_coder *coder)
 {
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->compile_count++;
-	if (sim->args.number_of_compiles_required > 0
-		&& coder->compile_count >= sim->args.number_of_compiles_required)
+
+	if (coder->compile_count >= sim->args.number_of_compiles_required)
 	{
 		pthread_mutex_unlock(&sim->sim_mutex);
 		return (1);
 	}
 	pthread_mutex_unlock(&sim->sim_mutex);
-	coder_sleep_and_think(sim, coder);
+	coder_debugg_and_refactor(sim, coder);
 	return (0);
 }
 
@@ -40,10 +40,12 @@ int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 		put_dongles(coder);
 		return (1);
 	}
+
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
 	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
+
 	print_action(sim, coder->coder_number, "is compiling");
 	custom_usleep(sim->args.time_to_compile, sim);
 	put_dongles(coder);
