@@ -22,14 +22,14 @@ void	set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
 	heap_insert(&dongle->heap, *req, sim->args.scheduler_type);
 }
 
-int	check_take_dongle(t_simulation *s, t_dongle *d, t_coder *c, long long n)
+int	check_take_dongle(t_dongle *d, t_coder *c, long long n)
 {
 	struct timespec	ts;
 
 	if (d->dongle_is_available && n >= d->cooldown_end_time
 		&& heap_peek(&d->heap).coder_number == c->coder_number)
 	{
-		heap_extract_min(&d->heap, s->args.scheduler_type);
+		heap_extract_min(&d->heap);
 		d->dongle_is_available = 0;
 		return (1);
 	}
@@ -67,7 +67,7 @@ void	take_dongle(int dongle_id, t_coder *coder)
 		pthread_mutex_unlock(&sim->sim_mutex);
 		if (stop)
 			break ;
-		if (check_take_dongle(sim, dongle, coder, now))
+		if (check_take_dongle(dongle, coder, now))
 			break ;
 	}
 	pthread_mutex_unlock(&dongle->dongle_mutex);

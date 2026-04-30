@@ -10,7 +10,6 @@ void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	sim->stop_simulation = 1;
 	pthread_cond_broadcast(&sim->sim_cond);
 	pthread_mutex_unlock(&sim->sim_mutex);
-	// wake_all_dongles(sim);
 
 	i = -1;
 	while (++i < created_coders)
