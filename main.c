@@ -87,6 +87,8 @@ int	main(int argc, char **argv)
 	th = NULL;
 	if (is_empty_args(sim.args))
 		return (input_error_message());
+	if (sim.args.number_of_coders == 0)
+		return (0);
 	if (initialize_simulation(&sim, &th) != 0)
 	{
 		cleanup_sim(&sim, th, 0);

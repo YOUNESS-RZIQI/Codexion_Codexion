@@ -1,82 +1,47 @@
 
-1) struct timespec	get_timespec_from_ms(long long ms)
+1) grab_dongles
 
-2) void	set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
+    1-1) take_dongle
 
-3) int	check_take_dongle(t_simulation *s, t_dongle *d, t_coder *c, long long n)
+    1-2) set_priority_and_insert
+            1-2-1) heap_insert
 
-4) void	take_dongle(int dongle_id, t_coder *coder)
-
-5) void	release_dongle(int dongle_id, t_coder *coder)
-
-6) int	compare_nodes(t_heap_node a, t_heap_node b, t_scheduler type)
-
-7) void	swap_nodes(t_heap_node *a, t_heap_node *b)
-
-8) void	heapify_up(t_heap *heap, int i, t_scheduler type)
-
-9) void	heapify_down(t_heap *heap, int i, t_scheduler type)
-
-10) int	heap_is_empty(t_heap *heap)
-
-11) int	heap_insert(t_heap *heap, t_heap_node node, t_scheduler type)
-
-12) t_heap_node	heap_peek(t_heap *heap)
-
-13) void	heap_extract_min(t_heap *heap, t_scheduler type)
+    1-3) check_take_dongle
+            1-3-1) heap_peek : it return the heap[0] node.
+            1-3-2) heap_extract_min
+            1-3-3) get_timespec_from_ms : this one is for condtimewait ?
 
 
 
 
+2) release_dongle
 
-19) void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,...)
+3) print_action
 
-20) short	start_threads(t_simulation *sim, pthread_t *th)
-
-21) short	initialize_simulation(t_simulation *sim, pthread_t **th)
-
-22) short	run_and_cleanup(t_simulation *sim, pthread_t *th)
-
-23) int	check_all_compiled(t_simulation *sim)
-
-24) int	check_coders_burnout(t_simulation *sim)
-
-25) void	*run_monitor(void *arg)
-
-26) long long	get_time_since_start(t_simulation *sim)
-
-27) void	print_action(t_simulation *sim, int coder_id, char *action)
-
-28) int	should_stop(t_simulation *sim)
-
-29) void	custom_usleep(long long wait_time, t_simulation *sim)
-
-30) void	grab_dongles(t_coder *coder)
-
-31) void	put_dongles(t_coder *coder)
-
-32) void	coder_sleep_and_think(t_simulation *sim, t_coder *coder)
-
-33) int	check_compile_count(t_simulation *sim, t_coder *coder)
-
-34) int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
-
-35) void	*run_simulation(void *arg)
-
-36) long long	get_current_time_ms(void)
-
-37) void	wake_all_dongles(t_simulation *sim)
-
-38) void	wait_at_barrier(t_simulation *sim)
-
-39) void	init_dongles(t_simulation *sim)
-
-40) void	init_coders(t_simulation *sim)
+4) custom_usleep
 
 
 
-Questions : 
+
+Today : 
+
+  1) heap.h                   | Not Done |
+  2) heap_utils.h             | Done |
+  3) when the stop_simulation = 1 ?
+  4) the cond_time_wait why it exist ?
+  
+  5) why it bourn out when i delete : 
+  	if (coder->coder_number % 2 == 0)
+		custom_usleep(1, sim);
+
+  5) what about : ./codexion 5 10 0 0 0 0 0 edf ?
+
+
+
+
+
+Questions of Teorique : 
 
 1) why the dongels also have mutex, cond wait  and sim has it own one ?
 
-2) 
+2) the parametters of the pthreads.

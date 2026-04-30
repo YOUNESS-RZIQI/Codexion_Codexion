@@ -19,11 +19,6 @@ void	coder_sleep_and_think(t_simulation *sim, t_coder *coder)
 
 int	check_compile_count(t_simulation *sim, t_coder *coder)
 {
-	if (should_stop(sim))
-	{
-		put_dongles(coder);
-		return (1);
-	}
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->compile_count++;
 	if (sim->args.number_of_compiles_required > 0

@@ -15,11 +15,12 @@ struct timespec	get_timespec_from_ms(long long ms)
 void	set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
 			t_coder *coder, t_heap_node *req)
 {
+	// if (sim->args.scheduler_type == FIFO)
+	// 	req->priority = coder->coder_number;
 	if (sim->args.scheduler_type == FIFO)
-		req->priority = coder->coder_number;
+		req->priority = get_current_time_ms();
 	else
 		req->priority = coder->deadline;
-	pthread_mutex_lock(&dongle->dongle_mutex);
 	heap_insert(&dongle->heap, *req, sim->args.scheduler_type);
 }
 
@@ -56,7 +57,10 @@ void	take_dongle(int dongle_id, t_coder *coder)
 	sim = coder->sim;
 	dongle = &sim->dongles[dongle_id];
 	req.coder_number = coder->coder_number;
+
+	pthread_mutex_lock(&dongle->dongle_mutex);
 	set_priority_and_insert(sim, dongle, coder, &req);
+
 	while (1)
 	{
 		now = get_current_time_ms();
