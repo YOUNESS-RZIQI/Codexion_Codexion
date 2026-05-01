@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 long long	get_time_since_start(t_simulation *sim)
 {
@@ -60,4 +59,3 @@ void	grab_dongles(t_coder *coder)
 	take_dongle(coder->right_dongle, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
 }
-

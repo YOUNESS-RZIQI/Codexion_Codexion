@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 void	destroy_dongle_mutexes_and_conds(t_simulation *sim)
 {
@@ -81,4 +80,3 @@ short	initialize_all_mutexes(t_simulation *sim)
 	}
 	return (init_dongle_mutexes_and_heap_size(sim));
 }
-

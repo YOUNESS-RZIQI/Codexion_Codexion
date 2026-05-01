@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 short	is_full_digit(char *s)
 {
@@ -78,4 +77,3 @@ long long	ft_atoi(const char *s)
 	}
 	return (conversion(s, sign));
 }
-

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 short	null_error_message(void)
 {
@@ -42,5 +41,3 @@ short	thread_creation_fail_error_message(void)
 	write(2, "! ! ! Error in thread creation ! ! !\n", 37);
 	return (1);
 }
-
-

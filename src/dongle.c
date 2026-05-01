@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 struct timespec	get_timespec_from_ms(long long ms)
 {
@@ -96,4 +95,3 @@ void	release_dongle(int dongle_id, t_coder *coder)
 	pthread_cond_broadcast(&dongle->dongle_cond);
 	pthread_mutex_unlock(&dongle->dongle_mutex);
 }
-

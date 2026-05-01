@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 int	compare_nodes(t_heap_node a, t_heap_node b, t_scheduler type)
 {
@@ -48,4 +47,3 @@ int	heap_is_empty(t_heap *heap)
 {
 	return (heap->size == 0);
 }
-

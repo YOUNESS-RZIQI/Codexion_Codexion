@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 int	heap_insert(t_heap *heap, t_heap_node node, t_scheduler type)
 {
@@ -39,4 +38,3 @@ void	heap_extract_min(t_heap *heap)
 	heap->size--;
 	heapify_down(heap);
 }
-

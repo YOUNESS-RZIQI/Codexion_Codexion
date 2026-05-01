@@ -12,7 +12,6 @@
 
 #include "codexion.h"
 
-
 void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	int created_coders)
 {

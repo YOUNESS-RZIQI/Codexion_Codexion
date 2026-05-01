@@ -9,8 +9,7 @@
 /*   Updated: 2026/04/30 13:04:02 by yrziqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-# include "codexion.h"
+#include "codexion.h"
 
 long long	get_current_time_ms(void)
 {
@@ -110,4 +109,3 @@ void	init_coders(t_simulation *sim)
 		i++;
 	}
 }
-

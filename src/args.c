@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "codexion.h"
+#include "codexion.h"
 
 short	is_empty_args(t_args args)
 {
@@ -89,4 +89,3 @@ t_args	convert_args(int argc, char **argv)
 		args = args_converted(argv);
 	return (args);
 }
-

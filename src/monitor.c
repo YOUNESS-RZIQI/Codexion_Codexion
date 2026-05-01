@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "codexion.h"
+#include "codexion.h"
 
 int	check_all_compiled(t_simulation *sim)
 {
@@ -77,4 +76,3 @@ void	*run_monitor(void *arg)
 	}
 	return (NULL);
 }
-

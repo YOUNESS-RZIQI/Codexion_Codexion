@@ -9,8 +9,7 @@
 /*   Updated: 2026/04/30 13:04:00 by yrziqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-# include "codexion.h"
+#include "codexion.h"
 
 void	put_dongles(t_coder *coder)
 {
@@ -75,4 +74,3 @@ void	*run_simulation(void *arg)
 	}
 	return (NULL);
 }
-
