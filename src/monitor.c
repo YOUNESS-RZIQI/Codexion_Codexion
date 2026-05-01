@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MONITOR_H
-# define MONITOR_H
 
 # include "codexion.h"
 
@@ -80,4 +78,3 @@ void	*run_monitor(void *arg)
 	return (NULL);
 }
 
-#endif

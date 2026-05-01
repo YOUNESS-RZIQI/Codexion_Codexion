@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEAP_UTILS_H
-# define HEAP_UTILS_H
 
 # include "codexion.h"
 
@@ -51,4 +49,3 @@ int	heap_is_empty(t_heap *heap)
 	return (heap->size == 0);
 }
 
-#endif

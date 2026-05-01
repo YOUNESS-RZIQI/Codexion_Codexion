@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SIMULATION_H
-# define SIMULATION_H
-
 # include "codexion.h"
 
 void	put_dongles(t_coder *coder)
@@ -79,4 +76,3 @@ void	*run_simulation(void *arg)
 	return (NULL);
 }
 
-#endif

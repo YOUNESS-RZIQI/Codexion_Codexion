@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEAP_H
-# define HEAP_H
 
 # include "codexion.h"
 
@@ -42,4 +40,3 @@ void	heap_extract_min(t_heap *heap)
 	heapify_down(heap);
 }
 
-#endif

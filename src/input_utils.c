@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_UTILS_H
-# define INPUT_UTILS_H
 
 # include "codexion.h"
 
@@ -81,4 +79,3 @@ long long	ft_atoi(const char *s)
 	return (conversion(s, sign));
 }
 
-#endif

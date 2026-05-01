@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_MESSAGE_H
-# define ERROR_MESSAGE_H
 
 # include "codexion.h"
 
@@ -45,4 +43,4 @@ short	thread_creation_fail_error_message(void)
 	return (1);
 }
 
-#endif
+

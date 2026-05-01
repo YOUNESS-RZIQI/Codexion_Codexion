@@ -1,13 +1,12 @@
-HEADERS = codexion.h args.h error_message.h input_utils.h utils_0.h \
-	heap_utils.h heap.h dongle.h init.h simulation_utils.h \
-	simulation.h monitor.h
+HEADERS = src/codexion.h
 
 NAME = codexion
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 
-SRCS = main.c
+SRCS = src/main.c src/args.c src/dongle.c src/error_message.c src/heap_utils.c src/heap.c src/init.c \
+	src/input_utils.c src/monitor.c src/simulation_utils.c src/simulation.c src/utils_0.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -16,7 +15,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-main.o: main.c $(HEADERS)
+# ✅ correct rule for src folder
+src/%.o: src/%.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

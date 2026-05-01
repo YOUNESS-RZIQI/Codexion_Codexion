@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DONGLE_H
-# define DONGLE_H
 
 # include "codexion.h"
 
@@ -99,4 +97,3 @@ void	release_dongle(int dongle_id, t_coder *coder)
 	pthread_mutex_unlock(&dongle->dongle_mutex);
 }
 
-#endif

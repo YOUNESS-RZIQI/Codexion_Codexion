@@ -11,17 +11,7 @@
 /* ************************************************************************** */
 
 #include "codexion.h"
-#include "input_utils.h"
-#include "args.h"
-#include "error_message.h"
-#include "utils_0.h"
-#include "heap_utils.h"
-#include "heap.h"
-#include "dongle.h"
-#include "init.h"
-#include "simulation_utils.h"
-#include "simulation.h"
-#include "monitor.h"
+
 
 void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 	int created_coders)

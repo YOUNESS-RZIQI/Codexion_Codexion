@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_0_H
-# define UTILS_0_H
-
 # include "codexion.h"
 
 long long	get_current_time_ms(void)
@@ -114,4 +111,3 @@ void	init_coders(t_simulation *sim)
 	}
 }
 
-#endif

@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARGS_H
-# define ARGS_H
-
 # include "codexion.h"
 
 short	is_empty_args(t_args args)
@@ -93,4 +90,3 @@ t_args	convert_args(int argc, char **argv)
 	return (args);
 }
 
-#endif

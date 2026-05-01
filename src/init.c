@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
 
 # include "codexion.h"
 
@@ -84,4 +82,3 @@ short	initialize_all_mutexes(t_simulation *sim)
 	return (init_dongle_mutexes_and_heap_size(sim));
 }
 
-#endif

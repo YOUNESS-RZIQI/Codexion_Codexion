@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SIMULATION_UTILS_H
-# define SIMULATION_UTILS_H
 
 # include "codexion.h"
 
@@ -63,4 +61,3 @@ void	grab_dongles(t_coder *coder)
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
 }
 
-#endif
