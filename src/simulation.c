@@ -66,7 +66,7 @@ void	*run_simulation(void *arg)
 	sim = coder->sim;
 	wait_at_barrier(sim);
 	if (coder->coder_number % 2 == 0)
-		custom_usleep(1, sim);
+		custom_usleep(2, sim);
 	while (!should_stop(sim))
 	{
 		if (execute_coder_cycle(sim, coder))

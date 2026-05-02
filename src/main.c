@@ -106,23 +106,3 @@ int	main(int argc, char **argv)
 	}
 	return (run_and_cleanup(&sim, th));
 }
-
-/*
-
-    init.c					|done|
-    args.c					|done|
-	main.c					|done|
-	
-    
-	codexion.h				|Not done|
-	utils.c					|Not done|
-	dongle_utils.c			|Not done|
-	utils_2.c				|Not done|
-	heap.c					|Not done|
-	dongle.c				|Not done|
-	Makefile				|Not done|
-	monitor.c				|Not done|
-	simulation_utils.c		|Not done|
-	simulation.c			|Not done|
-
-*/

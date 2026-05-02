@@ -44,7 +44,7 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 	long long	start;
 
 	start = get_current_time_ms();
-	while ((get_current_time_ms() - start) < wait_time)
+	while ((get_current_time_ms() - start) <= wait_time)
 	{
 		if (should_stop(sim))
 			break ;

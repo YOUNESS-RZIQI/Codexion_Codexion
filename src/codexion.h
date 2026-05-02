@@ -68,6 +68,7 @@ typedef struct s_coder
 	int					coder_number;
 	long long			time_to_burnout;
 	long long			time_since_last_compile;
+	long long			creation_time;
 	long long			deadline;
 	int					compile_count;
 	int					left_dongle;
@@ -128,11 +129,11 @@ void			init_dongles(t_simulation *sim);
 
 void			init_coders(t_simulation *sim);
 
-int				compare_nodes(t_heap_node a, t_heap_node b, t_scheduler type);
+int				compare_nodes(t_heap_node a, t_heap_node b);
 
 void			swap_nodes(t_heap_node *a, t_heap_node *b);
 
-void			heapify_up(t_heap *heap, int i, t_scheduler type);
+void			heapify_up(t_heap *heap, int i);
 
 void			heapify_down(t_heap *heap);
 

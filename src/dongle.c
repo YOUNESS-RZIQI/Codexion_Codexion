@@ -24,9 +24,7 @@ struct timespec	get_timespec_from_ms(long long ms)
 void	set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
 			t_coder *coder, t_heap_node *req)
 {
-	if (sim->args.scheduler_type == FIFO)
-		req->priority = coder->coder_number;
-	else
+	if (sim->args.scheduler_type == EDF)
 		req->priority = coder->deadline;
 	heap_insert(&dongle->heap, *req, sim->args.scheduler_type);
 }

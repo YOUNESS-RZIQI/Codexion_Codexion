@@ -21,7 +21,8 @@ int	heap_insert(t_heap *heap, t_heap_node node, t_scheduler type)
 	i = heap->size;
 	heap->nodes[i] = node;
 	heap->size++;
-	heapify_up(heap, i, type);
+	if (type == EDF)
+		heapify_up(heap, i);
 	return (0);
 }
 

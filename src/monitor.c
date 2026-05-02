@@ -33,10 +33,10 @@ int	check_coders_burnout(t_simulation *sim)
 	long long	now;
 	long long	diff;
 
+	now = get_current_time_ms();
 	i = 0;
 	while (i < sim->args.number_of_coders)
 	{
-		now = get_current_time_ms();
 		diff = now - sim->coders[i].time_since_last_compile;
 		if (diff >= sim->coders[i].time_to_burnout)
 		{
