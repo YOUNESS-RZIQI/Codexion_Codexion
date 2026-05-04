@@ -47,13 +47,20 @@ int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 		put_dongles(coder);
 		return (1);
 	}
+	
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
-	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
+
 	print_action(sim, coder->coder_number, "is compiling");
 	custom_usleep(sim->args.time_to_compile, sim);
+
 	put_dongles(coder);
+	
+	pthread_mutex_lock(&sim->sim_mutex);
+	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
+	pthread_mutex_unlock(&sim->sim_mutex);
+
 	return (check_compile_count(sim, coder));
 }
 
