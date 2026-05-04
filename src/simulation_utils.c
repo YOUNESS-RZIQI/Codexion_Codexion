@@ -54,8 +54,21 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 
 void	grab_dongles(t_coder *coder)
 {
-	take_dongle(coder->left_dongle, coder);
+	int		first;
+	int		second;
+
+	first = coder->right_dongle;
+	second = coder->left_dongle;
+
+	if (coder->left_dongle < coder->right_dongle)
+	{
+		first = coder->left_dongle;
+		second = coder->right_dongle;
+	}
+
+	take_dongle(first, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
-	take_dongle(coder->right_dongle, coder);
+	take_dongle(second, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
+
 }
