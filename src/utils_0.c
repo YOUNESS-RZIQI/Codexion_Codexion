@@ -35,21 +35,21 @@ void	wake_all_dongles(t_simulation *sim)
 
 void	wait_at_barrier(t_simulation *sim)
 {
-	int	i;
+	// int	i;
 
 	pthread_mutex_lock(&sim->sim_mutex);
 	sim->threads_at_barrier++;
 	if (sim->threads_at_barrier == sim->args.number_of_coders + 1)
 	{
 		sim->start_time = get_current_time_ms();
-		i = 0;
-		while (i < sim->args.number_of_coders)
-		{
-			sim->coders[i].time_since_last_compile = sim->start_time;
-			sim->coders[i].deadline = sim->start_time
-				+ sim->coders[i].time_to_burnout;
-			i++;
-		}
+		// i = 0;
+		// while (i < sim->args.number_of_coders)
+		// {
+		// 	sim->coders[i].time_since_last_compile = sim->start_time;
+		// 	sim->coders[i].deadline = sim->start_time
+		// 		+ sim->coders[i].time_to_burnout;
+		// 	i++;
+		// }
 		pthread_cond_broadcast(&sim->sim_cond);
 	}
 	else
