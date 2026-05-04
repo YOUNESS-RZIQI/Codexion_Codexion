@@ -12,7 +12,7 @@
 
 #include "codexion.h"
 
-int	heap_insert(t_heap *heap, t_heap_node node, t_scheduler type)
+int	heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node, t_scheduler type)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	heap_insert(t_heap *heap, t_heap_node node, t_scheduler type)
 	heap->nodes[i] = node;
 	heap->size++;
 	if (type == EDF)
-		heapify_up(heap, i);
+		heapify_up(sim, heap, i);
 	return (0);
 }
 

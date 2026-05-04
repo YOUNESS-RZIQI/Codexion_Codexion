@@ -42,18 +42,29 @@ int	should_stop(t_simulation *sim)
 void	custom_usleep(long long wait_time, t_simulation *sim)
 {
 	long long	start;
+	long long	now;
+	long long	remaining;
 
 	start = get_current_time_ms();
-	while ((get_current_time_ms() - start) <= wait_time)
+	while (1)
 	{
 		if (should_stop(sim))
 			break ;
-		if ((get_current_time_ms() - start) < 5)
-			usleep(100);
-		else if ((get_current_time_ms() - start) < 50)
-			usleep(500);
-		else
+
+		now = get_current_time_ms();
+		remaining = wait_time - (now - start);
+
+		if (remaining <= 0)
+			break ;
+
+		if (remaining > 50)
 			usleep(5000);
+		else if (remaining > 10)
+			usleep(1000);
+		else if (remaining > 2)
+			usleep(200);
+		else
+			usleep(50);
 	}
 }
 

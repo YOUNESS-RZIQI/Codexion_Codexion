@@ -12,11 +12,11 @@
 
 #include "codexion.h"
 
-int	compare_nodes(t_heap_node a, t_heap_node b)
+int	compare_nodes(t_simulation *sim, t_heap_node a, t_heap_node b)
 {
 	if (a.priority != b.priority)
 		return (a.priority - b.priority);
-	return (a.coder_number - b.coder_number);
+	return (sim->coders[a.coder_number - 1].compile_count - sim->coders[b.coder_number - 1].compile_count);
 }
 
 void	swap_nodes(t_heap_node *a, t_heap_node *b)
@@ -28,10 +28,10 @@ void	swap_nodes(t_heap_node *a, t_heap_node *b)
 	*b = temp;
 }
 
-void	heapify_up(t_heap *heap, int i)
+void	heapify_up(t_simulation *sim, t_heap *heap, int i)
 {
 	if (i == 1)
-		if (compare_nodes(heap->nodes[1], heap->nodes[0]) < 0)
+		if (compare_nodes(sim, heap->nodes[1], heap->nodes[0]) < 0)
 			swap_nodes(&heap->nodes[0], &heap->nodes[1]);
 }
 

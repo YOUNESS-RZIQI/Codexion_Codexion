@@ -21,14 +21,6 @@ struct timespec	get_timespec_from_ms(long long ms)
 	return (ts);
 }
 
-void	set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
-			t_coder *coder, t_heap_node *req)
-{
-	if (sim->args.scheduler_type == EDF)
-		req->priority = coder->deadline;
-	heap_insert(&dongle->heap, *req, sim->args.scheduler_type);
-}
-
 
 int can_take_both(t_coder *c, long long now)
 {
@@ -64,11 +56,10 @@ void take_dongle(int dongle_id, t_coder *c)
     req.coder_number = c->coder_number;
     req.priority = (sim->args.scheduler_type == EDF) ? c->deadline : 0;
 
-    // Register interest in both dongles
     pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
     pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
-    heap_insert(&sim->dongles[c->left_dongle].heap, req, sim->args.scheduler_type);
-    heap_insert(&sim->dongles[c->right_dongle].heap, req, sim->args.scheduler_type);
+    heap_insert(sim, &sim->dongles[c->left_dongle].heap, req, sim->args.scheduler_type);
+    heap_insert(sim, &sim->dongles[c->right_dongle].heap, req, sim->args.scheduler_type);
     pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
     pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
 
@@ -94,7 +85,7 @@ void take_dongle(int dongle_id, t_coder *c)
 
         pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
         pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
-        usleep(200);
+        usleep(1000);
     }
 }
 

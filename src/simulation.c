@@ -77,7 +77,7 @@ void	*run_simulation(void *arg)
 	pthread_mutex_unlock(&sim->sim_mutex);
 	
 	wait_at_barrier(sim);
-	if (coder->coder_number % 2 == 0)
+	if (coder->coder_number % 2 != 0)
 	{
 		pthread_mutex_lock(&sim->sim_mutex);
 		coder->time_since_last_compile = get_current_time_ms();

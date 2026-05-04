@@ -129,26 +129,23 @@ void			init_dongles(t_simulation *sim);
 
 void			init_coders(t_simulation *sim);
 
-int				compare_nodes(t_heap_node a, t_heap_node b);
+int				compare_nodes(t_simulation *sim, t_heap_node a, t_heap_node b);
 
 void			swap_nodes(t_heap_node *a, t_heap_node *b);
 
-void			heapify_up(t_heap *heap, int i);
+void			heapify_up(t_simulation *sim, t_heap *heap, int i);
 
 void			heapify_down(t_heap *heap);
 
 int				heap_is_empty(t_heap *heap);
 
-int				heap_insert(t_heap *heap, t_heap_node node, t_scheduler type);
+int				heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node, t_scheduler type);
 
 t_heap_node		heap_peek(t_heap *heap);
 
 void			heap_extract_min(t_heap *heap);
 
 struct timespec	get_timespec_from_ms(long long ms);
-
-void			set_priority_and_insert(t_simulation *sim, t_dongle *dongle,
-					t_coder *coder, t_heap_node *req);
 
 int				check_take_dongle(t_dongle *d, t_coder *c, long long n);
 
