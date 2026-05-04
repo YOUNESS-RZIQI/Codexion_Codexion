@@ -73,6 +73,7 @@ void	*run_monitor(void *arg)
 		if (check_coders_burnout(sim))
 			return (NULL);
 		pthread_mutex_unlock(&sim->sim_mutex);
+		usleep(1000);
 	}
 	return (NULL);
 }

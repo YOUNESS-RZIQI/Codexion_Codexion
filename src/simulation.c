@@ -75,16 +75,19 @@ void	*run_simulation(void *arg)
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
 	pthread_mutex_unlock(&sim->sim_mutex);
-
-	pthread_mutex_lock(&sim->sim_mutex);
-	coder->time_since_last_compile = get_current_time_ms();
-	coder->time_since_last_compile = get_current_time_ms();
-	pthread_mutex_unlock(&sim->sim_mutex);
-
+	
 	wait_at_barrier(sim);
 	if (coder->coder_number % 2 == 0)
-		custom_usleep(1, sim);
-		
+	{
+		pthread_mutex_lock(&sim->sim_mutex);
+		coder->time_since_last_compile = get_current_time_ms();
+		coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
+		pthread_mutex_unlock(&sim->sim_mutex);
+
+		custom_usleep(sim->args.time_to_compile / 2, sim);
+	}
+	
+
 	while (!should_stop(sim))
 	{
 		if (execute_coder_cycle(sim, coder))
