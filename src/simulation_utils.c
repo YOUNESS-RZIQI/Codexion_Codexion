@@ -48,27 +48,18 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 	{
 		if (should_stop(sim))
 			break ;
-		usleep(500);
+		if ((get_current_time_ms() - start) < 5)
+			usleep(100);
+		else if ((get_current_time_ms() - start) < 50)
+			usleep(500);
+		else
+			usleep(5000);
 	}
 }
 
 void	grab_dongles(t_coder *coder)
 {
-	int		first;
-	int		second;
-
-	first = coder->right_dongle;
-	second = coder->left_dongle;
-
-	if (coder->left_dongle < coder->right_dongle)
-	{
-		first = coder->left_dongle;
-		second = coder->right_dongle;
-	}
-
-	take_dongle(first, coder);
+	take_dongle(0, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
-	take_dongle(second, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
-
 }
