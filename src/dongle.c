@@ -63,7 +63,8 @@ void	take_dongle(int dongle_id, t_coder *coder)
 	dongle = &sim->dongles[dongle_id];
 	req.coder_number = coder->coder_number;
 	pthread_mutex_lock(&dongle->dongle_mutex);
-	set_priority_and_insert(sim, dongle, coder, &req);
+	if (dongle->heap.size != 2)
+		set_priority_and_insert(sim, dongle, coder, &req);
 	while (1)
 	{
 		now = get_current_time_ms();
