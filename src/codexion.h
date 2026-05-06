@@ -41,6 +41,8 @@ typedef struct s_heap_node
 {
 	int			coder_number;
 	long long	priority;
+	int			compile_count;
+	long long	time_since_last_compile;
 }	t_heap_node;
 
 typedef struct s_heap
@@ -91,21 +93,13 @@ typedef struct s_simulation
 
 short			is_full_digit(char *s);
 
-short			ft_is_space(char c);
-
 short			ft_isdigit(char c);
-
-long long		conversion(const char *s, short sign);
 
 long long		ft_atoi(const char *s);
 
 short			is_empty_args(t_args args);
 
 t_args			empty_args(void);
-
-short			check_args(char **argv);
-
-t_args			args_converted(char **argv);
 
 t_args			convert_args(int argc, char **argv);
 
@@ -129,17 +123,14 @@ void			init_dongles(t_simulation *sim);
 
 void			init_coders(t_simulation *sim);
 
-int				compare_nodes(t_simulation *sim, t_heap_node a, t_heap_node b);
-
-void			swap_nodes(t_heap_node *a, t_heap_node *b);
 
 void			heapify_up(t_simulation *sim, t_heap *heap, int i);
 
 void			heapify_down(t_heap *heap);
 
-int				heap_is_empty(t_heap *heap);
 
-int				heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node, t_scheduler type);
+int				heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node,
+					t_scheduler type);
 
 t_heap_node		heap_peek(t_heap *heap);
 
@@ -147,18 +138,12 @@ void			heap_extract_min(t_heap *heap);
 
 struct timespec	get_timespec_from_ms(long long ms);
 
-int				check_take_dongle(t_dongle *d, t_coder *c, long long n);
-
-void			take_dongle(int dongle_id, t_coder *coder);
+void			take_dongles(int dongle_id, t_coder *coder);
 
 void			release_dongle(int dongle_id, t_coder *coder);
 
-void			destroy_dongle_mutexes_and_conds(t_simulation *sim);
-
 void			cleanup_sim(t_simulation *sim, pthread_t *th,
 					short destroy_mutexes);
-
-short			init_dongle_mutexes_and_heap_size(t_simulation *sim);
 
 short			initialize_all_mutexes(t_simulation *sim);
 
@@ -174,17 +159,7 @@ void			grab_dongles(t_coder *coder);
 
 void			put_dongles(t_coder *coder);
 
-void			coder_debugg_and_refactor(t_simulation *sim, t_coder *coder);
-
-int				check_compile_count(t_simulation *sim, t_coder *coder);
-
-int				execute_coder_cycle(t_simulation *sim, t_coder *coder);
-
 void			*run_simulation(void *arg);
-
-int				check_all_compiled(t_simulation *sim);
-
-int				check_coders_burnout(t_simulation *sim);
 
 void			*run_monitor(void *arg);
 

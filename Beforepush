@@ -1,26 +1,28 @@
-1) how do we insure that a coder does not hold a dongle and wait for the second one ???
-
-2) complite files from : init.c
-
-3) coldown more then 50 problem ??
-
-5) Optimize code.
-
-4) destroy ?? if init + destroy + use mutex ??? if init + destroy + init ? or just use mutex or need of init again ??
-
-6) the coffman 4 condetions of the dead lock ?  how do you prvent them in your code ?? is 
-   breaking only one does not make deadlock ???
-
-7) work one read me more and more and add some picksures.   
 
 
-8) understand : void	custom_usleep(long long wait_time, t_simulation *sim)
 
-9) how dongle wati until is availabel i mean is the cond wait just for one coder or two or what ???
-
-Slightly increasing the group offset to 10-20ms to provide a larger buffer against OS scheduling jitter.
+8) Reread Subject.
 
 
-Moving the deadline update to immediately before the grab_dongles call to ensure the scheduler always sees the most urgent possible deadline.
 
 
+5) how is the cond wait just block two threads ???
+
+
+1) complite files from : dongle.c   +   Optimize code.(bool , time...)
+
+
+2) print_action why it have two mutex ?
+
+
+3) check unused variabls.
+
+4) destroy, init(mutex,cond), lock, unlockdestroy, join ? 
+
+   if init + destroy + use mutex ??? if init + destroy + init ? or just use mutex or need of init again ??
+
+
+6) work one readme more and more and add some picksures.   
+
+
+7) Check and fix all the leaks and data race

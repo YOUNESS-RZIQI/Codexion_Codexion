@@ -19,14 +19,12 @@ long long	get_time_since_start(t_simulation *sim)
 
 void	print_action(t_simulation *sim, int coder_id, char *action)
 {
-	pthread_mutex_lock(&sim->sim_print_mutex);
 	pthread_mutex_lock(&sim->sim_mutex);
 	if (!sim->stop_simulation)
 	{
 		printf("%lld %d %s\n", get_time_since_start(sim), coder_id, action);
 	}
 	pthread_mutex_unlock(&sim->sim_mutex);
-	pthread_mutex_unlock(&sim->sim_print_mutex);
 }
 
 int	should_stop(t_simulation *sim)
@@ -70,7 +68,7 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 
 void	grab_dongles(t_coder *coder)
 {
-	take_dongle(0, coder);
+	take_dongles(0, coder);
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
 	print_action(coder->sim, coder->coder_number, "has taken a dongle");
 }

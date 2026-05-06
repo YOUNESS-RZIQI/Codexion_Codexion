@@ -12,11 +12,20 @@
 
 #include "codexion.h"
 
-int	compare_nodes(t_simulation *sim, t_heap_node a, t_heap_node b)
+int	compare_nodes(t_simulation *sim, t_heap_node shiled, t_heap_node parent)
 {
-	if (a.priority != b.priority)
-		return (a.priority - b.priority);
-	return (sim->coders[a.coder_number - 1].compile_count - sim->coders[b.coder_number - 1].compile_count);
+	(void)sim;
+	if (shiled.priority < parent.priority)
+		return (-1);
+	if (shiled.priority > parent.priority)
+		return (1);
+	if (shiled.compile_count < parent.compile_count)
+		return (-1);
+	if (shiled.compile_count > parent.compile_count)
+		return (1);
+	if (shiled.time_since_last_compile < parent.time_since_last_compile)
+		return (-1);
+	return (1);
 }
 
 void	swap_nodes(t_heap_node *a, t_heap_node *b)
@@ -30,7 +39,8 @@ void	swap_nodes(t_heap_node *a, t_heap_node *b)
 
 void	heapify_up(t_simulation *sim, t_heap *heap, int i)
 {
-	if (i == 1)
+	(void)i;
+	if (heap->size == 2)
 		if (compare_nodes(sim, heap->nodes[1], heap->nodes[0]) < 0)
 			swap_nodes(&heap->nodes[0], &heap->nodes[1]);
 }
@@ -41,7 +51,3 @@ void	heapify_down(t_heap *heap)
 		swap_nodes(&heap->nodes[0], &heap->nodes[1]);
 }
 
-int	heap_is_empty(t_heap *heap)
-{
-	return (heap->size == 0);
-}
