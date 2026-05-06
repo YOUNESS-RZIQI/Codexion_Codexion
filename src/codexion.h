@@ -117,7 +117,7 @@ long long		get_current_time_ms(void);
 
 void			wake_all_dongles(t_simulation *sim);
 
-void			wait_at_barrier(t_simulation *sim);
+short			wait_at_barrier(t_simulation *sim);
 
 void			init_dongles(t_simulation *sim);
 

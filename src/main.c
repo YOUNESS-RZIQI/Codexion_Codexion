@@ -46,6 +46,19 @@ short	start_threads(t_simulation *sim, pthread_t *th)
 		handle_thread_creation_failure(sim, th, i);
 		return (1);
 	}
+
+
+	pthread_mutex_lock(&sim->sim_mutex);
+
+	while (!(sim->threads_at_barrier == sim->args.number_of_coders + 1)){
+		pthread_mutex_unlock(&sim->sim_mutex);
+		usleep(200);
+		pthread_mutex_lock(&sim->sim_mutex);
+	}
+	
+	pthread_cond_broadcast(&sim->sim_cond);
+	pthread_mutex_unlock(&sim->sim_mutex);
+
 	pthread_join(monitor, NULL);
 	i = 0;
 	while (i < sim->args.number_of_coders)

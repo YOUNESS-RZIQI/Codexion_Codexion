@@ -59,10 +59,15 @@ void	*run_monitor(void *arg)
 	t_simulation	*sim;
 
 	sim = (t_simulation *)arg;
-	wait_at_barrier(sim);
+
+	if (wait_at_barrier(sim))
+		return (NULL);
+
 	while (1)
 	{
 		pthread_mutex_lock(&sim->sim_mutex);
+		if (check_coders_burnout(sim))
+			return (NULL);
 		if (check_all_compiled(sim))
 		{
 			sim->stop_simulation = 1;
@@ -70,8 +75,6 @@ void	*run_monitor(void *arg)
 			wake_all_dongles(sim);
 			break ;
 		}
-		if (check_coders_burnout(sim))
-			return (NULL);
 		pthread_mutex_unlock(&sim->sim_mutex);
 	}
 	return (NULL);

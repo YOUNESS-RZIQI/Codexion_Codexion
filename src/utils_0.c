@@ -33,21 +33,25 @@ void	wake_all_dongles(t_simulation *sim)
 	}
 }
 
-void	wait_at_barrier(t_simulation *sim)
+short		wait_at_barrier(t_simulation *sim)
 {
 	pthread_mutex_lock(&sim->sim_mutex);
+	
 	sim->threads_at_barrier++;
-	if (sim->threads_at_barrier == sim->args.number_of_coders + 1)
+	sim->start_time = get_current_time_ms();
+
+	while (!sim->stop_simulation && !(sim->threads_at_barrier == 
+		sim->args.number_of_coders + 1))
+		pthread_cond_wait(&sim->sim_cond, &sim->sim_mutex);
+	
+	if (!(sim->threads_at_barrier == sim->args.number_of_coders + 1))
 	{
-		sim->start_time = get_current_time_ms();
-		pthread_cond_broadcast(&sim->sim_cond);
+		pthread_mutex_unlock(&sim->sim_mutex);
+		return (1);
 	}
-	else
-	{
-		if (!sim->stop_simulation)
-			pthread_cond_wait(&sim->sim_cond, &sim->sim_mutex);
-	}
+	
 	pthread_mutex_unlock(&sim->sim_mutex);
+	return (0);
 }
 
 void	init_dongles(t_simulation *sim)

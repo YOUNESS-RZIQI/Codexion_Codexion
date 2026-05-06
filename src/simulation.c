@@ -19,40 +19,35 @@ void	put_dongles(t_coder *coder)
 
 void	coder_debugg_and_refactor(t_simulation *sim, t_coder *coder)
 {
+	if (should_stop(sim))
+	{
+		put_dongles(coder);
+		return ;
+	}
+
 	print_action(sim, coder->coder_number, "is debugging");
 	custom_usleep(sim->args.time_to_debug, sim);
+
+	if (should_stop(sim))
+	{
+		put_dongles(coder);
+		return ;
+	}
+
 	print_action(sim, coder->coder_number, "is refactoring");
 	custom_usleep(sim->args.time_to_refactor, sim);
 }
 
-int	check_compile_count(t_simulation *sim, t_coder *coder)
-{
-	pthread_mutex_lock(&sim->sim_mutex);
-	coder->compile_count++;
-	if (coder->compile_count >= sim->args.number_of_compiles_required)
-	{
-		pthread_mutex_unlock(&sim->sim_mutex);
-		return (1);
-	}
-	pthread_mutex_unlock(&sim->sim_mutex);
-	coder_debugg_and_refactor(sim, coder);
-	return (0);
-}
 
 int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 {
-	if (should_stop(sim))
-	{
-		put_dongles(coder);
-		return (1);
-	}
 	grab_dongles(coder);
 	if (should_stop(sim))
 	{
 		put_dongles(coder);
 		return (1);
 	}
-	
+
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
 	pthread_mutex_unlock(&sim->sim_mutex);
@@ -63,10 +58,12 @@ int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 	put_dongles(coder);
 	
 	pthread_mutex_lock(&sim->sim_mutex);
+	coder->compile_count++;
 	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
 
-	return (check_compile_count(sim, coder));
+	coder_debugg_and_refactor(sim, coder);
+	return (0);
 }
 
 void	*run_simulation(void *arg)
@@ -80,8 +77,9 @@ void	*run_simulation(void *arg)
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
 	pthread_mutex_unlock(&sim->sim_mutex);
-	
-	wait_at_barrier(sim);
+
+	if (wait_at_barrier(sim))
+		return (NULL);
 	
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile = get_current_time_ms();
@@ -95,7 +93,6 @@ void	*run_simulation(void *arg)
 		custom_usleep(sim->args.time_to_compile / 2, sim);
 	}
 	
-
 	while (!should_stop(sim))
 	{
 		if (execute_coder_cycle(sim, coder))
