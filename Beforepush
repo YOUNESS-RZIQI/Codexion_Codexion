@@ -24,3 +24,5 @@
 8) spurious wake ups
 
 9) heap implimentation
+
+10 ) why in the wait at bariare there is not dead lock in the use of two of lock using the same variable.
