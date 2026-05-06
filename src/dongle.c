@@ -94,7 +94,7 @@ void take_dongles(int dongle_id, t_coder *c)
     req.coder_number = c->coder_number;
     req.priority = c->deadline;
     req.compile_count = c->compile_count;
-    req.time_since_last_compile = c->time_since_last_compile;
+    req.time_since_last_compile_start = c->time_since_last_compile_start;
 
     pthread_mutex_lock(&sim->dongles[c->left_dongle].dongle_mutex);
     pthread_mutex_lock(&sim->dongles[c->right_dongle].dongle_mutex);

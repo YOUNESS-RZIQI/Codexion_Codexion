@@ -42,7 +42,7 @@ typedef struct s_heap_node
 	int			coder_number;
 	long long	priority;
 	int			compile_count;
-	long long	time_since_last_compile;
+	long long	time_since_last_compile_start;
 }	t_heap_node;
 
 typedef struct s_heap
@@ -69,7 +69,7 @@ typedef struct s_coder
 {
 	int					coder_number;
 	long long			time_to_burnout;
-	long long			time_since_last_compile;
+	long long			time_since_last_compile_start;
 	long long			creation_time;
 	long long			deadline;
 	int					compile_count;

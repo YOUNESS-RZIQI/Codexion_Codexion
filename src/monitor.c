@@ -37,7 +37,7 @@ int	check_coders_burnout(t_simulation *sim)
 	i = 0;
 	while (i < sim->args.number_of_coders)
 	{
-		diff = now - sim->coders[i].time_since_last_compile;
+		diff = now - sim->coders[i].time_since_last_compile_start;
 		if (diff >= sim->coders[i].time_to_burnout)
 		{
 			sim->stop_simulation = 1;

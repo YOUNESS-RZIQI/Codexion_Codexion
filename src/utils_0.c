@@ -93,7 +93,7 @@ void	init_coders(t_simulation *sim)
 		sim->coders[i].coder_number = i + 1;
 		sim->coders[i].time_to_burnout = sim->args.time_to_burnout;
 		sim->coders[i].compile_count = 0;
-		sim->coders[i].time_since_last_compile = 0;
+		sim->coders[i].time_since_last_compile_start = 0;
 		sim->coders[i].sim = sim;
 		if (i == 0)
 			sim->coders[i].left_dongle = n - 1;

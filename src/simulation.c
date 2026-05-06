@@ -19,28 +19,15 @@ void	put_dongles(t_coder *coder)
 
 void	coder_debugg_and_refactor(t_simulation *sim, t_coder *coder)
 {
-	if (should_stop(sim))
-	{
-		put_dongles(coder);
-		return ;
-	}
-
 	print_action(sim, coder->coder_number, "is debugging");
 	custom_usleep(sim->args.time_to_debug, sim);
-
-	if (should_stop(sim))
-	{
-		put_dongles(coder);
-		return ;
-	}
-
 	print_action(sim, coder->coder_number, "is refactoring");
 	custom_usleep(sim->args.time_to_refactor, sim);
 }
 
-
 int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 {
+
 	grab_dongles(coder);
 	if (should_stop(sim))
 	{
@@ -49,17 +36,17 @@ int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
 	}
 
 	pthread_mutex_lock(&sim->sim_mutex);
-	coder->time_since_last_compile = get_current_time_ms();
+	coder->time_since_last_compile_start = get_current_time_ms();
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 	print_action(sim, coder->coder_number, "is compiling");
 	custom_usleep(sim->args.time_to_compile, sim);
-
+	
 	put_dongles(coder);
 	
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->compile_count++;
-	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
+	coder->deadline = coder->time_since_last_compile_start + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 	coder_debugg_and_refactor(sim, coder);
@@ -75,15 +62,15 @@ void	*run_simulation(void *arg)
 	sim = coder->sim;
 
 	pthread_mutex_lock(&sim->sim_mutex);
-	coder->time_since_last_compile = get_current_time_ms();
+	coder->time_since_last_compile_start = get_current_time_ms();
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 	if (wait_at_barrier(sim))
 		return (NULL);
 	
 	pthread_mutex_lock(&sim->sim_mutex);
-	coder->time_since_last_compile = get_current_time_ms();
-	coder->deadline = coder->time_since_last_compile + coder->time_to_burnout;
+	coder->time_since_last_compile_start = get_current_time_ms();
+	coder->deadline = coder->time_since_last_compile_start + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 
