@@ -26,7 +26,7 @@ void	handle_thread_creation_failure(t_simulation *sim, pthread_t *th,
 		pthread_join(th[i], NULL);
 }
 
-short	start_threads(t_simulation *sim, pthread_t *th)
+bool	start_threads(t_simulation *sim, pthread_t *th)
 {
 	pthread_t	monitor;
 	int			i;
@@ -66,7 +66,7 @@ short	start_threads(t_simulation *sim, pthread_t *th)
 	return (0);
 }
 
-short	initialize_simulation(t_simulation *sim, pthread_t **th)
+bool	initialize_simulation(t_simulation *sim, pthread_t **th)
 {
 	sim->coders = malloc(sizeof(t_coder) * sim->args.number_of_coders);
 	sim->dongles = malloc(sizeof(t_dongle) * sim->args.number_of_coders);
@@ -77,14 +77,13 @@ short	initialize_simulation(t_simulation *sim, pthread_t **th)
 		return (1);
 	sim->stop_simulation = 0;
 	sim->threads_at_barrier = 0;
-	init_dongles(sim);
-	init_coders(sim);
+	init_coders_and_dongles(sim);
 	return (0);
 }
 
-short	run_and_cleanup(t_simulation *sim, pthread_t *th)
+bool	run_and_cleanup(t_simulation *sim, pthread_t *th)
 {
-	short	result;
+	bool	result;
 
 	if (initialize_all_mutexes(sim) == 0)
 	{

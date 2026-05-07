@@ -44,6 +44,8 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 	long long	remaining;
 
 	start = get_current_time_ms();
+
+	// while (get_current_time_ms() - start <= wait_time)
 	while (1)
 	{
 		if (should_stop(sim))
@@ -55,14 +57,16 @@ void	custom_usleep(long long wait_time, t_simulation *sim)
 		if (remaining <= 0)
 			break ;
 
+		// 🔥 adaptive sleep based on remaining time
 		if (remaining > 50)
-			usleep(5000);
+			usleep(5000);      // far → big sleep
 		else if (remaining > 10)
-			usleep(1000);
+			usleep(1000);      // medium
 		else if (remaining > 2)
-			usleep(200);
+			usleep(200);       // close
 		else
-			usleep(50);
+			usleep(50);        // very close → precise
+		// usleep(900);        // very close → precise
 	}
 }
 

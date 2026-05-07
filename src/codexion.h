@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 typedef enum e_scheduler {
 	FIFO,
@@ -42,7 +43,6 @@ typedef struct s_heap_node
 	int			coder_number;
 	long long	priority;
 	int			compile_count;
-	long long	time_since_last_compile_start;
 }	t_heap_node;
 
 typedef struct s_heap
@@ -55,11 +55,8 @@ typedef struct s_simulation	t_simulation;
 
 typedef struct s_dongle
 {
-	int				number;
-	short			dongle_is_available;
+	bool			dongle_is_available;
 	long long		cooldown_end_time;
-	int				left_coder;
-	int				right_coder;
 	t_heap			heap;
 	pthread_mutex_t	dongle_mutex;
 	pthread_cond_t	dongle_cond;
@@ -70,7 +67,6 @@ typedef struct s_coder
 	int					coder_number;
 	long long			time_to_burnout;
 	long long			time_since_last_compile_start;
-	long long			creation_time;
 	long long			deadline;
 	int					compile_count;
 	int					left_dongle;
@@ -87,41 +83,39 @@ typedef struct s_simulation
 	pthread_mutex_t		sim_mutex;
 	pthread_cond_t		sim_cond;
 	int					threads_at_barrier;
-	short				stop_simulation;
+	bool				stop_simulation;
 	long long			start_time;
 }	t_simulation;
 
-short			is_full_digit(char *s);
+bool			is_full_digit(char *s);
 
-short			ft_isdigit(char c);
+bool			ft_isdigit(char c);
 
 long long		ft_atoi(const char *s);
 
-short			is_empty_args(t_args args);
+bool			is_empty_args(t_args args);
 
 t_args			empty_args(void);
 
 t_args			convert_args(int argc, char **argv);
 
-short			null_error_message(void);
+bool			null_error_message(void);
 
-short			input_error_message(void);
+bool			input_error_message(void);
 
-short			initialize_simulation_error_message(void);
+bool			initialize_simulation_error_message(void);
 
-short			mutex_error_message(void);
+bool			mutex_error_message(void);
 
-short			thread_creation_fail_error_message(void);
+bool			thread_creation_fail_error_message(void);
 
 long long		get_current_time_ms(void);
 
 void			wake_all_dongles(t_simulation *sim);
 
-short			wait_at_barrier(t_simulation *sim);
+bool			wait_at_barrier(t_simulation *sim);
 
-void			init_dongles(t_simulation *sim);
-
-void			init_coders(t_simulation *sim);
+void			init_coders_and_dongles(t_simulation *sim);
 
 
 void			heapify_up(t_simulation *sim, t_heap *heap, int i);
@@ -140,12 +134,12 @@ struct timespec	get_timespec_from_ms(long long ms);
 
 void			take_dongles(int dongle_id, t_coder *coder);
 
-void			release_dongle(int dongle_id, t_coder *coder);
+void			release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder);
 
 void			cleanup_sim(t_simulation *sim, pthread_t *th,
-					short destroy_mutexes);
+					bool destroy_mutexes);
 
-short			initialize_all_mutexes(t_simulation *sim);
+bool			initialize_all_mutexes(t_simulation *sim);
 
 long long		get_time_since_start(t_simulation *sim);
 
@@ -156,8 +150,6 @@ int				should_stop(t_simulation *sim);
 void			custom_usleep(long long wait_time, t_simulation *sim);
 
 void			grab_dongles(t_coder *coder);
-
-void			put_dongles(t_coder *coder);
 
 void			*run_simulation(void *arg);
 

@@ -33,16 +33,16 @@ void	wake_all_dongles(t_simulation *sim)
 	}
 }
 
-short		wait_at_barrier(t_simulation *sim)
+bool		wait_at_barrier(t_simulation *sim)
 {
 	pthread_mutex_lock(&sim->sim_mutex);
 	
-	sim->threads_at_barrier++;
-	sim->start_time = get_current_time_ms();
-
 	while (!sim->stop_simulation && !(sim->threads_at_barrier == 
 		sim->args.number_of_coders + 1))
+	{
+		sim->threads_at_barrier++;
 		pthread_cond_wait(&sim->sim_cond, &sim->sim_mutex);
+	}
 	
 	if (!(sim->threads_at_barrier == sim->args.number_of_coders + 1))
 	{
@@ -54,33 +54,7 @@ short		wait_at_barrier(t_simulation *sim)
 	return (0);
 }
 
-void	init_dongles(t_simulation *sim)
-{
-	int	i;
-	int	n;
-
-	i = 0;
-	n = sim->args.number_of_coders;
-	while (i < n)
-	{
-		sim->dongles[i].number = i + 1;
-		sim->dongles[i].dongle_is_available = 1;
-		sim->dongles[i].cooldown_end_time = 0;
-		if (i + 1 == 1)
-		{
-			sim->dongles[i].left_coder = n;
-			sim->dongles[i].right_coder = 1;
-		}
-		else
-		{
-			sim->dongles[i].left_coder = i;
-			sim->dongles[i].right_coder = i + 1;
-		}
-		i++;
-	}
-}
-
-void	init_coders(t_simulation *sim)
+void	init_coders_and_dongles(t_simulation *sim)
 {
 	int	i;
 	int	n;
@@ -90,6 +64,8 @@ void	init_coders(t_simulation *sim)
 	n = sim->args.number_of_coders;
 	while (i < n)
 	{
+		sim->dongles[i].dongle_is_available = 1;
+		sim->dongles[i].cooldown_end_time = 0;
 		sim->coders[i].coder_number = i + 1;
 		sim->coders[i].time_to_burnout = sim->args.time_to_burnout;
 		sim->coders[i].compile_count = 0;

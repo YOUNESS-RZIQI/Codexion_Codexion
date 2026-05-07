@@ -45,103 +45,118 @@ int can_take_both(t_coder *c, long long now)
 
 void take_dongles(int dongle_id, t_coder *c)
 {
-//     (void)dongle_id;
-//     t_simulation *sim = c->sim;
-//     t_heap_node req;
-//     int first, second;
-
-//     first = (c->left_dongle < c->right_dongle) ? c->left_dongle : c->right_dongle;
-//     second = (c->left_dongle < c->right_dongle) ? c->right_dongle : c->left_dongle;
-
-//     req.coder_number = c->coder_number;
-//     req.priority = (sim->args.scheduler_type == EDF) ? c->deadline : 0;
-
-//     pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
-//     pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
-//     heap_insert(sim, &sim->dongles[c->left_dongle].heap, req, sim->args.scheduler_type);
-//     heap_insert(sim, &sim->dongles[c->right_dongle].heap, req, sim->args.scheduler_type);
-//     pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
-//     pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
-
-//     while (1)
-//     {
-//         if (should_stop(sim))
-//             return;
-
-//         pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
-//         pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
-
-//         if (can_take_both(c, get_current_time_ms()))
-//         {
-//             sim->dongles[c->left_dongle].dongle_is_available = 0;
-//             sim->dongles[c->right_dongle].dongle_is_available = 0;
-//             heap_extract_min(&sim->dongles[c->left_dongle].heap);
-//             heap_extract_min(&sim->dongles[c->right_dongle].heap);
-            
-//             pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
-//             pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
-//             return;
-//         }
-
-//         pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
-//         pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
-//         usleep(250);
-//     }
     (void)dongle_id;
     t_simulation *sim = c->sim;
-    t_heap_node req;
+    t_heap_node heap_node;
+    int     first;
+    int     second;
 
-    req.coder_number = c->coder_number;
-    req.priority = c->deadline;
-    req.compile_count = c->compile_count;
-    req.time_since_last_compile_start = c->time_since_last_compile_start;
+    first = c->left_dongle;
+    second = c->right_dongle;
+    
+    if ( first > second)
+    {
+        first = c->right_dongle;
+        second = c->left_dongle;
+    }
+    
+    heap_node.coder_number = c->coder_number;
+    heap_node.priority = c->deadline;
+    heap_node.compile_count = c->compile_count;
 
-    pthread_mutex_lock(&sim->dongles[c->left_dongle].dongle_mutex);
-    pthread_mutex_lock(&sim->dongles[c->right_dongle].dongle_mutex);
-    heap_insert(sim, &sim->dongles[c->left_dongle].heap, req, sim->args.scheduler_type);
-    heap_insert(sim, &sim->dongles[c->right_dongle].heap, req, sim->args.scheduler_type);
-    pthread_mutex_unlock(&sim->dongles[c->right_dongle].dongle_mutex);
-    pthread_mutex_unlock(&sim->dongles[c->left_dongle].dongle_mutex);
+    pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
+    pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
+    heap_insert(sim, &sim->dongles[first].heap, heap_node, sim->args.scheduler_type);
+    heap_insert(sim, &sim->dongles[second].heap, heap_node, sim->args.scheduler_type);
+    pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
+    pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
 
     while (1)
     {
         if (should_stop(sim))
             return;
 
-        pthread_mutex_lock(&sim->dongles[c->left_dongle].dongle_mutex);
-        pthread_mutex_lock(&sim->dongles[c->right_dongle].dongle_mutex);
+        pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
+        pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
 
         if (can_take_both(c, get_current_time_ms()))
         {
-            sim->dongles[c->left_dongle].dongle_is_available = 0;
-            sim->dongles[c->right_dongle].dongle_is_available = 0;
-            heap_extract_min(&sim->dongles[c->left_dongle].heap);
-            heap_extract_min(&sim->dongles[c->right_dongle].heap);
+            sim->dongles[first].dongle_is_available = 0;
+            sim->dongles[second].dongle_is_available = 0;
+            heap_extract_min(&sim->dongles[first].heap);
+            heap_extract_min(&sim->dongles[second].heap);
             
-            pthread_mutex_unlock(&sim->dongles[c->right_dongle].dongle_mutex);
-            pthread_mutex_unlock(&sim->dongles[c->left_dongle].dongle_mutex);
+            pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
+            pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
             return;
         }
 
-        pthread_mutex_unlock(&sim->dongles[c->right_dongle].dongle_mutex);
-        pthread_mutex_unlock(&sim->dongles[c->left_dongle].dongle_mutex);
-        usleep(250);
+        pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
+        pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
+        usleep(350);
     }
 
 }
 
-void	release_dongle(int dongle_id, t_coder *coder)
+// void	release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
+// {
+// 	t_dongle *l_d;
+// 	t_dongle *r_d;
+//     long    long    now;
+
+//     pthread_mutex_lock(&coder->sim->dongles[left_dongle_id].dongle_mutex);
+//     pthread_mutex_lock(&coder->sim->dongles[right_dongle_id].dongle_mutex);
+
+//     l_d = &coder->sim->dongles[left_dongle_id];
+//     r_d = &coder->sim->dongles[right_dongle_id];
+//     now = get_current_time_ms();
+
+    
+//     l_d->dongle_is_available = 1;
+//     r_d->dongle_is_available = 1;
+
+//     l_d->cooldown_end_time = now
+//     + coder->sim->args.dongle_cooldown;
+
+//     r_d->cooldown_end_time = now
+//     + coder->sim->args.dongle_cooldown;
+
+//     pthread_mutex_unlock(&coder->sim->dongles[right_dongle_id].dongle_mutex);
+//     pthread_mutex_unlock(&coder->sim->dongles[left_dongle_id].dongle_mutex);
+// }
+
+void release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
 {
+    t_dongle    *l_d;
+    t_dongle    *r_d;
+    int         first;
+    int         second;
+    long long   now;
 
-	t_dongle *d = &coder->sim->dongles[dongle_id];
+    first = left_dongle_id;
+    second = right_dongle_id;
+    
+    if (first > second)
+    {
+        first = right_dongle_id;
+        second = left_dongle_id;
+    }
 
-    pthread_mutex_lock(&d->dongle_mutex);
+    l_d = &coder->sim->dongles[first];
+    r_d = &coder->sim->dongles[second];
 
-    d->dongle_is_available = 1;
-    d->cooldown_end_time = get_current_time_ms()
-        + coder->sim->args.dongle_cooldown;
+    // Lock the REAL mutexes (via pointers), before reading/writing
+    pthread_mutex_lock(&l_d->dongle_mutex);
+    pthread_mutex_lock(&r_d->dongle_mutex);
 
-    pthread_cond_signal(&d->dongle_cond);
+    now = get_current_time_ms();
 
-    pthread_mutex_unlock(&d->dongle_mutex);
+    l_d->dongle_is_available = 1;
+    r_d->dongle_is_available = 1;
+
+    l_d->cooldown_end_time = now + coder->sim->args.dongle_cooldown;
+    r_d->cooldown_end_time = now + coder->sim->args.dongle_cooldown;
+
+    pthread_mutex_unlock(&r_d->dongle_mutex);
+    pthread_mutex_unlock(&l_d->dongle_mutex);
 }

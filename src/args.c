@@ -12,7 +12,7 @@
 
 #include "codexion.h"
 
-short	is_empty_args(t_args args)
+bool	is_empty_args(t_args args)
 {
 	if (args.number_of_coders == 0 && args.time_to_burnout == 0
 		&& args.time_to_compile == 0 && args.time_to_debug == 0
@@ -37,7 +37,7 @@ t_args	empty_args(void)
 	return (args);
 }
 
-short	check_args(char **argv)
+bool	check_args(char **argv)
 {
 	int	i;
 

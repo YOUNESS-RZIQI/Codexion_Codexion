@@ -12,7 +12,7 @@
 
 #include "codexion.h"
 
-short	is_full_digit(char *s)
+bool	is_full_digit(char *s)
 {
 	int	i;
 
@@ -32,13 +32,13 @@ short	is_full_digit(char *s)
 	return (1);
 }
 
-short	ft_is_space(char c)
+bool	ft_is_space(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f'
 		|| c == '\v');
 }
 
-short	ft_isdigit(char c)
+bool	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }

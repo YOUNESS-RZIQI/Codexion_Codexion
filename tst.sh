@@ -2,12 +2,12 @@
 
 # Configuration
 EXECUTABLE="./codexion"
-ITERATIONS=100
+ITERATIONS=1000
 SLEEP_TIME=0.5
 # Arguments: number_of_coders time_to_burnout time_to_compile 
 # time_to_debug time_to_refactor number_of_compiles_required 
 # dongle_cooldown scheduler
-ARGS="3 330 100 100 100 3 10 edf"
+ARGS="99 2120 100 100 100 3 600 edf"
 
 echo "Starting $ITERATIONS tests for $EXECUTABLE..."
 

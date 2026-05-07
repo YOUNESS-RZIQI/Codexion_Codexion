@@ -24,7 +24,7 @@ void	destroy_dongle_mutexes_and_conds(t_simulation *sim)
 	}
 }
 
-void	cleanup_sim(t_simulation *sim, pthread_t *th, short destroy_mutexes)
+void	cleanup_sim(t_simulation *sim, pthread_t *th, bool destroy_mutexes)
 {
 	if (sim->dongles)
 	{
@@ -44,7 +44,7 @@ void	cleanup_sim(t_simulation *sim, pthread_t *th, short destroy_mutexes)
 	}
 }
 
-short	init_dongle_mutexes_and_heap_size(t_simulation *sim)
+bool	init_dongle_mutexes_and_heap_size(t_simulation *sim)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ short	init_dongle_mutexes_and_heap_size(t_simulation *sim)
 	return (1);
 }
 
-short	initialize_all_mutexes(t_simulation *sim)
+bool	initialize_all_mutexes(t_simulation *sim)
 {
 	if (pthread_mutex_init(&sim->sim_print_mutex, NULL) != 0)
 		return (1);

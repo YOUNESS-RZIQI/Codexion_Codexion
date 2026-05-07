@@ -11,12 +11,6 @@
 /* ************************************************************************** */
 #include "codexion.h"
 
-void	put_dongles(t_coder *coder)
-{
-	release_dongle(coder->left_dongle, coder);
-	release_dongle(coder->right_dongle, coder);
-}
-
 void	coder_debugg_and_refactor(t_simulation *sim, t_coder *coder)
 {
 	print_action(sim, coder->coder_number, "is debugging");
@@ -26,27 +20,26 @@ void	coder_debugg_and_refactor(t_simulation *sim, t_coder *coder)
 }
 
 int	execute_coder_cycle(t_simulation *sim, t_coder *coder)
-{
-
+{	
 	grab_dongles(coder);
 	if (should_stop(sim))
 	{
-		put_dongles(coder);
+		release_dongles(coder->left_dongle, coder->right_dongle, coder);
 		return (1);
 	}
 
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->time_since_last_compile_start = get_current_time_ms();
+	coder->deadline = coder->time_since_last_compile_start + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 	print_action(sim, coder->coder_number, "is compiling");
 	custom_usleep(sim->args.time_to_compile, sim);
 	
-	put_dongles(coder);
+	release_dongles(coder->left_dongle, coder->right_dongle, coder);
 	
 	pthread_mutex_lock(&sim->sim_mutex);
 	coder->compile_count++;
-	coder->deadline = coder->time_since_last_compile_start + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 	coder_debugg_and_refactor(sim, coder);
@@ -69,12 +62,13 @@ void	*run_simulation(void *arg)
 		return (NULL);
 	
 	pthread_mutex_lock(&sim->sim_mutex);
-	coder->time_since_last_compile_start = get_current_time_ms();
+	sim->start_time = get_current_time_ms();
+	coder->time_since_last_compile_start = sim->start_time;
 	coder->deadline = coder->time_since_last_compile_start + coder->time_to_burnout;
 	pthread_mutex_unlock(&sim->sim_mutex);
 
 
-	if (coder->coder_number % 2 != 0)
+	if (coder->coder_number % 2 != 0 || coder->coder_number == sim->args.number_of_coders)
 	{
 
 		custom_usleep(sim->args.time_to_compile / 2, sim);
