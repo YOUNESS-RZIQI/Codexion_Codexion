@@ -98,33 +98,6 @@ void take_dongles(int dongle_id, t_coder *c)
 
 }
 
-// void	release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
-// {
-// 	t_dongle *l_d;
-// 	t_dongle *r_d;
-//     long    long    now;
-
-//     pthread_mutex_lock(&coder->sim->dongles[left_dongle_id].dongle_mutex);
-//     pthread_mutex_lock(&coder->sim->dongles[right_dongle_id].dongle_mutex);
-
-//     l_d = &coder->sim->dongles[left_dongle_id];
-//     r_d = &coder->sim->dongles[right_dongle_id];
-//     now = get_current_time_ms();
-
-    
-//     l_d->dongle_is_available = 1;
-//     r_d->dongle_is_available = 1;
-
-//     l_d->cooldown_end_time = now
-//     + coder->sim->args.dongle_cooldown;
-
-//     r_d->cooldown_end_time = now
-//     + coder->sim->args.dongle_cooldown;
-
-//     pthread_mutex_unlock(&coder->sim->dongles[right_dongle_id].dongle_mutex);
-//     pthread_mutex_unlock(&coder->sim->dongles[left_dongle_id].dongle_mutex);
-// }
-
 void release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
 {
     t_dongle    *l_d;
@@ -145,7 +118,6 @@ void release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
     l_d = &coder->sim->dongles[first];
     r_d = &coder->sim->dongles[second];
 
-    // Lock the REAL mutexes (via pointers), before reading/writing
     pthread_mutex_lock(&l_d->dongle_mutex);
     pthread_mutex_lock(&r_d->dongle_mutex);
 
