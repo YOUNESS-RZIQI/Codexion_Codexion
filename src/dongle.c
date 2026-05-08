@@ -93,7 +93,7 @@ void take_dongles(int dongle_id, t_coder *c)
 
         pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
         pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
-        usleep(350);
+        usleep(500);
     }
 
 }

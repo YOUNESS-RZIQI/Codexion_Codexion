@@ -149,8 +149,6 @@ int				should_stop(t_simulation *sim);
 
 void			custom_usleep(long long wait_time, t_simulation *sim);
 
-void			grab_dongles(t_coder *coder);
-
 void			*run_simulation(void *arg);
 
 void			*run_monitor(void *arg);

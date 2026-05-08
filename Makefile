@@ -3,7 +3,7 @@ HEADERS = src/codexion.h
 NAME = codexion
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread -g3
+CFLAGS = -Wall -Wextra -Werror -pthread
 
 SRCS = src/main.c src/args.c src/dongle.c src/error_message.c src/heap_utils.c src/heap.c src/init.c \
 	src/input_utils.c src/monitor.c src/simulation_utils.c src/simulation.c src/utils_0.c
