@@ -12,19 +12,20 @@
 
 #include "codexion.h"
 
-int	compare_nodes(t_simulation *sim, t_heap_node shiled, t_heap_node parent)
+bool	compare_nodes(t_simulation *sim, t_heap_node shiled, t_heap_node parent)
 {
-	(void)sim;
+	if (sim->args.scheduler_type == FIFO)
+		return 0;
 	if (shiled.priority < parent.priority)
-		return (-1);
+		return (0);
 	if (shiled.priority > parent.priority)
 		return (1);
 	if (shiled.compile_count < parent.compile_count)
-		return (-1);
+		return (0);
 	if (shiled.compile_count > parent.compile_count)
 		return (1);
 	if (shiled.coder_number < parent.coder_number)
-		return (-1);
+		return (0);
 	if (shiled.coder_number > parent.coder_number)
 		return (1);
 	return (1);
@@ -39,12 +40,10 @@ void	swap_nodes(t_heap_node *a, t_heap_node *b)
 	*b = temp;
 }
 
-void	heapify_up(t_simulation *sim, t_heap *heap, int i)
+void	heapify_up(t_simulation *sim, t_heap *heap)
 {
-	(void)i;
-	if (heap->size == 2)
-		if (compare_nodes(sim, heap->nodes[1], heap->nodes[0]) < 0)
-			swap_nodes(&heap->nodes[0], &heap->nodes[1]);
+	if (heap->size > 2)
+		return;
 }
 
 void	heapify_down(t_heap *heap)

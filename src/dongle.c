@@ -84,8 +84,8 @@ void take_dongles(int dongle_id, t_coder *c)
 
     pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
     pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
-    heap_insert(sim, &sim->dongles[first].heap, heap_node, sim->args.scheduler_type);
-    heap_insert(sim, &sim->dongles[second].heap, heap_node, sim->args.scheduler_type);
+    heap_insert(sim, &sim->dongles[first].heap, heap_node);
+    heap_insert(sim, &sim->dongles[second].heap, heap_node);
     pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
     pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);
 
@@ -101,8 +101,8 @@ void take_dongles(int dongle_id, t_coder *c)
         {
             sim->dongles[first].dongle_is_available = 0;
             sim->dongles[second].dongle_is_available = 0;
-            heap_remove(&sim->dongles[first].heap, c->coder_number);
-            heap_remove(&sim->dongles[second].heap, c->coder_number);
+            heap_extract_min(&sim->dongles[first].heap);
+            heap_extract_min(&sim->dongles[second].heap);
             
             pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
             pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);

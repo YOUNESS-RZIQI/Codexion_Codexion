@@ -118,19 +118,14 @@ bool			wait_at_barrier(t_simulation *sim);
 void			init_coders_and_dongles(t_simulation *sim);
 
 
-void			heapify_up(t_simulation *sim, t_heap *heap, int i);
+void			heapify_up(t_simulation *sim, t_heap *heap);
 
 void			heapify_down(t_heap *heap);
 
 
-int				heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node,
-					t_scheduler type);
-
-t_heap_node		heap_peek(t_heap *heap);
+int				heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node);
 
 void			heap_extract_min(t_heap *heap);
-
-void			heap_remove(t_heap *heap, int coder_num);
 
 struct timespec	get_timespec_from_ms(long long ms);
 
