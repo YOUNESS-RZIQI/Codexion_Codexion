@@ -42,6 +42,7 @@ void	swap_nodes(t_heap_node *a, t_heap_node *b)
 
 void	heapify_up(t_simulation *sim, t_heap *heap)
 {
+	(void)sim;
 	if (heap->size > 2)
 		return;
 }
