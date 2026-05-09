@@ -97,7 +97,7 @@ void take_dongles(int dongle_id, t_coder *c)
         pthread_mutex_lock(&sim->dongles[first].dongle_mutex);
         pthread_mutex_lock(&sim->dongles[second].dongle_mutex);
 
-        if (first != second && can_take_both(c, get_current_time_ms()))
+        if (can_take_both(c, get_current_time_ms()))
         {
             sim->dongles[first].dongle_is_available = 0;
             sim->dongles[second].dongle_is_available = 0;
@@ -160,8 +160,7 @@ void release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
     r_d = &coder->sim->dongles[second];
 
     pthread_mutex_lock(&l_d->dongle_mutex);
-    if (first != second)
-        pthread_mutex_lock(&r_d->dongle_mutex);
+    pthread_mutex_lock(&r_d->dongle_mutex);
 
     now = get_current_time_ms();
 
@@ -174,6 +173,4 @@ void release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)
     pthread_mutex_unlock(&r_d->dongle_mutex);
     pthread_mutex_unlock(&l_d->dongle_mutex);
 
-    //     pthread_cond_broadcast(&r_d->dongle_cond);
-    // pthread_cond_broadcast(&l_d->dongle_cond);
 }

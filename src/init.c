@@ -55,28 +55,25 @@ bool	init_dongle_mutexes_and_heap_size(t_simulation *sim)
 		if (pthread_mutex_init(&sim->dongles[i].dongle_mutex, NULL))
 			break ;
 		if (pthread_cond_init(&sim->dongles[i].dongle_cond, NULL))
-		{
-			pthread_mutex_destroy(&sim->dongles[i].dongle_mutex);
 			break ;
-		}
 		i++;
 	}
 	if (i == sim->args.number_of_coders)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 bool	initialize_all_mutexes(t_simulation *sim)
 {
 	if (pthread_mutex_init(&sim->sim_print_mutex, NULL) != 0)
-		return (1);
+		return (0);
 	if (pthread_mutex_init(&sim->sim_mutex, NULL) != 0)
 	{
-		return (1);
+		return (0);
 	}
 	if (pthread_cond_init(&sim->sim_cond, NULL) != 0)
 	{
-		return (1);
+		return (0);
 	}
 	return (init_dongle_mutexes_and_heap_size(sim));
 }

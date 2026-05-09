@@ -85,7 +85,7 @@ bool	run_and_cleanup(t_simulation *sim, pthread_t *th)
 {
 	bool	result;
 
-	if (initialize_all_mutexes(sim) == 0)
+	if (initialize_all_mutexes(sim))
 	{
 		result = start_threads(sim, th);
 		cleanup_sim(sim, th, 1);
