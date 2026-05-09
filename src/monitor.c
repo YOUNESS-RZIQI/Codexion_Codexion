@@ -54,11 +54,12 @@ void	*run_monitor(void *arg)
 {
 	t_simulation	*sim;
 
+
 	sim = (t_simulation *)arg;
 
 	if (wait_at_barrier(sim))
 		return (NULL);
-
+	
 	while (1)
 	{
 		pthread_mutex_lock(&sim->sim_mutex);
@@ -72,7 +73,7 @@ void	*run_monitor(void *arg)
 			break ;
 		}
 		pthread_mutex_unlock(&sim->sim_mutex);
-		usleep(1000);
+		usleep(1);
 	}
 	return (NULL);
 }

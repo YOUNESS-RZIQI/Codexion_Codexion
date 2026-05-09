@@ -7,7 +7,36 @@ SLEEP_TIME=0.5
 # Arguments: number_of_coders time_to_burnout time_to_compile 
 # time_to_debug time_to_refactor number_of_compiles_required 
 # dongle_cooldown scheduler
-ARGS="99 2120 100 100 100 3 600 edf"
+
+# should burnout.
+# ARGS="199 328 100 100 100 5 10  edf"
+# ARGS="200 298 100 100 100 5 10  edf"
+# ARGS="199 2098 100 100 100 5 600  edf"
+# ARGS="199 2098 600 100 100 5 100  edf"
+# ARGS="200 1398 100 100 100 5 600  edf"
+
+# should not bournout
+# ARGS="199 340 100 100 100 5 10  edf"
+# ARGS="9 340 100 100 100 5 10  edf"
+# ARGS="199 2110 100 100 100 5 600  edf"
+# ARGS="9 2110 100 100 100 5 600  edf"
+# ARGS="200 1410 100 100 100 5 600  edf"
+# ARGS="199 2110 600 100 100 5 100  edf"
+
+# should burnout.
+# ARGS="199 328 100 100 100 5 10  fifo"
+# ARGS="200 298 100 100 100 5 10  fifo"
+# ARGS="199 2098 100 100 100 5 600  fifo"
+# ARGS="199 2098 600 100 100 5 100  fifo"
+# ARGS="200 1398 100 100 100 5 600  fifo"
+
+# should not bournout
+# ARGS="199 340 100 100 100 5 10  fifo"
+# ARGS="9 340 100 100 100 5 10  fifo"
+# ARGS="199 2110 100 100 100 5 600  fifo"
+# ARGS="9 2110 100 100 100 5 600  fifo"
+# ARGS="200 1410 100 100 100 5 600  fifo"
+# ARGS="199 2110 600 100 100 5 100  fifo"
 
 echo "Starting $ITERATIONS tests for $EXECUTABLE..."
 

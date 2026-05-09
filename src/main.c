@@ -32,6 +32,11 @@ bool	start_threads(t_simulation *sim, pthread_t *th)
 	int			i;
 
 	i = 0;
+	if (pthread_create(&monitor, NULL, run_monitor, sim) != 0)
+	{
+		handle_thread_creation_failure(sim, th, i);
+		return (1);
+	}
 	while (i < sim->args.number_of_coders)
 	{
 		if (pthread_create(&th[i], NULL, run_simulation, &sim->coders[i]) != 0)
@@ -40,11 +45,6 @@ bool	start_threads(t_simulation *sim, pthread_t *th)
 			return (1);
 		}
 		i++;
-	}
-	if (pthread_create(&monitor, NULL, run_monitor, sim) != 0)
-	{
-		handle_thread_creation_failure(sim, th, i);
-		return (1);
 	}
 
 

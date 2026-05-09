@@ -29,3 +29,5 @@
 
 
 11 ) how mutex lock ? is sim lock all the threads ? can we use one cond waite to multiple mutxes ?
+
+
