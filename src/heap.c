@@ -39,3 +39,13 @@ void	heap_extract_min(t_heap *heap)
 	heap->size--;
 	heapify_down(heap);
 }
+
+void	heap_remove(t_heap *heap, int coder_num)
+{
+	if (heap->size == 0)
+		return ;
+	if (heap->nodes[0].coder_number == coder_num)
+		heap_extract_min(heap);
+	else if (heap->size == 2 && heap->nodes[1].coder_number == coder_num)
+		heap->size = 1;
+}

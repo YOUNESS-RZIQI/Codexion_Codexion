@@ -72,6 +72,7 @@ void	*run_monitor(void *arg)
 			break ;
 		}
 		pthread_mutex_unlock(&sim->sim_mutex);
+		usleep(1000);
 	}
 	return (NULL);
 }

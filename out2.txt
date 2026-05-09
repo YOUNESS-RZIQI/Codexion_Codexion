@@ -1,0 +1,1486 @@
+1 18 has taken a dongle
+1 18 has taken a dongle
+1 18 is compiling
+1 74 has taken a dongle
+1 74 has taken a dongle
+1 74 is compiling
+1 12 has taken a dongle
+1 12 has taken a dongle
+1 12 is compiling
+1 76 has taken a dongle
+1 76 has taken a dongle
+1 76 is compiling
+1 8 has taken a dongle
+1 8 has taken a dongle
+1 8 is compiling
+1 34 has taken a dongle
+1 34 has taken a dongle
+1 34 is compiling
+1 196 has taken a dongle
+1 196 has taken a dongle
+1 196 is compiling
+1 78 has taken a dongle
+1 78 has taken a dongle
+1 78 is compiling
+1 110 has taken a dongle
+1 110 has taken a dongle
+1 110 is compiling
+1 66 has taken a dongle
+1 66 has taken a dongle
+1 66 is compiling
+1 82 has taken a dongle
+1 82 has taken a dongle
+1 82 is compiling
+1 60 has taken a dongle
+1 60 has taken a dongle
+1 60 is compiling
+1 194 has taken a dongle
+1 194 has taken a dongle
+1 194 is compiling
+1 198 has taken a dongle
+1 198 has taken a dongle
+1 198 is compiling
+1 70 has taken a dongle
+1 70 has taken a dongle
+1 70 is compiling
+1 36 has taken a dongle
+1 36 has taken a dongle
+1 36 is compiling
+1 72 has taken a dongle
+1 72 has taken a dongle
+1 72 is compiling
+1 14 has taken a dongle
+1 14 has taken a dongle
+1 14 is compiling
+1 68 has taken a dongle
+1 68 has taken a dongle
+1 68 is compiling
+1 64 has taken a dongle
+1 64 has taken a dongle
+1 64 is compiling
+20 162 has taken a dongle
+20 162 has taken a dongle
+20 162 is compiling
+20 108 has taken a dongle
+20 108 has taken a dongle
+20 108 is compiling
+20 106 has taken a dongle
+20 106 has taken a dongle
+20 106 is compiling
+20 80 has taken a dongle
+20 80 has taken a dongle
+20 80 is compiling
+20 48 has taken a dongle
+20 48 has taken a dongle
+20 48 is compiling
+20 156 has taken a dongle
+20 156 has taken a dongle
+20 156 is compiling
+20 160 has taken a dongle
+20 160 has taken a dongle
+20 160 is compiling
+20 130 has taken a dongle
+20 130 has taken a dongle
+20 130 is compiling
+20 142 has taken a dongle
+20 142 has taken a dongle
+20 142 is compiling
+20 188 has taken a dongle
+20 188 has taken a dongle
+20 188 is compiling
+20 144 has taken a dongle
+20 144 has taken a dongle
+20 144 is compiling
+20 46 has taken a dongle
+20 46 has taken a dongle
+20 46 is compiling
+20 98 has taken a dongle
+20 98 has taken a dongle
+20 98 is compiling
+20 30 has taken a dongle
+20 30 has taken a dongle
+20 30 is compiling
+20 124 has taken a dongle
+20 124 has taken a dongle
+20 124 is compiling
+20 158 has taken a dongle
+20 158 has taken a dongle
+20 158 is compiling
+20 50 has taken a dongle
+20 50 has taken a dongle
+20 50 is compiling
+20 52 has taken a dongle
+20 52 has taken a dongle
+20 52 is compiling
+20 6 has taken a dongle
+20 6 has taken a dongle
+20 6 is compiling
+20 166 has taken a dongle
+20 166 has taken a dongle
+20 166 is compiling
+20 112 has taken a dongle
+20 112 has taken a dongle
+20 112 is compiling
+20 42 has taken a dongle
+20 42 has taken a dongle
+20 42 is compiling
+20 44 has taken a dongle
+20 44 has taken a dongle
+20 44 is compiling
+20 114 has taken a dongle
+20 114 has taken a dongle
+20 114 is compiling
+20 88 has taken a dongle
+20 88 has taken a dongle
+20 88 is compiling
+20 92 has taken a dongle
+20 92 has taken a dongle
+20 92 is compiling
+20 86 has taken a dongle
+20 86 has taken a dongle
+20 86 is compiling
+20 116 has taken a dongle
+20 116 has taken a dongle
+20 116 is compiling
+20 38 has taken a dongle
+20 38 has taken a dongle
+20 38 is compiling
+20 122 has taken a dongle
+20 122 has taken a dongle
+20 122 is compiling
+20 120 has taken a dongle
+20 120 has taken a dongle
+20 120 is compiling
+20 26 has taken a dongle
+20 26 has taken a dongle
+20 26 is compiling
+20 10 has taken a dongle
+20 10 has taken a dongle
+20 10 is compiling
+20 24 has taken a dongle
+20 24 has taken a dongle
+20 24 is compiling
+20 126 has taken a dongle
+20 126 has taken a dongle
+20 126 is compiling
+20 128 has taken a dongle
+20 128 has taken a dongle
+20 128 is compiling
+20 22 has taken a dongle
+20 22 has taken a dongle
+20 22 is compiling
+20 56 has taken a dongle
+20 56 has taken a dongle
+20 56 is compiling
+20 132 has taken a dongle
+20 132 has taken a dongle
+20 132 is compiling
+20 134 has taken a dongle
+20 134 has taken a dongle
+20 134 is compiling
+20 2 has taken a dongle
+20 2 has taken a dongle
+20 2 is compiling
+20 138 has taken a dongle
+20 138 has taken a dongle
+20 138 is compiling
+20 146 has taken a dongle
+20 146 has taken a dongle
+20 146 is compiling
+20 54 has taken a dongle
+20 54 has taken a dongle
+20 54 is compiling
+20 148 has taken a dongle
+20 148 has taken a dongle
+20 148 is compiling
+20 136 has taken a dongle
+20 136 has taken a dongle
+20 136 is compiling
+20 140 has taken a dongle
+20 140 has taken a dongle
+20 140 is compiling
+20 150 has taken a dongle
+20 150 has taken a dongle
+20 150 is compiling
+20 20 has taken a dongle
+20 20 has taken a dongle
+20 20 is compiling
+20 4 has taken a dongle
+20 4 has taken a dongle
+20 4 is compiling
+20 152 has taken a dongle
+20 152 has taken a dongle
+20 152 is compiling
+20 104 has taken a dongle
+20 104 has taken a dongle
+20 104 is compiling
+20 16 has taken a dongle
+20 16 has taken a dongle
+20 16 is compiling
+20 90 has taken a dongle
+20 90 has taken a dongle
+20 90 is compiling
+20 154 has taken a dongle
+20 154 has taken a dongle
+20 154 is compiling
+20 186 has taken a dongle
+20 186 has taken a dongle
+20 186 is compiling
+20 190 has taken a dongle
+20 190 has taken a dongle
+20 190 is compiling
+20 192 has taken a dongle
+20 192 has taken a dongle
+20 192 is compiling
+20 184 has taken a dongle
+20 184 has taken a dongle
+20 184 is compiling
+20 182 has taken a dongle
+20 182 has taken a dongle
+20 182 is compiling
+20 94 has taken a dongle
+20 94 has taken a dongle
+20 94 is compiling
+20 180 has taken a dongle
+20 180 has taken a dongle
+20 180 is compiling
+20 178 has taken a dongle
+20 178 has taken a dongle
+20 178 is compiling
+20 84 has taken a dongle
+20 84 has taken a dongle
+20 84 is compiling
+20 176 has taken a dongle
+20 176 has taken a dongle
+20 176 is compiling
+20 96 has taken a dongle
+20 96 has taken a dongle
+20 96 is compiling
+20 118 has taken a dongle
+20 118 has taken a dongle
+20 118 is compiling
+20 168 has taken a dongle
+20 168 has taken a dongle
+20 168 is compiling
+20 172 has taken a dongle
+20 172 has taken a dongle
+20 172 is compiling
+20 102 has taken a dongle
+20 102 has taken a dongle
+20 102 is compiling
+20 164 has taken a dongle
+20 164 has taken a dongle
+20 164 is compiling
+20 100 has taken a dongle
+20 100 has taken a dongle
+20 100 is compiling
+20 40 has taken a dongle
+20 40 has taken a dongle
+20 40 is compiling
+20 174 has taken a dongle
+20 174 has taken a dongle
+20 174 is compiling
+20 170 has taken a dongle
+20 170 has taken a dongle
+20 170 is compiling
+21 58 has taken a dongle
+21 58 has taken a dongle
+21 58 is compiling
+21 28 has taken a dongle
+21 28 has taken a dongle
+21 28 is compiling
+21 62 has taken a dongle
+21 62 has taken a dongle
+21 62 is compiling
+21 32 has taken a dongle
+21 32 has taken a dongle
+21 32 is compiling
+115 110 is debugging
+115 36 is debugging
+115 66 is debugging
+120 128 is debugging
+121 58 is debugging
+121 136 is debugging
+121 98 is debugging
+121 190 is debugging
+121 166 is debugging
+121 64 is debugging
+121 196 is debugging
+121 198 is debugging
+121 54 is debugging
+121 86 is debugging
+121 48 is debugging
+121 102 is debugging
+121 158 is debugging
+121 140 is debugging
+121 156 is debugging
+121 28 is debugging
+121 142 is debugging
+121 132 is debugging
+121 6 is debugging
+121 120 is debugging
+121 178 is debugging
+121 80 is debugging
+121 144 is debugging
+121 100 is debugging
+121 96 is debugging
+121 10 is debugging
+121 130 is debugging
+121 118 is debugging
+121 104 is debugging
+121 124 is debugging
+121 78 is debugging
+121 62 is debugging
+121 182 is debugging
+121 24 is debugging
+121 68 is debugging
+121 154 is debugging
+121 26 is debugging
+121 184 is debugging
+121 138 is debugging
+121 82 is debugging
+121 2 is debugging
+121 162 is debugging
+121 30 is debugging
+121 126 is debugging
+121 20 is debugging
+121 46 is debugging
+121 4 is debugging
+121 88 is debugging
+121 50 is debugging
+121 188 is debugging
+121 148 is debugging
+121 84 is debugging
+121 42 is debugging
+121 134 is debugging
+121 186 is debugging
+121 34 is debugging
+121 152 is debugging
+121 122 is debugging
+121 12 is debugging
+121 56 is debugging
+121 172 is debugging
+121 76 is debugging
+121 168 is debugging
+121 170 is debugging
+121 160 is debugging
+121 60 is debugging
+121 150 is debugging
+121 174 is debugging
+121 116 is debugging
+121 164 is debugging
+121 94 is debugging
+121 16 is debugging
+121 192 is debugging
+121 40 is debugging
+121 108 is debugging
+121 8 is debugging
+121 74 is debugging
+121 176 is debugging
+121 146 is debugging
+121 72 is debugging
+121 70 is debugging
+121 52 is debugging
+121 90 is debugging
+121 22 is debugging
+121 106 is debugging
+121 44 is debugging
+121 112 is debugging
+121 92 is debugging
+121 114 is debugging
+121 180 is debugging
+121 194 is debugging
+121 18 is debugging
+127 14 is debugging
+127 38 is debugging
+144 32 is debugging
+263 124 is refactoring
+263 76 is refactoring
+263 188 is refactoring
+263 134 is refactoring
+263 186 is refactoring
+263 122 is refactoring
+263 110 is refactoring
+263 56 is refactoring
+263 168 is refactoring
+263 150 is refactoring
+263 108 is refactoring
+263 74 is refactoring
+263 176 is refactoring
+263 164 is refactoring
+263 132 is refactoring
+263 10 is refactoring
+263 178 is refactoring
+263 14 is refactoring
+263 60 is refactoring
+263 52 is refactoring
+263 196 is refactoring
+264 32 is refactoring
+264 116 is refactoring
+264 194 is refactoring
+264 112 is refactoring
+264 130 is refactoring
+264 102 is refactoring
+264 184 is refactoring
+264 120 is refactoring
+264 198 is refactoring
+264 4 is refactoring
+264 88 is refactoring
+264 136 is refactoring
+264 72 is refactoring
+264 70 is refactoring
+264 44 is refactoring
+264 50 is refactoring
+264 90 is refactoring
+264 172 is refactoring
+264 48 is refactoring
+264 22 is refactoring
+264 28 is refactoring
+264 118 is refactoring
+264 78 is refactoring
+264 86 is refactoring
+264 68 is refactoring
+264 182 is refactoring
+264 6 is refactoring
+264 166 is refactoring
+264 180 is refactoring
+264 58 is refactoring
+264 8 is refactoring
+264 54 is refactoring
+264 2 is refactoring
+264 138 is refactoring
+264 64 is refactoring
+264 104 is refactoring
+264 80 is refactoring
+264 144 is refactoring
+264 128 is refactoring
+264 92 is refactoring
+264 158 is refactoring
+264 42 is refactoring
+264 38 is refactoring
+264 162 is refactoring
+264 12 is refactoring
+264 20 is refactoring
+264 66 is refactoring
+264 170 is refactoring
+264 174 is refactoring
+264 106 is refactoring
+264 24 is refactoring
+264 100 is refactoring
+264 152 is refactoring
+264 140 is refactoring
+264 190 is refactoring
+264 148 is refactoring
+264 62 is refactoring
+264 26 is refactoring
+264 192 is refactoring
+264 156 is refactoring
+264 126 is refactoring
+264 146 is refactoring
+264 160 is refactoring
+264 154 is refactoring
+264 30 is refactoring
+264 84 is refactoring
+264 98 is refactoring
+264 94 is refactoring
+264 82 is refactoring
+264 16 is refactoring
+264 142 is refactoring
+264 18 is refactoring
+264 96 is refactoring
+264 36 is refactoring
+264 46 is refactoring
+264 40 is refactoring
+264 34 is refactoring
+264 114 is refactoring
+702 13 has taken a dongle
+702 13 has taken a dongle
+702 13 is compiling
+703 75 has taken a dongle
+703 75 has taken a dongle
+703 75 is compiling
+712 69 has taken a dongle
+712 69 has taken a dongle
+712 69 is compiling
+737 143 has taken a dongle
+737 143 has taken a dongle
+737 143 is compiling
+737 99 has taken a dongle
+737 99 has taken a dongle
+737 99 is compiling
+737 167 has taken a dongle
+737 167 has taken a dongle
+737 167 is compiling
+737 51 has taken a dongle
+737 51 has taken a dongle
+737 51 is compiling
+737 55 has taken a dongle
+737 55 has taken a dongle
+737 55 is compiling
+737 81 has taken a dongle
+737 81 has taken a dongle
+737 81 is compiling
+737 39 has taken a dongle
+737 39 has taken a dongle
+737 39 is compiling
+737 135 has taken a dongle
+737 135 has taken a dongle
+737 135 is compiling
+737 155 has taken a dongle
+737 155 has taken a dongle
+737 155 is compiling
+737 83 has taken a dongle
+737 83 has taken a dongle
+737 83 is compiling
+737 111 has taken a dongle
+737 111 has taken a dongle
+737 111 is compiling
+737 141 has taken a dongle
+737 141 has taken a dongle
+737 141 is compiling
+737 149 has taken a dongle
+737 149 has taken a dongle
+737 149 is compiling
+737 125 has taken a dongle
+737 125 has taken a dongle
+737 125 is compiling
+737 97 has taken a dongle
+737 97 has taken a dongle
+737 97 is compiling
+737 47 has taken a dongle
+737 47 has taken a dongle
+737 47 is compiling
+737 49 has taken a dongle
+737 49 has taken a dongle
+737 49 is compiling
+737 15 has taken a dongle
+737 15 has taken a dongle
+737 15 is compiling
+737 151 has taken a dongle
+737 151 has taken a dongle
+737 151 is compiling
+737 187 has taken a dongle
+737 187 has taken a dongle
+737 187 is compiling
+737 3 has taken a dongle
+737 3 has taken a dongle
+737 3 is compiling
+737 5 has taken a dongle
+737 5 has taken a dongle
+737 5 is compiling
+737 67 has taken a dongle
+737 67 has taken a dongle
+737 67 is compiling
+737 175 has taken a dongle
+737 175 has taken a dongle
+737 175 is compiling
+737 189 has taken a dongle
+737 189 has taken a dongle
+737 189 is compiling
+737 45 has taken a dongle
+737 45 has taken a dongle
+737 45 is compiling
+737 171 has taken a dongle
+737 171 has taken a dongle
+737 171 is compiling
+737 121 has taken a dongle
+737 121 has taken a dongle
+737 121 is compiling
+737 159 has taken a dongle
+737 159 has taken a dongle
+737 159 is compiling
+737 147 has taken a dongle
+737 147 has taken a dongle
+737 147 is compiling
+737 181 has taken a dongle
+737 181 has taken a dongle
+737 181 is compiling
+737 93 has taken a dongle
+737 93 has taken a dongle
+737 93 is compiling
+738 27 has taken a dongle
+738 27 has taken a dongle
+738 27 is compiling
+738 153 has taken a dongle
+738 153 has taken a dongle
+738 153 is compiling
+738 107 has taken a dongle
+738 107 has taken a dongle
+738 107 is compiling
+738 173 has taken a dongle
+738 173 has taken a dongle
+738 173 is compiling
+738 21 has taken a dongle
+738 21 has taken a dongle
+738 21 is compiling
+738 131 has taken a dongle
+738 131 has taken a dongle
+738 131 is compiling
+738 57 has taken a dongle
+738 57 has taken a dongle
+738 57 is compiling
+738 161 has taken a dongle
+738 161 has taken a dongle
+738 161 is compiling
+738 193 has taken a dongle
+738 193 has taken a dongle
+738 193 is compiling
+738 101 has taken a dongle
+738 101 has taken a dongle
+738 101 is compiling
+738 113 has taken a dongle
+738 113 has taken a dongle
+738 113 is compiling
+738 11 has taken a dongle
+738 11 has taken a dongle
+738 11 is compiling
+738 71 has taken a dongle
+738 71 has taken a dongle
+738 71 is compiling
+738 137 has taken a dongle
+738 137 has taken a dongle
+738 137 is compiling
+738 53 has taken a dongle
+738 53 has taken a dongle
+738 53 is compiling
+738 169 has taken a dongle
+738 169 has taken a dongle
+738 169 is compiling
+738 103 has taken a dongle
+738 103 has taken a dongle
+738 103 is compiling
+738 177 has taken a dongle
+738 177 has taken a dongle
+738 177 is compiling
+738 119 has taken a dongle
+738 119 has taken a dongle
+738 119 is compiling
+738 19 has taken a dongle
+738 19 has taken a dongle
+738 19 is compiling
+738 25 has taken a dongle
+738 25 has taken a dongle
+738 25 is compiling
+738 157 has taken a dongle
+738 157 has taken a dongle
+738 157 is compiling
+738 95 has taken a dongle
+738 95 has taken a dongle
+738 95 is compiling
+738 91 has taken a dongle
+738 91 has taken a dongle
+738 91 is compiling
+738 85 has taken a dongle
+738 85 has taken a dongle
+738 85 is compiling
+738 35 has taken a dongle
+738 35 has taken a dongle
+738 35 is compiling
+738 185 has taken a dongle
+738 185 has taken a dongle
+738 185 is compiling
+738 23 has taken a dongle
+738 23 has taken a dongle
+738 23 is compiling
+738 33 has taken a dongle
+738 33 has taken a dongle
+738 33 is compiling
+738 89 has taken a dongle
+738 89 has taken a dongle
+738 89 is compiling
+738 29 has taken a dongle
+738 29 has taken a dongle
+738 29 is compiling
+738 117 has taken a dongle
+738 117 has taken a dongle
+738 117 is compiling
+738 139 has taken a dongle
+738 139 has taken a dongle
+738 139 is compiling
+738 73 has taken a dongle
+738 73 has taken a dongle
+738 73 is compiling
+738 41 has taken a dongle
+738 41 has taken a dongle
+738 41 is compiling
+738 17 has taken a dongle
+738 17 has taken a dongle
+738 17 is compiling
+738 77 has taken a dongle
+738 77 has taken a dongle
+738 77 is compiling
+738 133 has taken a dongle
+738 133 has taken a dongle
+738 133 is compiling
+738 43 has taken a dongle
+738 43 has taken a dongle
+738 43 is compiling
+738 65 has taken a dongle
+738 65 has taken a dongle
+738 65 is compiling
+738 1 has taken a dongle
+738 1 has taken a dongle
+738 1 is compiling
+738 115 has taken a dongle
+738 115 has taken a dongle
+738 115 is compiling
+738 79 has taken a dongle
+738 79 has taken a dongle
+738 79 is compiling
+738 109 has taken a dongle
+738 109 has taken a dongle
+738 109 is compiling
+738 61 has taken a dongle
+738 61 has taken a dongle
+738 61 is compiling
+738 191 has taken a dongle
+738 191 has taken a dongle
+738 191 is compiling
+738 165 has taken a dongle
+738 165 has taken a dongle
+738 165 is compiling
+738 163 has taken a dongle
+738 163 has taken a dongle
+738 163 is compiling
+738 127 has taken a dongle
+738 127 has taken a dongle
+738 127 is compiling
+738 195 has taken a dongle
+738 195 has taken a dongle
+738 195 is compiling
+738 179 has taken a dongle
+738 179 has taken a dongle
+738 179 is compiling
+738 87 has taken a dongle
+738 87 has taken a dongle
+738 87 is compiling
+738 197 has taken a dongle
+738 197 has taken a dongle
+738 197 is compiling
+738 9 has taken a dongle
+738 9 has taken a dongle
+738 9 is compiling
+738 123 has taken a dongle
+738 123 has taken a dongle
+738 123 is compiling
+738 105 has taken a dongle
+738 105 has taken a dongle
+738 105 is compiling
+738 63 has taken a dongle
+738 63 has taken a dongle
+738 63 is compiling
+738 37 has taken a dongle
+738 37 has taken a dongle
+738 37 is compiling
+738 183 has taken a dongle
+738 183 has taken a dongle
+738 183 is compiling
+738 129 has taken a dongle
+738 129 has taken a dongle
+738 129 is compiling
+738 31 has taken a dongle
+738 31 has taken a dongle
+738 31 is compiling
+790 59 has taken a dongle
+790 59 has taken a dongle
+790 59 is compiling
+790 7 has taken a dongle
+790 7 has taken a dongle
+790 7 is compiling
+790 145 has taken a dongle
+790 145 has taken a dongle
+790 145 is compiling
+821 69 is debugging
+821 75 is debugging
+821 13 is debugging
+838 39 is debugging
+838 167 is debugging
+838 93 is debugging
+838 193 is debugging
+838 83 is debugging
+838 79 is debugging
+838 101 is debugging
+838 81 is debugging
+838 107 is debugging
+838 51 is debugging
+838 71 is debugging
+838 163 is debugging
+838 175 is debugging
+838 87 is debugging
+838 27 is debugging
+838 49 is debugging
+838 121 is debugging
+838 155 is debugging
+838 15 is debugging
+838 29 is debugging
+838 125 is debugging
+838 95 is debugging
+838 197 is debugging
+838 85 is debugging
+838 23 is debugging
+838 89 is debugging
+838 103 is debugging
+838 157 is debugging
+838 21 is debugging
+838 43 is debugging
+838 105 is debugging
+838 133 is debugging
+838 3 is debugging
+838 5 is debugging
+838 77 is debugging
+838 181 is debugging
+838 117 is debugging
+838 187 is debugging
+838 73 is debugging
+838 17 is debugging
+838 127 is debugging
+838 55 is debugging
+838 159 is debugging
+838 45 is debugging
+838 161 is debugging
+838 111 is debugging
+838 33 is debugging
+838 25 is debugging
+838 169 is debugging
+838 115 is debugging
+838 137 is debugging
+838 99 is debugging
+838 147 is debugging
+838 189 is debugging
+838 143 is debugging
+838 173 is debugging
+838 113 is debugging
+838 91 is debugging
+838 131 is debugging
+838 191 is debugging
+838 11 is debugging
+838 183 is debugging
+838 129 is debugging
+838 195 is debugging
+838 141 is debugging
+838 135 is debugging
+838 61 is debugging
+838 151 is debugging
+838 185 is debugging
+838 19 is debugging
+838 41 is debugging
+838 97 is debugging
+838 171 is debugging
+838 65 is debugging
+838 179 is debugging
+838 31 is debugging
+838 47 is debugging
+838 37 is debugging
+838 153 is debugging
+838 57 is debugging
+838 53 is debugging
+838 1 is debugging
+838 9 is debugging
+838 177 is debugging
+838 109 is debugging
+838 165 is debugging
+838 139 is debugging
+838 67 is debugging
+838 63 is debugging
+838 119 is debugging
+843 149 is debugging
+843 35 is debugging
+891 7 is debugging
+891 59 is debugging
+891 145 is debugging
+892 123 is debugging
+933 13 is refactoring
+933 69 is refactoring
+933 75 is refactoring
+955 81 is refactoring
+990 189 is refactoring
+990 151 is refactoring
+990 183 is refactoring
+990 61 is refactoring
+990 101 is refactoring
+990 95 is refactoring
+990 143 is refactoring
+990 19 is refactoring
+990 161 is refactoring
+990 155 is refactoring
+990 119 is refactoring
+990 51 is refactoring
+990 35 is refactoring
+990 193 is refactoring
+990 15 is refactoring
+990 195 is refactoring
+990 99 is refactoring
+990 149 is refactoring
+990 39 is refactoring
+990 139 is refactoring
+990 43 is refactoring
+990 109 is refactoring
+990 79 is refactoring
+990 107 is refactoring
+990 33 is refactoring
+990 153 is refactoring
+990 111 is refactoring
+990 49 is refactoring
+990 89 is refactoring
+990 63 is refactoring
+990 37 is refactoring
+990 29 is refactoring
+990 141 is refactoring
+990 1 is refactoring
+990 3 is refactoring
+990 93 is refactoring
+990 129 is refactoring
+990 127 is refactoring
+990 11 is refactoring
+990 67 is refactoring
+990 71 is refactoring
+990 87 is refactoring
+990 17 is refactoring
+990 83 is refactoring
+990 27 is refactoring
+990 187 is refactoring
+990 53 is refactoring
+990 157 is refactoring
+990 165 is refactoring
+990 169 is refactoring
+990 113 is refactoring
+990 171 is refactoring
+990 25 is refactoring
+990 97 is refactoring
+990 41 is refactoring
+990 163 is refactoring
+990 197 is refactoring
+990 21 is refactoring
+990 23 is refactoring
+990 57 is refactoring
+990 65 is refactoring
+990 191 is refactoring
+990 55 is refactoring
+990 179 is refactoring
+990 9 is refactoring
+990 73 is refactoring
+990 85 is refactoring
+990 47 is refactoring
+990 177 is refactoring
+990 91 is refactoring
+990 45 is refactoring
+990 31 is refactoring
+990 181 is refactoring
+990 185 is refactoring
+990 167 is refactoring
+990 115 is refactoring
+990 135 is refactoring
+990 137 is refactoring
+990 121 is refactoring
+990 147 is refactoring
+990 173 is refactoring
+990 5 is refactoring
+990 103 is refactoring
+995 77 is refactoring
+995 159 is refactoring
+1040 133 is refactoring
+1040 59 is refactoring
+1040 145 is refactoring
+1040 123 is refactoring
+1041 131 is refactoring
+1041 117 is refactoring
+1041 105 is refactoring
+1041 7 is refactoring
+1041 125 is refactoring
+1041 175 is refactoring
+1467 140 has taken a dongle
+1467 140 has taken a dongle
+1467 140 is compiling
+1467 4 has taken a dongle
+1467 4 has taken a dongle
+1467 4 is compiling
+1467 170 has taken a dongle
+1467 170 has taken a dongle
+1467 170 is compiling
+1467 92 has taken a dongle
+1467 92 has taken a dongle
+1467 92 is compiling
+1467 116 has taken a dongle
+1467 116 has taken a dongle
+1467 116 is compiling
+1467 186 has taken a dongle
+1467 186 has taken a dongle
+1467 186 is compiling
+1467 80 has taken a dongle
+1467 80 has taken a dongle
+1467 80 is compiling
+1467 130 has taken a dongle
+1467 130 has taken a dongle
+1467 130 is compiling
+1467 190 has taken a dongle
+1467 190 has taken a dongle
+1467 190 is compiling
+1467 82 has taken a dongle
+1467 82 has taken a dongle
+1467 82 is compiling
+1467 142 has taken a dongle
+1467 142 has taken a dongle
+1467 142 is compiling
+1467 108 has taken a dongle
+1467 108 has taken a dongle
+1467 108 is compiling
+1467 54 has taken a dongle
+1467 54 has taken a dongle
+1467 54 is compiling
+1467 86 has taken a dongle
+1467 86 has taken a dongle
+1467 86 is compiling
+1467 14 has taken a dongle
+1467 14 has taken a dongle
+1467 14 is compiling
+1467 78 has taken a dongle
+1467 78 has taken a dongle
+1467 78 is compiling
+1467 176 has taken a dongle
+1467 176 has taken a dongle
+1467 176 is compiling
+1467 10 has taken a dongle
+1467 10 has taken a dongle
+1467 10 is compiling
+1467 48 has taken a dongle
+1467 48 has taken a dongle
+1467 48 is compiling
+1467 188 has taken a dongle
+1467 188 has taken a dongle
+1467 188 is compiling
+1467 94 has taken a dongle
+1467 94 has taken a dongle
+1467 94 is compiling
+1467 26 has taken a dongle
+1467 26 has taken a dongle
+1467 26 is compiling
+1467 148 has taken a dongle
+1467 148 has taken a dongle
+1467 148 is compiling
+1467 156 has taken a dongle
+1467 156 has taken a dongle
+1467 156 is compiling
+1467 152 has taken a dongle
+1467 152 has taken a dongle
+1467 152 is compiling
+1467 168 has taken a dongle
+1467 168 has taken a dongle
+1467 168 is compiling
+1467 42 has taken a dongle
+1467 42 has taken a dongle
+1467 42 is compiling
+1467 50 has taken a dongle
+1467 50 has taken a dongle
+1467 50 is compiling
+1467 34 has taken a dongle
+1467 34 has taken a dongle
+1467 34 is compiling
+1467 184 has taken a dongle
+1467 184 has taken a dongle
+1467 184 is compiling
+1467 38 has taken a dongle
+1467 38 has taken a dongle
+1467 38 is compiling
+1467 28 has taken a dongle
+1467 28 has taken a dongle
+1467 28 is compiling
+1468 12 has taken a dongle
+1468 12 has taken a dongle
+1468 12 is compiling
+1468 30 has taken a dongle
+1468 30 has taken a dongle
+1468 30 is compiling
+1468 154 has taken a dongle
+1468 154 has taken a dongle
+1468 154 is compiling
+1468 62 has taken a dongle
+1468 62 has taken a dongle
+1468 62 is compiling
+1468 40 has taken a dongle
+1468 40 has taken a dongle
+1468 40 is compiling
+1468 124 has taken a dongle
+1468 124 has taken a dongle
+1468 124 is compiling
+1468 180 has taken a dongle
+1468 180 has taken a dongle
+1468 180 is compiling
+1468 22 has taken a dongle
+1468 22 has taken a dongle
+1468 22 is compiling
+1468 16 has taken a dongle
+1468 16 has taken a dongle
+1468 16 is compiling
+1468 126 has taken a dongle
+1468 126 has taken a dongle
+1468 126 is compiling
+1468 192 has taken a dongle
+1468 192 has taken a dongle
+1468 192 is compiling
+1468 158 has taken a dongle
+1468 158 has taken a dongle
+1468 158 is compiling
+1468 74 has taken a dongle
+1468 74 has taken a dongle
+1468 74 is compiling
+1468 76 has taken a dongle
+1468 76 has taken a dongle
+1468 76 is compiling
+1468 112 has taken a dongle
+1468 112 has taken a dongle
+1468 112 is compiling
+1468 104 has taken a dongle
+1468 104 has taken a dongle
+1468 104 is compiling
+1468 138 has taken a dongle
+1468 138 has taken a dongle
+1468 138 is compiling
+1468 56 has taken a dongle
+1468 56 has taken a dongle
+1468 56 is compiling
+1468 2 has taken a dongle
+1468 2 has taken a dongle
+1468 2 is compiling
+1468 20 has taken a dongle
+1468 20 has taken a dongle
+1468 20 is compiling
+1468 182 has taken a dongle
+1468 182 has taken a dongle
+1468 182 is compiling
+1468 120 has taken a dongle
+1468 120 has taken a dongle
+1468 120 is compiling
+1468 114 has taken a dongle
+1468 114 has taken a dongle
+1468 114 is compiling
+1468 199 has taken a dongle
+1468 199 has taken a dongle
+1468 199 is compiling
+1468 98 has taken a dongle
+1468 98 has taken a dongle
+1468 98 is compiling
+1468 24 has taken a dongle
+1468 24 has taken a dongle
+1468 24 is compiling
+1468 18 has taken a dongle
+1468 18 has taken a dongle
+1468 18 is compiling
+1468 110 has taken a dongle
+1468 110 has taken a dongle
+1468 110 is compiling
+1468 64 has taken a dongle
+1468 64 has taken a dongle
+1468 64 is compiling
+1468 122 has taken a dongle
+1468 122 has taken a dongle
+1468 122 is compiling
+1468 102 has taken a dongle
+1468 102 has taken a dongle
+1468 102 is compiling
+1468 196 has taken a dongle
+1468 196 has taken a dongle
+1468 196 is compiling
+1468 178 has taken a dongle
+1468 178 has taken a dongle
+1468 178 is compiling
+1468 96 has taken a dongle
+1468 96 has taken a dongle
+1468 96 is compiling
+1468 88 has taken a dongle
+1468 88 has taken a dongle
+1468 88 is compiling
+1468 70 has taken a dongle
+1468 70 has taken a dongle
+1468 70 is compiling
+1468 36 has taken a dongle
+1468 36 has taken a dongle
+1468 36 is compiling
+1468 44 has taken a dongle
+1468 44 has taken a dongle
+1468 44 is compiling
+1468 52 has taken a dongle
+1468 52 has taken a dongle
+1468 52 is compiling
+1468 172 has taken a dongle
+1468 172 has taken a dongle
+1468 172 is compiling
+1468 174 has taken a dongle
+1468 174 has taken a dongle
+1468 174 is compiling
+1468 194 has taken a dongle
+1468 194 has taken a dongle
+1468 194 is compiling
+1468 68 has taken a dongle
+1468 68 has taken a dongle
+1468 68 is compiling
+1468 106 has taken a dongle
+1468 106 has taken a dongle
+1468 106 is compiling
+1468 32 has taken a dongle
+1468 32 has taken a dongle
+1468 32 is compiling
+1468 118 has taken a dongle
+1468 118 has taken a dongle
+1468 118 is compiling
+1468 46 has taken a dongle
+1468 46 has taken a dongle
+1468 46 is compiling
+1468 134 has taken a dongle
+1468 134 has taken a dongle
+1468 134 is compiling
+1469 90 has taken a dongle
+1469 90 has taken a dongle
+1469 90 is compiling
+1471 136 has taken a dongle
+1471 136 has taken a dongle
+1471 136 is compiling
+1471 128 has taken a dongle
+1471 128 has taken a dongle
+1471 128 is compiling
+1471 160 has taken a dongle
+1471 160 has taken a dongle
+1471 160 is compiling
+1471 84 has taken a dongle
+1471 84 has taken a dongle
+1471 84 is compiling
+1471 166 has taken a dongle
+1471 166 has taken a dongle
+1471 166 is compiling
+1471 100 has taken a dongle
+1471 100 has taken a dongle
+1471 100 is compiling
+1471 132 has taken a dongle
+1471 132 has taken a dongle
+1471 132 is compiling
+1471 150 has taken a dongle
+1471 150 has taken a dongle
+1471 150 is compiling
+1471 72 has taken a dongle
+1471 72 has taken a dongle
+1471 72 is compiling
+1471 66 has taken a dongle
+1471 66 has taken a dongle
+1471 66 is compiling
+1471 164 has taken a dongle
+1471 164 has taken a dongle
+1471 164 is compiling
+1471 162 has taken a dongle
+1471 162 has taken a dongle
+1471 162 is compiling
+1596 86 is debugging
+1596 132 is debugging
+1596 34 is debugging
+1596 70 is debugging
+1596 152 is debugging
+1596 174 is debugging
+1596 106 is debugging
+1596 134 is debugging
+1596 42 is debugging
+1596 98 is debugging
+1596 112 is debugging
+1596 28 is debugging
+1596 84 is debugging
+1596 64 is debugging
+1596 156 is debugging
+1596 142 is debugging
+1596 128 is debugging
+1596 16 is debugging
+1596 178 is debugging
+1596 150 is debugging
+1596 50 is debugging
+1596 154 is debugging
+1596 188 is debugging
+1596 158 is debugging
+1596 38 is debugging
+1596 148 is debugging
+1596 48 is debugging
+1596 62 is debugging
+1597 184 is debugging
+1597 82 is debugging
+1597 4 is debugging
+1597 14 is debugging
+1597 186 is debugging
+1597 80 is debugging
+1597 74 is debugging
+1597 170 is debugging
+1597 78 is debugging
+1597 44 is debugging
+1597 52 is debugging
+1597 88 is debugging
+1597 194 is debugging
+1597 32 is debugging
+1597 24 is debugging
+1597 20 is debugging
+1597 160 is debugging
+1597 18 is debugging
+1597 180 is debugging
+1597 8 has taken a dongle
+1597 8 has taken a dongle
+1597 8 is compiling
+1597 30 is debugging
+1597 12 is debugging
+1597 104 is debugging
+1597 168 is debugging
+1597 199 is debugging
+1597 118 is debugging
+1597 126 is debugging
+1597 94 is debugging
+1597 54 is debugging
+1597 56 is debugging
+1597 46 is debugging
+1597 40 is debugging
+1597 108 is debugging
+1597 176 is debugging
+1597 162 is debugging
+1597 124 is debugging
+1597 10 is debugging
+1597 190 is debugging
+1597 92 is debugging
+1597 76 is debugging
+1597 22 is debugging
+1597 140 is debugging
+1597 120 is debugging
+1597 192 is debugging
+1597 60 has taken a dongle
+1597 60 has taken a dongle
+1597 60 is compiling
+1597 58 has taken a dongle
+1597 58 has taken a dongle
+1597 58 is compiling
+1597 130 is debugging
+1597 116 is debugging
+1597 2 is debugging
+1597 100 is debugging
+1597 66 is debugging
+1597 164 is debugging
+1597 114 is debugging
+1597 136 is debugging
+1597 166 is debugging
+1597 196 is debugging
+1597 138 is debugging
+1597 122 is debugging
+1597 110 is debugging
+1597 96 is debugging
+1597 36 is debugging
+1597 26 is debugging
+1597 102 is debugging
+1597 72 is debugging
+1597 144 has taken a dongle
+1597 144 has taken a dongle
+1597 144 is compiling
+1651 6 has taken a dongle
+1651 6 has taken a dongle
+1651 6 is compiling
+1651 68 is debugging
+1651 90 is debugging
+1651 146 has taken a dongle
+1651 146 has taken a dongle
+1651 146 is compiling
+1651 182 is debugging
+1682 172 is debugging
+1696 158 is refactoring
+1696 28 is refactoring
+1696 188 is refactoring
+1696 62 is refactoring
+1696 48 is refactoring
+1696 156 is refactoring
+1696 98 is refactoring
+1696 70 is refactoring
+1696 132 is refactoring
+1696 152 is refactoring
+1696 34 is refactoring
+1696 150 is refactoring
+1696 142 is refactoring
+1696 134 is refactoring
+1696 16 is refactoring
+1696 38 is refactoring
+1696 174 is refactoring
+1696 148 is refactoring
+1696 178 is refactoring
+1696 154 is refactoring
+1696 84 is refactoring
+1696 64 is refactoring
+1696 42 is refactoring
+1696 128 is refactoring
+1696 50 is refactoring
+1733 44 is refactoring
+1734 114 is refactoring
+1776 130 is refactoring
+1776 72 is refactoring
+1792 90 is refactoring
+1792 162 is refactoring
+1792 170 is refactoring
+1792 52 is refactoring
+1793 80 is refactoring
+1794 172 is refactoring
+1807 86 is refactoring
+1807 18 is refactoring
+1807 192 is refactoring
+1807 82 is refactoring
+1808 100 is refactoring
+1808 46 is refactoring
+1808 14 is refactoring
+1808 186 is refactoring
+1808 116 is refactoring
+1808 36 is refactoring
+1808 120 is refactoring
+1808 8 is debugging
+1808 196 is refactoring
+1808 96 is refactoring
+1808 106 is refactoring
+1808 60 is debugging
+1808 56 is refactoring
+1808 58 is debugging
+1808 4 is refactoring
+1808 122 is refactoring
+1808 180 is refactoring
+1808 164 is refactoring
+1808 194 is refactoring
+1808 144 is debugging
+1808 199 is refactoring
+1808 54 is refactoring
+1808 168 is refactoring
+1808 32 is refactoring
+1808 12 is refactoring
+1808 108 is refactoring
+1808 94 is refactoring
+1808 166 is refactoring
+1808 2 is refactoring
+1808 10 is refactoring
+1808 76 is refactoring
+1808 138 is refactoring
+1808 110 is refactoring
+1808 92 is refactoring
+1808 136 is refactoring
+1808 30 is refactoring
+1808 66 is refactoring
+1808 74 is refactoring
+1808 124 is refactoring
+1808 104 is refactoring
+1808 184 is refactoring
+1808 118 is refactoring
+1808 176 is refactoring
+1808 24 is refactoring
+1808 26 is refactoring
+1808 22 is refactoring
+1808 160 is refactoring
+1808 20 is refactoring
+1808 182 is refactoring
+1808 88 is refactoring
+1808 140 is refactoring
+1808 40 is refactoring
+1808 78 is refactoring
+1808 146 is debugging
+1808 190 is refactoring
+1808 6 is debugging
+1808 68 is refactoring
+1808 126 is refactoring
+1808 112 is refactoring
+1845 102 is refactoring
+1909 146 is refactoring
+1909 60 is refactoring
+1909 6 is refactoring
+1910 58 is refactoring
+1910 8 is refactoring
+1910 144 is refactoring
+2131 198 burned out

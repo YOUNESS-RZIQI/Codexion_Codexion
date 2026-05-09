@@ -23,6 +23,10 @@ int	compare_nodes(t_simulation *sim, t_heap_node shiled, t_heap_node parent)
 		return (-1);
 	if (shiled.compile_count > parent.compile_count)
 		return (1);
+	if (shiled.coder_number < parent.coder_number)
+		return (-1);
+	if (shiled.coder_number > parent.coder_number)
+		return (1);
 	return (1);
 }
 

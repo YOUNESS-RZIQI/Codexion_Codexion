@@ -55,7 +55,7 @@ bool	start_threads(t_simulation *sim, pthread_t *th)
 		usleep(200);
 		pthread_mutex_lock(&sim->sim_mutex);
 	}
-	
+	sim->start_time = get_current_time_ms();
 	pthread_cond_broadcast(&sim->sim_cond);
 	pthread_mutex_unlock(&sim->sim_mutex);
 

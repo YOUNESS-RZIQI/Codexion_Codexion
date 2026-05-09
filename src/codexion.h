@@ -130,6 +130,8 @@ t_heap_node		heap_peek(t_heap *heap);
 
 void			heap_extract_min(t_heap *heap);
 
+void			heap_remove(t_heap *heap, int coder_num);
+
 struct timespec	get_timespec_from_ms(long long ms);
 
 void			take_dongles(int dongle_id, t_coder *coder);
