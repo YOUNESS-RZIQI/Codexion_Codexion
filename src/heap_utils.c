@@ -12,26 +12,26 @@
 
 #include "codexion.h"
 
-bool	compare_nodes(t_simulation *sim, t_heap_node shiled, t_heap_node parent)
+bool	should_swap(t_simulation *sim, t_heap_node shiled, t_heap_node parent)
 {
 	if (sim->args.scheduler_type == FIFO)
-		return 0;
+		return DONOTSWAP;
 	if (shiled.priority < parent.priority)
-		return (0);
+		return (SWAP);
 	if (shiled.priority > parent.priority)
-		return (1);
+		return (DONOTSWAP);
 	if (shiled.compile_count < parent.compile_count)
-		return (0);
+		return (SWAP);
 	if (shiled.compile_count > parent.compile_count)
-		return (1);
+		return (DONOTSWAP);
 	if (shiled.coder_number < parent.coder_number)
-		return (0);
+		return (SWAP);
 	if (shiled.coder_number > parent.coder_number)
-		return (1);
-	return (1);
+		return (DONOTSWAP);
+	return (DONOTSWAP);
 }
 
-void	swap_nodes(t_heap_node *a, t_heap_node *b)
+void	swap_waiters(t_heap_node *a, t_heap_node *b)
 {
 	t_heap_node	temp;
 
@@ -40,16 +40,44 @@ void	swap_nodes(t_heap_node *a, t_heap_node *b)
 	*b = temp;
 }
 
-void	heapify_up(t_simulation *sim, t_heap *heap)
+void    heapify_up(t_simulation *sim, t_heap *heap)
 {
-	(void)sim;
-	if (heap->size > 2)
-		return;
+    int child;
+    int parent;
+
+    child = heap->size - 1;
+
+    while (child > 0)
+    {
+        parent = (child - 1) / 2;
+
+        if (should_swap(sim, heap->waiters[child], heap->waiters[parent]) == DONOTSWAP)
+            break;
+
+        swap_waiters(&heap->waiters[parent], &heap->waiters[child]);
+
+        child = parent;
+    }
 }
 
 void	heapify_down(t_heap *heap)
 {
-	if (heap->size == 2)
-		swap_nodes(&heap->nodes[0], &heap->nodes[1]);
+    int		l_child;
+    int 	r_child;
+    int 	child_to_compare;
+    int 	parent;
+
+    while (child > 0)
+    {
+        parent = (child - 1) / 2;
+
+        if (should_swap(sim, heap->waiters[child], heap->waiters[parent]) == DONOTSWAP)
+            break;
+
+        swap_waiters(&heap->waiters[parent], &heap->waiters[child]);
+
+        child = parent;
+    }
+
 }
 

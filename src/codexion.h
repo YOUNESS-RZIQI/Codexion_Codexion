@@ -21,6 +21,10 @@
 # include <unistd.h>
 # include <stdbool.h>
 
+# define MAX_WAITERS 2
+# define SWAP 1
+# define DONOTSWAP 0
+
 typedef enum e_scheduler {
 	FIFO,
 	EDF
@@ -47,7 +51,7 @@ typedef struct s_heap_node
 
 typedef struct s_heap
 {
-	t_heap_node	nodes[2];
+	t_heap_node	waiters[2];
 	int			size;
 }	t_heap;
 

@@ -36,7 +36,7 @@ int top_coder_can_take_both(t_simulation *sim, t_dongle *d, long long now)
 
     if (d->heap.size == 0)
         return (0);
-    coder_num = d->heap.nodes[0].coder_number;
+    coder_num = d->heap.waiters[0].coder_number;
     top_c = &sim->coders[coder_num - 1];
     l = &sim->dongles[top_c->left_dongle];
     r = &sim->dongles[top_c->right_dongle];
@@ -52,10 +52,10 @@ int can_take_both(t_coder *c, long long now)
     if (!is_dongle_ready(l, now) || !is_dongle_ready(r, now))
         return (0);
 
-    if (l->heap.size == 0 || l->heap.nodes[0].coder_number != c->coder_number)
+    if (l->heap.size == 0 || l->heap.waiters[0].coder_number != c->coder_number)
         return (0);
 
-    if (r->heap.size == 0 || r->heap.nodes[0].coder_number != c->coder_number)
+    if (r->heap.size == 0 || r->heap.waiters[0].coder_number != c->coder_number)
         return (0);
 
     return (1);
