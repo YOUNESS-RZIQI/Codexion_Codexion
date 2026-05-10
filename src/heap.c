@@ -26,12 +26,12 @@ int	heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node)
 }
 
 
-void	heap_extract_min(t_heap *heap)
+void	heap_extract_min(t_simulation *sim, t_heap *heap)
 {
 	if (heap->size <= 0)
 		return ;
 	heap->waiters[0] = heap->waiters[heap->size - 1];
 	heap->size--;
-	heapify_down(heap);
+	heapify_down(sim, heap);
 }
 

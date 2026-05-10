@@ -101,8 +101,8 @@ void take_dongles(int dongle_id, t_coder *c)
         {
             sim->dongles[first].dongle_is_available = 0;
             sim->dongles[second].dongle_is_available = 0;
-            heap_extract_min(&sim->dongles[first].heap);
-            heap_extract_min(&sim->dongles[second].heap);
+            heap_extract_min(sim, &sim->dongles[first].heap);
+            heap_extract_min(sim, &sim->dongles[second].heap);
             
             pthread_mutex_unlock(&sim->dongles[second].dongle_mutex);
             pthread_mutex_unlock(&sim->dongles[first].dongle_mutex);

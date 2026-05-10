@@ -60,24 +60,37 @@ void    heapify_up(t_simulation *sim, t_heap *heap)
     }
 }
 
-void	heapify_down(t_heap *heap)
+void    heapify_down(t_simulation *sim, t_heap *heap)
 {
-    int		l_child;
-    int 	r_child;
-    int 	child_to_compare;
-    int 	parent;
+    int     parent = 0;
+    int     l_child;
+    int     r_child;
+    int     smallest_or_highest;
 
-    while (child > 0)
+    while (1)
     {
-        parent = (child - 1) / 2;
+        l_child = (2 * parent) + 1;
+        r_child = (2 * parent) + 2;
+        smallest_or_highest = parent;
 
-        if (should_swap(sim, heap->waiters[child], heap->waiters[parent]) == DONOTSWAP)
+        // Check if left child exists and should be swapped with current highest
+        if (l_child < heap->size && 
+            should_swap(sim, heap->waiters[l_child], heap->waiters[smallest_or_highest]) == SWAP)
+            smallest_or_highest = l_child;
+
+        // Check if right child exists and should be swapped with current highest
+        if (r_child < heap->size && 
+            should_swap(sim, heap->waiters[r_child], heap->waiters[smallest_or_highest]) == SWAP)
+            smallest_or_highest = r_child;
+
+        // If the parent is still the highest priority, we are done
+        if (smallest_or_highest == parent)
             break;
 
-        swap_waiters(&heap->waiters[parent], &heap->waiters[child]);
-
-        child = parent;
+        swap_waiters(&heap->waiters[parent], &heap->waiters[smallest_or_highest]);
+        
+        // Move down to the child's position
+        parent = smallest_or_highest;
     }
-
 }
 
