@@ -61,9 +61,8 @@ int can_take_both(t_coder *c, long long now)
     return (1);
 }
 
-void take_dongles(int dongle_id, t_coder *c)
+void take_dongles(t_coder *c)
 {
-    (void)dongle_id;
     t_simulation *sim = c->sim;
     t_heap_node heap_node;
     int     first;
@@ -137,6 +136,8 @@ void take_dongles(int dongle_id, t_coder *c)
         }
     }
 
+    print_action(sim, c->coder_number, "has taken a dongle");
+    print_action(sim, c->coder_number, "has taken a dongle");
 }
 
 void release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder)

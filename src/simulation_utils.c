@@ -19,12 +19,12 @@ long long	get_time_since_start(t_simulation *sim)
 
 void	print_action(t_simulation *sim, int coder_id, char *action)
 {
+	pthread_mutex_lock(&sim->sim_print_mutex);
 	if (!should_stop(sim))
 	{
-		pthread_mutex_lock(&sim->sim_print_mutex);
 		printf("%lld %d %s\n", get_time_since_start(sim), coder_id, action);
-		pthread_mutex_unlock(&sim->sim_print_mutex);
 	}
+	pthread_mutex_unlock(&sim->sim_print_mutex);
 }
 
 int	should_stop(t_simulation *sim)

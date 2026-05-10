@@ -133,7 +133,7 @@ void			heap_extract_min(t_simulation *sim,  t_heap *heap);
 
 struct timespec	get_timespec_from_ms(long long ms);
 
-void			take_dongles(int dongle_id, t_coder *coder);
+void			take_dongles(t_coder *coder);
 
 void			release_dongles(int left_dongle_id, int right_dongle_id, t_coder *coder);
 
