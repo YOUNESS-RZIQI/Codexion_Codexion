@@ -2,9 +2,9 @@
 
 # Multithreading in C And Priority Queue Min-Heap
 
-<!-- <p align="center">
+<p align="center">
   <img src="./Codexion.png" alt="Codexion: The Concurrency Challenge" width="100%">
-</p> -->
+</p>
 
 ## Description
 Codexion is a concurrency challenge simulating a collaborative coding environment. In this simulation, coders sit in a circular workspace around a shared Quantum Computer and must take turns compiling, debugging, and refactoring. The primary challenge arises from the limited availability of USB dongles—each coder requires two dongles (one for each hand) to compile their quantum code, yet there are only as many dongles as there are coders. 
