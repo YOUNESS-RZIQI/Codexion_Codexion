@@ -6,7 +6,7 @@
 /*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 13:03:48 by yrziqi            #+#    #+#             */
-/*   Updated: 2026/04/30 13:03:49 by yrziqi           ###   ########.fr       */
+/*   Updated: 2026/05/11 05:15:00 by yrziqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,11 @@ bool	start_threads(t_simulation *sim, pthread_t *th)
 		}
 		i++;
 	}
-
-
-	pthread_mutex_lock(&sim->sim_mutex);
-
-	while (!(sim->threads_at_barrier == sim->args.number_of_coders + 1)){
-		pthread_mutex_unlock(&sim->sim_mutex);
-		usleep(200);
-		pthread_mutex_lock(&sim->sim_mutex);
-	}
-	sim->start_time = get_current_time_ms();
-	pthread_cond_broadcast(&sim->sim_cond);
-	pthread_mutex_unlock(&sim->sim_mutex);
-
+	wait_barrier_start(sim);
 	pthread_join(monitor, NULL);
-	i = 0;
-	while (i < sim->args.number_of_coders)
-		pthread_join(th[i++], NULL);
+	i = -1;
+	while (++i < sim->args.number_of_coders)
+		pthread_join(th[i], NULL);
 	return (0);
 }
 

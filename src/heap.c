@@ -12,19 +12,17 @@
 
 #include "codexion.h"
 
-int	heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node)
+void	heap_insert(t_simulation *sim, t_heap *heap, t_heap_node node)
 {
 	int	i;
 
 	if (heap->size >= MAX_WAITERS)
-		return (1);
+		return ;
 	i = heap->size;
 	heap->waiters[i] = node;
 	heap->size++;
 	heapify_up(sim, heap);
-	return (0);
 }
-
 
 void	heap_extract_min(t_simulation *sim, t_heap *heap)
 {
@@ -34,4 +32,3 @@ void	heap_extract_min(t_simulation *sim, t_heap *heap)
 	heap->size--;
 	heapify_down(sim, heap);
 }
-

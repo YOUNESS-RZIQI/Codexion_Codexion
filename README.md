@@ -1,9 +1,13 @@
 *This project has been created as part of the 42 curriculum by yrziqi.*
 
-# Codexion: Master the race for resources before the deadline masters you
+# Multithreading in C And Priority Queue Min-Heap
+
+<p align="center">
+  <img src="./Codexion.png" alt="Codexion: The Concurrency Challenge" width="100%">
+</p>
 
 ## Description
-Codexion is a concurrency challenge simulating a collaborative coding environment. In this simulation, coders sit in a circular workspace around a shared Quantum Compiler and must take turns compiling, debugging, and refactoring. The primary challenge arises from the limited availability of USB dongles—each coder requires two dongles (one for each hand) to compile their quantum code, yet there are only as many dongles as there are coders. 
+Codexion is a concurrency challenge simulating a collaborative coding environment. In this simulation, coders sit in a circular workspace around a shared Quantum Computer and must take turns compiling, debugging, and refactoring. The primary challenge arises from the limited availability of USB dongles—each coder requires two dongles (one for each hand) to compile their quantum code, yet there are only as many dongles as there are coders. 
 
 The goal of this project is to implement a highly robust, multi-threaded C program that orchestrates these coders while preventing resource exhaustion, deadlocks, and thread starvation. Through careful synchronization using POSIX threads, mutexes, and scheduling algorithms (FIFO and Earliest Deadline First), the system must guarantee that every coder gets fair access to the shared dongles without "burning out" due to long wait times.
 
@@ -37,17 +41,15 @@ Run the program with the following mandatory arguments:
 
 #### Example:
 ```bash
-./codexion 5 800 200 200 200 5 10 fifo
+./codexion 5 340 100 100 100 5 10 edf
 ```
-
+```bash
+./codexion 199 340 100 100 100 5 10 fifo
+```
 ## Blocking Cases Handled
 Our implementation robustly handles critical concurrency edge cases:
-- **Deadlock Prevention & Coffman’s Conditions:** Deadlocks are prevented by ensuring dongles are acquired through a central arbitration mechanism rather than a circular wait system. Requests are routed through our scheduling queues, avoiding scenarios where adjacent coders hold one dongle and wait indefinitely for a second.
+- **Deadlock Prevention & Coffman’s Conditions:** By breaking one of the Coffman Conditions—Mutual Exclusion, Hold and Wait, No Preemption, or Circular Wait—we can prevent deadlocks. And in this project, we prevented deadlocks by breaking the Circular Wait condition.
 - **Starvation Prevention:** We guarantee liveness by strictly honoring our scheduling queues. In FIFO, requests are served in exact arrival order. In EDF (Earliest Deadline First), dongles are granted to the coder closest to burning out, ensuring no single coder is left behind.
-- **Cooldown Handling:** Dongle availability states are tied to timestamp records, ensuring that when a dongle is released, it is not re-granted until the specified `dongle_cooldown` duration has fully elapsed.
-- **Precise Burnout Detection:** A dedicated monitor thread polls the state of all coders continuously. It is decoupled from the coder logic to strictly enforce burnout detection within the requested 10 ms tolerance.
-- **Log Serialization:** All console output is routed through a dedicated mutex. This guarantees that logs from different threads never interleave or write concurrently to standard output.
-
 ## Thread Synchronization Mechanisms
 This project relies heavily on POSIX thread synchronization mechanisms to manage resource distribution securely:
 - **Mutexes (`pthread_mutex_t`):** 
@@ -58,14 +60,29 @@ This project relies heavily on POSIX thread synchronization mechanisms to manage
   - Condition variables efficiently manage the waiting queues for dongles. Instead of spin-locking and consuming excessive CPU cycles, threads wait on condition variables until a dongle becomes available and the scheduler assigns it to them.
 - **Queue and Synchronization Logic:**
   - When coders require dongles, they enter an arbitration phase by pushing their request to a custom min-heap structure (representing our FIFO/EDF scheduler) and wait. When a coder finishes compiling, they release the dongles, signaling the condition variable to wake up the arbitration system, which then pops the highest-priority request and grants the dongle.
-  - Thread-safe communication between the coders and the monitor is achieved by locking specific attributes (like `stop_simulation` flag) before reading or modifying, guaranteeing that the monitor can precisely detect burnouts without reading partially updated states.
 
 ## Resources
 - **Documentation:**
-  - man of pthread_create , pthread_join , pthread_mutex_lock ...
-  - [Mutexes and Condition Variables](https://cs341.cs.illinois.edu/coursebook/Deadlock)
+- **Mutex (`pthread_mutex_init()`):** 
+  - [Mutex Initializer](https://linux.die.net/man/3/pthread_mutex_init)
+- **Cond (`pthread_cond_init()`):** 
+  - [Condition Variables Initializer](https://linux.die.net/man/3/pthread_cond_init)
+- **Mutexes (`pthread_mutex_lock()` , `pthread_mutex_unlock()`):** 
+  - [Mutexe lock & unlock](https://linux.die.net/man/3/pthread_mutex_lock)
+- **Cond (`pthread_cond_wait()` , `pthread_cond_timedwait()`):** 
+  - [Condition Variables cond_wait & timedwait](https://linux.die.net/man/3/pthread_cond_wait)
+
+- **Or you can just check in the Terminal:** 
+  - man pthread_create
+  - man pthread_join
+  - man pthread_mutex_lock
+  - man pthread_mutex_init
+  - man pthread_mutex_destroy
+  - ...
 - **Concepts:**
-  - Coffman's conditions for deadlocks.
-  - Priority Queues & Min-Heaps for implementing the FIFO and EDF scheduling logic.
+  - [Coffman's conditions for deadlocks.](https://www.lenovo.com/us/en/glossary/what-is-deadlock/?orgRef=https%253A%252F%252Fwww.google.com%252F)
+  - [Priority Queues & Min-Heaps for implementing the FIFO and EDF scheduling logic..](https://www.geeksforgeeks.org/dsa/priority-queue-set-1-introduction/)
 - **AI Usage:**
-  - AI tools were utilized primarily as study aids to understand nuanced POSIX behaviors, to help clarify the nuances between `pthread_cond_signal` and `pthread_cond_broadcast`, and to review edge cases in our EDF min-heap implementation. No AI-generated code was blindly incorporated; all patterns were thoroughly analyzed, verified for correctness, tested locally, and adapted to adhere strictly to the 42 Norms.
+  - AI tools were utilized as study aids to understand nuanced POSIX behaviors, deadlock prevention, and complex edge cases that are notoriously difficult to debug using GDB in multithreaded environments.
+   For ex : 
+    * Why we do have the while in the `pthread_cond_wait()` , because of the `spurious wake ups`.

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_0.h                                          :+:      :+:    :+:   */
+/*   utils_0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrziqi <yrziqi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 13:04:01 by yrziqi            #+#    #+#             */
-/*   Updated: 2026/04/30 13:04:02 by yrziqi           ###   ########.fr       */
+/*   Updated: 2026/05/11 05:15:00 by yrziqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "codexion.h"
@@ -33,25 +33,36 @@ void	wake_all_dongles(t_simulation *sim)
 	}
 }
 
-bool		wait_at_barrier(t_simulation *sim)
+bool	wait_at_barrier(t_simulation *sim)
 {
 	pthread_mutex_lock(&sim->sim_mutex);
-	
-	while (!sim->stop_simulation && !(sim->threads_at_barrier == 
-		sim->args.number_of_coders + 1))
+	while (!sim->stop_simulation && !(sim->threads_at_barrier
+			== sim->args.number_of_coders + 1))
 	{
 		sim->threads_at_barrier++;
 		pthread_cond_wait(&sim->sim_cond, &sim->sim_mutex);
 	}
-	
 	if (!(sim->threads_at_barrier == sim->args.number_of_coders + 1))
 	{
 		pthread_mutex_unlock(&sim->sim_mutex);
 		return (1);
 	}
-	
 	pthread_mutex_unlock(&sim->sim_mutex);
 	return (0);
+}
+
+void	wait_barrier_start(t_simulation *sim)
+{
+	pthread_mutex_lock(&sim->sim_mutex);
+	while (!(sim->threads_at_barrier == sim->args.number_of_coders + 1))
+	{
+		pthread_mutex_unlock(&sim->sim_mutex);
+		usleep(200);
+		pthread_mutex_lock(&sim->sim_mutex);
+	}
+	sim->start_time = get_current_time_ms();
+	pthread_cond_broadcast(&sim->sim_cond);
+	pthread_mutex_unlock(&sim->sim_mutex);
 }
 
 void	init_coders_and_dongles(t_simulation *sim)

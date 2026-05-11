@@ -1,34 +1,10 @@
 
-
-
-8) Reread Subject.
-
-
 1) complite files from : dongle.c   +   Optimize code.(bool , time...)
 
 
 
-3) check unused variabls.
-
-4) handle the failer of : destroy, init(mutex,cond), lock, unlockdestroy, join ? 
-
-   if init + destroy + use mutex ??? if init + destroy + init ? or just use mutex or need of init again ??
+2) Check and fix all the leaks and data race
 
 
-6) work one readme more and more and add some picksures.   
 
-
-7) Check and fix all the leaks and data race
-
-
-8) spurious wake ups
-
-9) heap implimentation
-
-10 ) why in the wait at bariare there is not dead lock in the use of two of lock using the same variable.
-
-
-11 ) how mutex lock ? is sim lock all the threads ? can we use one cond waite to multiple mutxes ?
-
-
-12) debug.
+3) remove image from README.md

@@ -54,12 +54,9 @@ void	*run_monitor(void *arg)
 {
 	t_simulation	*sim;
 
-
 	sim = (t_simulation *)arg;
-
 	if (wait_at_barrier(sim))
 		return (NULL);
-	
 	while (1)
 	{
 		pthread_mutex_lock(&sim->sim_mutex);
